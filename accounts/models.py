@@ -81,6 +81,8 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=32)
     no_of_days = models.CharField(max_length=1, choices=DAYS_CHOICES)
     referral = models.CharField(max_length=7, blank=True, null=True)
+    id_issued = models.BooleanField(default=False)
+    qr_code = models.ImageField(upload_to='qr_code', blank=True, null=True)
     events_registered = models.ManyToManyField(Event, blank=True)
 
     # workshops_registered =
