@@ -27,9 +27,7 @@ Procedure:
     source "$(pipenv --venv)"/bin/activate
     ```
 - Make database migrations
-    ```
-    python manage.py makemigrations users
-    python manage.py migrate 
+    ``` 
     python manage.py makemigrations
     python manage.py migrate
     ```

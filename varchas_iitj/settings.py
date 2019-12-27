@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'main.apps.MainConfig',
     'registration.apps.RegistrationConfig',
+    'sponsors.apps.SponsorsConfig',
+    'ckeditor',
     'ckeditor_uploader',
     # 'versatileimagefield',
 
