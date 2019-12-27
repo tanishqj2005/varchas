@@ -226,3 +226,7 @@ VENUE_CHOICES = (
     ('4', 'Open Air Theatre'),
     ('5', 'Lecture Hall Complex'),
 )
+
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)

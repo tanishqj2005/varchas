@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+{% block title %}Register | {{ block.super }}{% endblock %}
+
+{% block main %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
