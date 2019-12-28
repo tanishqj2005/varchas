@@ -1,6 +1,8 @@
 from django.views.generic import CreateView
 from .models import UserProfile
 from .forms import RegisterForm
+from django.contrib.auth.views import LoginView
+from django.shortcuts import reverse
 
 
 class RegisterView(CreateView):
@@ -26,3 +28,17 @@ class RegisterView(CreateView):
                                                  referral=kwargs['referral']
                                                  )
         userprofile.save()
+
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    redirect_authenticated_user = True
+
+    def get_redirect_url(self):
+        url = super(CustomLoginView, self).get_redirect_url()
+        if hasattr(self.request.user, 'userprofile'):
+            return url or self.request.user.userprofile.get_absolute_url()
+        elif hasattr(self.request.user, 'adminprofile'):
+            return url or reverse('adminportal:index')
+        else:
+            return reverse('main:home')

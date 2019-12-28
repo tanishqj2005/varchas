@@ -1,9 +1,11 @@
 from django.db import models
-from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from events.models import Event
-from .utils import unique_rg_number
+
+
+# from .utils import unique_rg_number
+# from django.db.models.signals import pre_save
 
 
 class UserProfile(models.Model):
@@ -89,7 +91,6 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-
 
 # def set_new_user_rg_number(sender, instance, **kwargs):
 #     if instance._state.adding is True:
