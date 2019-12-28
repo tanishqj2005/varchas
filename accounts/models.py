@@ -91,9 +91,9 @@ class UserProfile(models.Model):
         return self.user.username
 
 
-def set_new_user_rg_number(sender, instance, **kwargs):
-    if instance._state.adding is True:
-        instance.username = unique_rg_number(instance)
-
-
-pre_save.connect(set_new_user_rg_number, sender=User)
+# def set_new_user_rg_number(sender, instance, **kwargs):
+#     if instance._state.adding is True:
+#         instance.username = unique_rg_number(instance)
+#
+#
+# pre_save.connect(set_new_user_rg_number, sender=User)

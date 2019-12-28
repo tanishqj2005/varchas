@@ -229,6 +229,10 @@ VENUE_CHOICES = (
     ('5', 'Lecture Hall Complex'),
 )
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 AUTHENTICATION_BACKENDS = (
     ('django.contrib.auth.backends.ModelBackend'),
 )
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' if DEBUG \
+    else 'django.core.mail.backends.smtp.EmailBackend'
