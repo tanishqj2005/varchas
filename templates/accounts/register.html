@@ -58,6 +58,20 @@
 
                 <div class="wrap-input100 validate-input">
                     <input class="input100" type="text"
+                           id="{{ form.username.id_for_label }}"
+                           placeholder=" "
+                           name="{{ form.username.name }}"
+                           required
+                           autofocus>
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text"
                            id="{{ form.first_name.id_for_label }}"
                            placeholder=" "
                            name="{{ form.first_name.name }}"

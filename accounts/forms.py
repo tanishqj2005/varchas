@@ -11,7 +11,7 @@ from registration.models import CampusAmbassador
 
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
-
+    username = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
     last_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
     email = forms.EmailField(
         widget=forms.TextInput(attrs={'type': 'email', 'maxlength': '254', 'placeholder': ' ', 'autocomplete': 'off'}))
@@ -47,7 +47,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
     def clean_first_name(self):
         _dict = super(RegisterForm, self).clean()

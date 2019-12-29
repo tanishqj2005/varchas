@@ -7,7 +7,7 @@ from django.shortcuts import reverse
 
 class RegisterView(CreateView):
     form_class = RegisterForm
-    template_name = 'accounts/register.html'
+    template_name = 'accounts/register1.html'
     success_url = '/admin'
 
     def form_valid(self, form):
