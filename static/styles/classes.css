@@ -476,26 +476,8 @@ section
 {
 	color: #ff0e3b;
 }
-.fixed_header
-{
-	position: fixed;
-	top: -70px;
-	left: 0;
-	width: 100%;
-	height: 70px;
-	background: #190a49;
-	border-bottom: solid 2px #ff0e3b;
-	z-index: 100;
-	-webkit-transition: all 400ms ease;
-	-moz-transition: all 400ms ease;
-	-ms-transition: all 400ms ease;
-	-o-transition: all 400ms ease;
-	transition: all 400ms ease;
-}
-.fixed_header.scrolled
-{
-	top: 0;
-}
+
+
 .hamburger
 {
 	display: none;

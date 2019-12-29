@@ -482,7 +482,7 @@ section
 .fixed_header
 {
 	position: fixed;
-	top: -70px;
+	top: 0;
 	left: 0;
 	width: 100%;
 	height: 70px;
@@ -495,10 +495,7 @@ section
 	-o-transition: all 400ms ease;
 	transition: all 400ms ease;
 }
-.fixed_header.scrolled
-{
-	top: 0;
-}
+
 .hamburger
 {
 	display: none;
