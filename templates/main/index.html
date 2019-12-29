@@ -26,7 +26,7 @@
                                                 <h1><span>Get</span> your</h1>
                                                 <h1><span>Game</span> On</h1>
                                             </div>
-                                            <div class="button home_button" onclick="gasp.to(window, {duration: 0.3, scrollTo: 400});"><a >Register</a></div>
+                                            <div class="button home_button" ><a href="{% url 'accounts:register' %}">Register</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                                                 <h1><span>Get</span> your</h1>
                                                 <h1><span>Game</span> On</h1>
                                             </div>
-                                            <div class="button home_button"><a href="#reg">Register</a></div>
+                                            <div class="button home_button" ><a href="{% url 'accounts:register' %}">Register</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                                 <h1><span>Get</span> your</h1>
                                                 <h1><span>Game</span> On</h1>
                                             </div>
-                                            <div class="button home_button"><a href="#reg">Register</a></div>
+                                            <div class="button home_button" ><a href="{% url 'accounts:register' %}">Register</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +138,6 @@
                 <div class="col-lg-8">
                     <div class="about_content">
                         <div class="section_title_container">
-                            <div class="section_subtitle">aerobics program</div>
                             <div class="section_title"><h1>about varchas</h1></div>
                         </div>
                         <div class="about_text">
@@ -149,7 +148,7 @@
                                 auctor nisl vitae auctor faucibus. Pellentesque imperdiet auctor eros, sit amet ornare
                                 mauris malesuada in. Duis rutrum nisi tempus finibus luctus.</p>
                         </div>
-                        <div class="button about_button"><a href="#">Register</a></div>
+                        <div class="button about_button"><a href="{% url 'accounts:register' %}">Register</a></div>
                     </div>
                 </div>
 
@@ -216,8 +215,8 @@
                 </div>
                 <div class="cta_buttons">
                     <div class="d-flex flex-row align-items-start justify-content-start flex-wrap">
-                        <div class="button cta_button"><a href="#">Register</a></div>
-{#                        <div class="button_2 cta_button"><a href="#">Register</a></div>#}
+                        <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register</a></div>
+
                     </div>
                 </div>
             </div>
