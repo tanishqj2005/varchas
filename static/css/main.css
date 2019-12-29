@@ -24,6 +24,21 @@
   font-family: Montserrat-Bold;
   src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
 }
+@font-face {
+    font-family: 'tosca_zeroregular';
+    src:url('../fonts/tosca/tosca___-webfont.woff');
+
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'technomaregular';
+    src: url('../fonts/tech/technoma-webfont.woff2') format('woff2'),
+         url('../fonts/tech/technoma-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/

@@ -26,6 +26,21 @@
 ***********/
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800');
+@font-face {
+    font-family: 'technomaregular';
+    src: url('../fonts/tech/technoma-webfont.woff2') format('woff2'),
+         url('../fonts/tech/technoma-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'tosca_zeroregular';
+    src:url('../fonts/tosca/tosca___-webfont.woff');
+
+    font-weight: normal;
+    font-style: normal;
+}
 
 /*********************************
 2. Body and some general stuff
@@ -802,6 +817,13 @@ section
 	height: 100%;
 	padding-left: 75px;
 	padding-right: 75px;
+}
+.intro_box2{
+	width: 100%;
+	height: 100%;
+	padding-left: 75px;
+	padding-right: 75px;
+
 }
 .intro_box:first-child
 {
