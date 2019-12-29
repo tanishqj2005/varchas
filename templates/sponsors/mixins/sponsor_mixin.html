@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="row text-center">
+        {% for sponsortype in sponsortype_list %}
+            <div class="col-12 mb-5">
+
+
+                <h1 class="font-bold mb-5">{{ sponsortype.name }}</h1>
+                <div class="container-fluid">
+                    <div class="row flex-center">
+                        {% for sponsor in sponsortype.sponsor_set.all %}
+                            <div class="col-12"
+
+                            style="{% if sponsor.sponsor_type.name != "Title Sponsor" %}width:100%{% endif %}">
+                                <a href="{% if sponsor.link %}{{ sponsor.link }}{% endif %}"
+
+                                   target="_blank">
+                                    <img src="{{ sponsor.logo.url }}" class="img-fluid "/>
+                                </a>
+                                <div style="text-align: center  {% if sponsortype.sponsor_set.all.count == 1 %}max-width:500px;
+                                        {% endif %} padding-top: 4vh">
+                                    <h3 class="h3-responsive">{{ sponsor.name }}</h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
