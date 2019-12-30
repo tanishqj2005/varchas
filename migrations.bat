@@ -1,3 +1,4 @@
+git pull upstream master
 manage.py makemigrations main
 manage.py makemigrations accounts
 manage.py makemigrations adminportal
