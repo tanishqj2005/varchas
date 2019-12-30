@@ -13,6 +13,22 @@
       opacity: 1;
       text-align: center;
     }
+    .overlay:hover{
+       background: rgba(0, 0, 0, 0.3);
+    }
+  .intro_box:hover{
+
+    box-shadow: 0px 0px 50px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.1);
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+  }
   </style>
   <!-- Home -->
 
@@ -72,7 +88,7 @@
 
         <!-- Slide -->
         <div class="slide">
-          <div class="background_image"><img src="{% static 'sportify/images/v3.jpeg' %}"></div>
+          <div class="background_image"><img src="{% static 'images/v3.jpeg' %}" ></div>
           <div class="home_slider_overlay"></div>
           <div class="slide_wrap d-flex flex-column align-items-start justify-content-center">
             <div class="home_container">
@@ -110,13 +126,12 @@
             <div class="section_title_container">
               <div class="section_title"><h1>about varchas</h1></div>
             </div>
-            <div class="about_text">
-              <p>Aenean auctor nisl vitae auctor faucibus. Pellentesque imperdiet auctor eros, sit amet
-                ornare mauris malesuada in. Duis rutrum nisi tempus finibus luctus. Sed porta vel lacus
-                quis lacinia. Vestibulum nec justo lectus. In hac habitasse platea dictumst. Proin
-                vulputate rhoncus nibh eu vehicula. Donec vitae laoreet quam, ac feugiat nibh. Aenean
-                auctor nisl vitae auctor faucibus. Pellentesque imperdiet auctor eros, sit amet ornare
-                mauris malesuada in. Duis rutrum nisi tempus finibus luctus.</p>
+            <div class="about_text" >
+              <p>“Varchas” is the annual fest of IIT Jodhpur. Being the largest sports fest of
+                  Rajasthan, Varchas celebrates the spirit of sportsmanship and serves as a
+                  platform to showcase the countless hours of perspiration put in by teams o
+                  achieve excellence in their sport. Since its inception in 2011 the grandeur of
+                  Varchas has spread far and wide across the best college's of India.</p>
             </div>
             <div class="button about_button"><a href="{% url 'accounts:register' %}">Register</a></div>
           </div>
@@ -124,7 +139,7 @@
 
         <!-- About Image -->
         <div class="col-lg-4">
-          <div class="about_image"><img src="{% static 'sportify/images/about.png' %}" alt=""></div>
+          <div class="about_image"><img src="{% static 'images/about.png' %}" alt=""></div>
         </div>
 
       </div>
@@ -155,25 +170,32 @@
       <div class="d-flex flex-row align-items-start justify-content-start flex-wrap"
            >
         <!-- Intro Box -->
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center">
-          <img src="../../static/images/v2.jpeg">
+        
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center" style="padding: 0;">
+          <a href="#">
+            <img src="../../static/images/v2.jpeg" style="object-fit: cover">
           <div class="overlay">
             <div class="intro_box_title" style="position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px"><h2
                     style="color: #353535;font-weight: lighter">Basket Ball</h2></div>
           </div>
 
+          </a>
+
 
         </div>
 
         <!-- Intro Box -->
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center">
-          <img src="../../static/images/v3.jpeg">
+      <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center" style="padding: 0;">
+          <a href="#">
+            <img src="../../static/images/v3.jpeg" style="object-fit: cover">
           <div class="overlay">
             <div class="intro_box_title" style="position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px"><h2
-                    style="color: #353535;font-weight: lighter">Running</h2></div>
+                    style="color: #353535;font-weight: lighter">runnin</h2></div>
           </div>
+
+          </a>
 
 
         </div>
@@ -194,7 +216,7 @@
 
       <!-- CTA Image -->
       <div class="cta_image align-self-stretch">
-        <div class="background_image" style="background-image:url(images/cta.jpg)"></div>
+        <div class="background_image" style="background-image:url(../../static/images/cta.jpg)"></div>
       </div>
 
       <!-- CTA Content -->
@@ -206,19 +228,19 @@
         <div class="cta_list">
           <ul>
             <li class="d-flex flex-row align-items-center justify-content-start">
-              <img src="{% static 'sportify/images/check.png' %}" alt="">
+              <img src="{% static 'images/check.png' %}" alt="">
               <span>Pellentesque imperdiet auctor eros, sit amet ornare mauris malesuada in.</span>
             </li>
             <li class="d-flex flex-row align-items-center justify-content-start">
-              <img src="{% static 'sportify/images/check.png' %}" alt="">
+              <img src="{% static 'images/check.png' %}" alt="">
               <span>Duis rutrum nisi tempus finibus luctus. Sed porta vel lacus quis lacinia.</span>
             </li>
             <li class="d-flex flex-row align-items-center justify-content-start">
-              <img src="{% static 'sportify/images/check.png' %}" alt="">
+              <img src="{% static 'images/check.png' %}" alt="">
               <span>Vestibulum nec justo lectus. In hac habitasse platea dictumst.</span>
             </li>
             <li class="d-flex flex-row align-items-center justify-content-start">
-              <img src="{% static 'sportify/images/check.png' %}" alt="">
+              <img src="{% static 'images/check.png' %}" alt="">
               <span> Proin vulputate rhoncus nibh eu vehicula. Donec vitae laoreet quam, ac feugiat nibh.</span>
             </li>
           </ul>
