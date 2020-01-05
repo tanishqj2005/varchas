@@ -24,249 +24,67 @@
     <!--===============================================================================================-->
 </head>
 <body>
-
 <div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <div class="login100-pic js-tilt" data-tilt>
-                <img src="{% static 'images/img-01.png' %}" alt="IMG">
-            </div>
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-pic js-tilt" data-tilt>
+          <img src="{% static 'images/img-01.png' %}" alt="IMG">
+      </div>
+      <form class="login100-form validate-form" action="" method="POST">
 
-            <form class="login100-form validate-form" action="" method="post" id="register" autocomplete="off">
-					<span class="login100-form-title">
-						Member Register
-					</span>
+    {% load widget_tweaks %}
+    {% csrf_token %}
 
-                {% if form.non_field_errors %}
-                    {% for error in form.non_field_errors %}
-                        <div class="red-text">
-                            {{ error }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                {% csrf_token %}
-
-
-                {#                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">#}
-                {#                    <input class="input100" type="text" name="email" placeholder="Email"#}
-                {#                           id="{{ form.username.id_for_label }}">#}
-                {#                    <span class="focus-input100"></span>#}
-                {#                    <span class="symbol-input100">#}
-                {#							<i class="fa fa-envelope" aria-hidden="true"></i>#}
-                {#						</span>#}
-                {#                </div>#}
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text"
-                           id="{{ form.username.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.username.name }}"
-                           required
-                           autofocus>
-                    <label for="{{ form.username.id_for_label }}">Username</label>
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text"
-                           id="{{ form.first_name.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.first_name.name }}"
-                           required
-                           autofocus>
-                    <label for="{{ form.first_name.id_for_label }}">First Name</label>
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text"
-                           id="{{ form.last_name.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.last_name.name }}">
-                    <label for="{{ form.last_name.id_for_label }}">Last Name</label>
-
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text"
-                           id="{{ form.gender.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.gender.name }}"
-                    >
-                    <label for="{{ form.gender.id_for_label }}">Gender</label>
-
-
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text"
-                           id="{{ form.college.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.college.name }}">
-                    <label for="{{ form.college.id_for_label }}">College</label>
-
-
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="email"
-                           id="{{ form.email.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.email.name }}"
-                           required>
-                    <label for="{{ form.email.id_for_label }}">Email</label>
-
-
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="tel"
-                           id="{{ form.phone.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.phone.name }}"
-                           required>
-                    <label for="{{ form.phone.id_for_label }}">Contact</label>
-
-
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text"
-                           id="{{ form.address.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.address.name }}"
-                           required>
-                    <label for="{{ form.address.id_for_label }}">City</label>
-
-
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text"
-                           id="{{ form.state.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.state.name }}">
-                    <label for="{{ form.state.id_for_label }}">State</label>
-
-
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <span class="pt-3">&nbsp;&nbsp;Do you require accommodation?</span>
-                    <label class="switch" id="{{ form.accommodation_required.id_for_label }}">
-                        <input type="checkbox" id="{{ form.accommodation_required.id_for_label }}">
-                        <span class="slider round"></span>
-                    </label>
-
-                    {#                    <span class="focus-input100"></span>#}
-                    {#                    <span class="symbol-input100">#}
-                    {#							<i class="fa fa-envelope" aria-hidden="true"></i>#}
-                    {#						</span>#}
-                </div>
-
-                <div class="wrap-input100 validate-input">
-                    <input type="text"
-                           class="input100"
-                           id="{{ form.referred_by.id_for_label }}"
-                           placeholder=" "
-                           name="{{ form.referred_by.name }}"
-                           value="{{ request.GET.referral }}"
-                           required
-                           style="width:100%">
-                    <label for="{{ form.referred_by.id_for_label }}">Referral Code
-                        <span style="font-size:10px">(Optional)</span>
-                    </label>
-
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" id="{{ form.password1.id_for_label }}"
-                           name="{{ form.password1.name }}"
-                           placeholder="Password" required>
-                    <label for="{{ form.password1.id_for_label }}">Password</label>
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" id="{{ form.password2.id_for_label }}"
-                           name="{{ form.password2.name }}"
-                           placeholder="Password" required>
-                    <label for="{{ form.password2.id_for_label }}">Repeat Password</label>
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-                </div>
-                {% if messages %}
-                    {% for message in messages %}
-                        {% if 'register-success' in message.tags %}
-                            <div class="form-header green mb-4">{{ message }}</div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" type="submit">
-                        Register
-                    </button>
-                </div>
-
-                <div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-                    <a class="txt2" href="#">
-                        Username / Password?
-                    </a>
-                </div>
-
-                <div class="text-center p-t-136">
-                    <a class="txt2" href="{% url 'login' %}">
-                        Already Registered?
-                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </form>
+    {% for field in form %}
+    <div class="wrap-input100 validate-input">
+    {{ field.label }} {{field}}
+    <!-- {% if field.label == "State" or field.label == "Gender" or  field.label == "Current year" or field.label == "Referred by" %}{{ field }} {% endif %}
+    {% if field.label != "State" and field.label != "Gender" and  field.label != "Current year" and field.label != "Referred by" %}<input class="input100" type={{ field.field.widget.input_type }}
+        name={{ field.label }} placeholder={{ field.label }}>{% endif %} -->
+  </div>
+    {% endfor %}
+    <div class="container-login100-form-btn p-t-25">
+      <div class="container-login100-form-btn">
+          <button class="login100-form-btn" type="submit">
+              Register
+          </button>
         </div>
+        <div class="text-center p-t-136">
+          <a class="txt2" href="{% url 'login' %}">
+            Already Registered?
+            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+          </a>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
+</div>
+
+    <!-- {% for field in form %}
+    <div class="wrap-input100 validate-input">
+      <input class="input100" type={{ field.field.widget.input_type }}
+          name={{ field.label }} placeholder={{ field.label }}>
+      <span class="symbol-input100">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+      </span>
+    </div>
+    {% endfor %}
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn" type="submit">
+                Register
+            </button>
+        </div>
+        <div class="text-center p-t-136">
+          <a class="txt2" href="{% url 'login' %}">
+            Already Registered?
+            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
 
 
 <!--===============================================================================================-->
