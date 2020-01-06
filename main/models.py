@@ -15,6 +15,14 @@ class HomeImageCarousel(models.Model):
     def __str__(self):
         return self.title
 
+class HomeEventCard(models.Model):
+    name = models.CharField(max_length=64)
+    image = models.ImageField(upload_to='homepage-events', blank=True, null=True)
+    link = models.URLField()
+
+    def __str__(self):
+        return self.name
+
 
 class NavBarSubOptions(models.Model):
     title = models.CharField(max_length=64)
