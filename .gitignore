@@ -40,3 +40,4 @@ copy
 .venv
 venv/
 ENV/
+.vscode/settings.json

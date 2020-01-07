@@ -25,6 +25,14 @@ class HomeEventCard(models.Model):
         return self.name
 
 
+class HomeBriefCard(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.CharField(max_length=64)
+
+    def __str__(self):
+        return self.title
+
+
 class NavBarSubOptions(models.Model):
     title = models.CharField(max_length=64)
     description = RichTextUploadingField(blank=True, null=True)

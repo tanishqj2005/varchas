@@ -214,7 +214,6 @@ poker nights and other recreational informal events..</span>
   </div>
 
   <!-- Classes -->
-
   <div class="classes" style="margin-top: 0;padding-top: 0">
     <div class="container">
       <div class="row">
@@ -229,67 +228,16 @@ poker nights and other recreational informal events..</span>
 
                 <span style="font-size: 14vw; font-family:technomaregular;margin-left: -50px">20</span>
               </div>
-            <div class="section_subtitle">IN BRIEF</div>
-          </div>
 
-          <!-- Classes Slider -->
-          <div class="classes_slider_container">
-            <div class="owl-carousel owl-theme classes_slider">
-
-              <!-- Slide -->
-              <div>
-                <div class="classes_slide_wrap">
-                  <div class="text-center">
-                    <div class="classes_title"><h3>Sport events</h3></div>
-                    <div class="classes_text">
-                      <p>Varchas provides a platform to athletes to showcase their talent.  More than 1500 participant from all over the country participated in
-the fest last year.</p>
-                    </div>
-                    <div class="class_image"><a href="#"><img
-                            src="{% static 'sportify/images/instructor_1.jpg' %}" alt=""></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide -->
-              <div>
-                <div class="classes_slide_wrap">
-                  <div class="text-center">
-                    <div class="classes_title"><h3>Mini Marathon</h3></div>
-                    <div class="classes_text">
-                      <p>The young professionals here at IIT Jodhpur organised the marathon with the
-aim of arousing social consciousness and solidarity among the individuals.  </p>
-                    </div>
-                    <div class="class_image"><a href="#"><img
-                            src="{% static 'sportify/images/instructor_2.jpg' %}" alt=""></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide -->
-              <div>
-                <div class="classes_slide_wrap">
-                  <div class="text-center">
-                    <div class="classes_title"><h3>SOCH</h3></div>
-                    <div class="classes_text">
-                      <p>SOCH is the social initiative of Varchas. We develop a platform to spread awareness and motivate people to take a collective stand against social issues prevailing in our society.</p>
-                    </div>
-                    <div class="class_image"><a href="#"><img
-                            src="{% static 'sportify/images/instructor_2.jpg' %}" alt=""></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  {% include 'main/mixins/brief_main_mixin.html' with brief_list=brief_list %}
+  
+              
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
   <!-- Pricing -->
 
   <div class="pricing">

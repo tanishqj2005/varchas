@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView, DetailView
 # from .utils import SiteAccessMixin
-from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard
+from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard
 
 
 class IndexView(TemplateView):
@@ -10,6 +10,7 @@ class IndexView(TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['carousel'] = HomeImageCarousel.objects.filter(active=True).order_by('ordering')
         context['event_list'] = HomeEventCard.objects.all
+        context['brief_list'] = HomeBriefCard.objects.all
         return context
 
 
