@@ -1,5 +1,5 @@
 from django import forms
-from .models import CampusAmbassador
+from .models import CampusAmbassador, TeamRegistration
 
 
 class CampusAmbassadorForm(forms.ModelForm):
@@ -15,3 +15,9 @@ class CampusAmbassadorForm(forms.ModelForm):
         if CampusAmbassador.objects.filter(email__iexact=self.data['email']).exists():
             raise forms.ValidationError('This email is already registered')
         return self.data['email']
+
+class TeamRegistrationForm(forms.ModelForm):
+
+    class Meta:
+        model = TeamRegistration
+        fields = ['teamId','college','members','captian']

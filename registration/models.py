@@ -48,5 +48,12 @@ class EventRegistration(models.Model):
         return "{leader} - {event}".format(leader=self.participant, event=self.event)
 
 
-class TeamRegistration(EventRegistration):
+class TeamRegistration(models.Model):
+    teamId = models.CharField(max_length=10)
+    #sport = models.ForeignKey(Event, on_delete=models.CASCADE)
+    college = models.CharField(max_length=128)
+    captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='%(class)s_captian')
     members = models.ManyToManyField(UserProfile)
+
+    def __str__(self):
+        return self.college
