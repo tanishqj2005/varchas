@@ -11,11 +11,9 @@ class RegisterView(CreateView):
     success_url = '/login/'
 
     def form_valid(self, form):
-        print('herr')
         user = form.save()
         RegisterView.create_profile(user, **form.cleaned_data)
         # messages.success(self.request, 'Hi %s,' % user.get_full_name())
-        print("here3")
         return super(RegisterView, self).form_valid(form)
 
     @staticmethod
@@ -28,10 +26,7 @@ class RegisterView(CreateView):
                                                  # no_of_days=kwargs['no_of_days'],
                                                  referral=kwargs['referred_by']
                                                  )
-        print("here1")
         userprofile.save()
-        print("here2")
-        print(userprofile)
 
 
 class CustomLoginView(LoginView):

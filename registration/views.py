@@ -10,5 +10,5 @@ class CampusAmbassadorRegisterView(CreateView):
 
 class TeamFormationView(CreateView):
     template_name = 'registration/team.html'
-    success_url = ''
+    success_url = 'team'
     form_class = TeamRegistrationForm

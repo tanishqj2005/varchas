@@ -49,11 +49,11 @@ class EventRegistration(models.Model):
 
 
 class TeamRegistration(models.Model):
-    teamId = models.CharField(max_length=10)
+    teamId = models.CharField(max_length=10, unique=True)
     # sport = models.ForeignKey(Event, on_delete=models.CASCADE)
     college = models.CharField(max_length=128)
-    captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='%(class)s_captian')
-    members = models.ManyToManyField(UserProfile)
+    captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    members = models.ManyToManyField(UserProfile, related_name="member")
 
     def __str__(self):
-        return self.college
+        return self.teamId
