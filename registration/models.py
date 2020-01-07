@@ -50,7 +50,7 @@ class EventRegistration(models.Model):
 
 class TeamRegistration(models.Model):
     teamId = models.CharField(max_length=10)
-    #sport = models.ForeignKey(Event, on_delete=models.CASCADE)
+    # sport = models.ForeignKey(Event, on_delete=models.CASCADE)
     college = models.CharField(max_length=128)
     captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='%(class)s_captian')
     members = models.ManyToManyField(UserProfile)

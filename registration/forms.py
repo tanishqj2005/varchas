@@ -16,8 +16,9 @@ class CampusAmbassadorForm(forms.ModelForm):
             raise forms.ValidationError('This email is already registered')
         return self.data['email']
 
+
 class TeamRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = TeamRegistration
-        fields = ['teamId','college','members','captian']
+        fields = ['teamId', 'college', 'members', 'captian']

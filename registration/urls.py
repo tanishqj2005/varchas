@@ -5,5 +5,5 @@ app_name = 'registration'
 
 urlpatterns = [
     path('ca', CampusAmbassadorRegisterView.as_view(), name='ca'),
-    path('team',TeamFormationView.as_view(),name='team')
+    path('team', TeamFormationView.as_view(), name='team')
 ]
