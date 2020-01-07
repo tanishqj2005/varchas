@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'sponsors.apps.SponsorsConfig',
     'ckeditor',
     'ckeditor_uploader',
+    'widget_tweaks',
     # 'versatileimagefield',
 
 ]

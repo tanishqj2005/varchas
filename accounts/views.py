@@ -7,13 +7,15 @@ from django.shortcuts import reverse
 
 class RegisterView(CreateView):
     form_class = RegisterForm
-    template_name = 'accounts/register1.html'
-    success_url = '/admin'
+    template_name = 'accounts/register.html'
+    success_url = '/login/'
 
     def form_valid(self, form):
+        print('herr')
         user = form.save()
         RegisterView.create_profile(user, **form.cleaned_data)
         # messages.success(self.request, 'Hi %s,' % user.get_full_name())
+        print("here3")
         return super(RegisterView, self).form_valid(form)
 
     @staticmethod
@@ -26,7 +28,10 @@ class RegisterView(CreateView):
                                                  # no_of_days=kwargs['no_of_days'],
                                                  referral=kwargs['referred_by']
                                                  )
+        print("here1")
         userprofile.save()
+        print("here2")
+        print(userprofile)
 
 
 class CustomLoginView(LoginView):

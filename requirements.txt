@@ -3,3 +3,4 @@ pillow
 flake8
 django-allauth
 django-ckeditor
+django-widget_tweaks
