@@ -8,10 +8,11 @@
     <form action="" method="post">
     {% csrf_token %}
     {% for field in form %}
-    <div class="wrap-input100 validate-input">
+    <div class="wrap-input100 validate-input"><br>
     {{ field.label }} {{field}}
   </div>
     {% endfor %}
+    <br>
     <input type="submit" value="Submit">
 </form>
   </body>

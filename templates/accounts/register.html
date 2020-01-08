@@ -30,6 +30,7 @@
       <div class="login100-pic js-tilt" data-tilt>
           <img src="{% static 'images/img-01.png' %}" alt="IMG">
       </div>
+      {% csrf_token %}
       <form class="login100-form validate-form" action="" method="POST">
 
     {% load widget_tweaks %}

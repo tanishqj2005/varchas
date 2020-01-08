@@ -1,4 +1,4 @@
-ECHO git pull upstream master
+git pull upstream master
 python manage.py makemigrations main
 python manage.py makemigrations accounts
 python manage.py makemigrations adminportal

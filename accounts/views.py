@@ -3,6 +3,9 @@ from .models import UserProfile
 from .forms import RegisterForm
 from django.contrib.auth.views import LoginView
 from django.shortcuts import reverse
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.models import User
 
 
 class RegisterView(CreateView):
@@ -36,8 +39,17 @@ class CustomLoginView(LoginView):
     def get_redirect_url(self):
         url = super(CustomLoginView, self).get_redirect_url()
         if hasattr(self.request.user, 'userprofile'):
-            return url or self.request.user.userprofile.get_absolute_url()
+            return reverse('main:home')
+            # return url or self.request.UserProfile.get_absolute_url()
         elif hasattr(self.request.user, 'adminprofile'):
             return url or reverse('adminportal:index')
         else:
             return reverse('main:home')
+
+
+@login_required
+def DisplayProfile(request, username):
+    user = get_object_or_404(User, username=username)
+    user = get_object_or_404(UserProfile, user=user)
+    print("user", user)
+    return render(request, 'accounts/profile.html', {'profile_user': user})
