@@ -6,6 +6,8 @@ from django.shortcuts import reverse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.models import User
+from registration.models import TeamRegistration
+from django.http import HttpResponse
 
 
 class RegisterView(CreateView):
@@ -51,5 +53,13 @@ class CustomLoginView(LoginView):
 def DisplayProfile(request, username):
     user = get_object_or_404(User, username=username)
     user = get_object_or_404(UserProfile, user=user)
-    print("user", user)
     return render(request, 'accounts/profile.html', {'profile_user': user})
+
+
+@login_required
+def JoinTeam(request, teamId, username):
+    team = get_object_or_404(TeamRegistration, teamId=teamId)
+    user = get_object_or_404(User, username=username)
+    user = get_object_or_404(UserProfile, user=user)
+    team.members.add(user)
+    return HttpResponse("Player {} added to team {}".format(username, teamId))
