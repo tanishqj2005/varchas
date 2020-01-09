@@ -1,6 +1,6 @@
 from django.views.generic import CreateView
 from .forms import CampusAmbassadorForm, TeamRegistrationForm
-from accounts.models import UserProfile
+
 
 class CampusAmbassadorRegisterView(CreateView):
     template_name = 'registration/ca_reg.html'
