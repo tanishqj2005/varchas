@@ -9,7 +9,6 @@ from registration.models import CampusAmbassador
 
 
 class RegisterForm(UserCreationForm):
-
     username = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
     last_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
     first_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
@@ -42,6 +41,9 @@ class RegisterForm(UserCreationForm):
                               required=True)
     state = forms.ChoiceField(choices=UserProfile.STATE_CHOICES, required=True,
                               widget=forms.Select(attrs={'class': 'mdb-select'}))
+    city = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'mdb-autocomplete', 'maxlength': '128', 'placeholder': ' '}),
+        required=False)
     accommodation_required = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
     referred_by = forms.CharField(max_length=8, required=False, widget=forms.TextInput(attrs={'placeholder': ' '}))
 
