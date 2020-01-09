@@ -49,8 +49,19 @@ class EventRegistration(models.Model):
 
 
 class TeamRegistration(models.Model):
+    SPORT_CHOICES = (
+        ('1', 'Athletics'),
+        ('2', 'Badminton'),
+        ('3', 'Basketball'),
+        ('5', 'Chess'),
+        ('5', 'Cricket'),
+        ('6', 'Football'),
+        ('7', 'Table Tenis'),
+        ('8', 'Tenis'),
+        ('9', 'Voleyball'),
+    )
     teamId = models.CharField(max_length=10, unique=True)
-    # sport = models.ForeignKey(Event, on_delete=models.CASCADE)
+    sport = models.CharField(max_length=1, choices=SPORT_CHOICES, default=1)
     college = models.CharField(max_length=128)
     captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     members = models.ManyToManyField(UserProfile, related_name="member")

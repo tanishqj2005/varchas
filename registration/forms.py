@@ -21,4 +21,4 @@ class TeamRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = TeamRegistration
-        fields = ['college', 'teamId', 'captian', 'members']
+        fields = ['college', 'teamId', 'captian']
