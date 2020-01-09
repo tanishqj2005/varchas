@@ -86,7 +86,7 @@ class UserProfile(models.Model):
     id_issued = models.BooleanField(default=False)
     qr_code = models.ImageField(upload_to='qr_code', blank=True, null=True)
     events_registered = models.ManyToManyField(Event, blank=True)
-
+    teamId = models.CharField(max_length=10, default="NULL")
     # workshops_registered =
 
     def __str__(self):

@@ -48,7 +48,7 @@
 
 
                 {#                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">#}
-                {#                    <input class="input100" type="text" name="email" placeholder="Email"#}
+                {#                    <input class="input100" type="text" name="email" placeholder="Email">#}
                 {#                           id="{{ form.username.id_for_label }}">#}
                 {#                    <span class="focus-input100"></span>#}
                 {#                    <span class="symbol-input100">#}
@@ -67,7 +67,7 @@
 {#                </div>#}
 {##}
 {#                <div class="wrap-input100 validate-input" data-validate="Password is required">#}
-{#                    <input class="input100" type="password" id="{{ form.password.id_for_label }}"#}
+{#                    <input class="input100" type="password" id="{{ form.password.id_for_label }}">#}
 {#                           name="{{ form.password.name }}"#}
 {#                           placeholder="Password" required>#}
 {#                    <span class="focus-input100"></span>#}
@@ -93,6 +93,9 @@
 {#						</span>#}
 {#                </div>#}
 
+
+
+<!--
             {% for field in form %}
             {% if field.label != "Sport" %}
                <div class="wrap-input100 validate-input">
@@ -107,7 +110,7 @@
             {% endif %}
             {% if field.label == "Sport"%}
 {#              <div class="wrap-input100 validate-input">#}
-{#                    <input class="input100" type="text" name={{ field.label }}#}
+{#                    <input class="input100" type="text" name={{ field.label }}> #}
 {#                           placeholder={{field.label}}#}
 {#                            required autofocus>#}
 {#                    <span class="focus-input100"></span>#}
@@ -120,9 +123,10 @@
               </div>
 
             {% endif %}
-            {% endfor %}
+            {% endfor %} -->
 
 
+            {{ form }}
 
 
                 {% if messages %}
