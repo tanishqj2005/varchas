@@ -50,12 +50,15 @@ class EventRegistration(models.Model):
 
 class TeamRegistration(models.Model):
     SPORT_CHOICES = (
-        ('1', 'Badminton'),
-        ('2', 'Athletics'),
-        ('3', 'Table Tenis'),
-        ('4', 'Tenis'),
-        ('5', 'Football'),
-        ('6', 'Basketball'),
+        ('1', 'Athletics'),
+        ('2', 'Badminton'),
+        ('3', 'Basketball'),
+        ('5', 'Chess'),
+        ('5', 'Cricket'),
+        ('6', 'Football'),
+        ('7', 'Table Tenis'),
+        ('8', 'Tenis'),
+        ('9', 'Voleyball'),
     )
     teamId = models.CharField(max_length=10, unique=True)
     sport = models.CharField(max_length=1, choices=SPORT_CHOICES, default=1)
