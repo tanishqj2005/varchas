@@ -1,6 +1,5 @@
 from .views import CampusAmbassadorRegisterView, TeamFormationView
 from django.urls import path
-from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 app_name = 'registration'
 
