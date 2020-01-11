@@ -60,7 +60,7 @@ def DisplayProfile(request, username):
 def JoinTeam(request, teamId, username):
     user = request.user
 
-    if user is not None and user.username==username:
+    if user is not None and user.username == username:
         team = get_object_or_404(TeamRegistration, teamId=teamId)
         # user = get_object_or_404(User, username=username)
         user = get_object_or_404(UserProfile, user=user)

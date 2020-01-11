@@ -1,8 +1,8 @@
 from django.views.generic import CreateView
 from .forms import CampusAmbassadorForm, TeamRegistrationForm
-from .models import TeamRegistration
 from django.shortcuts import get_object_or_404
 from accounts.models import UserProfile
+from django.http import HttpResponse
 
 
 class CampusAmbassadorRegisterView(CreateView):
@@ -17,9 +17,10 @@ class TeamFormationView(CreateView):
     success_url = 'team'
 
     def form_valid(self, form):
-        #form.captian = get_object_or_404(UserProfile, user=self.request.user)
-        team = form.save()
-        team.captian = get_object_or_404(UserProfile, user=self.request.user)
-        #TeamFormationView.create_team(team, **form.cleaned_data)
-        return super(TeamFormationView, self).form_valid(form)
-        
+        user = self.request.user
+        if user is not None:
+            team = form.save()
+            team.captian = get_object_or_404(UserProfile, user=user)
+            # TeamFormationView.create_team(team, **form.cleaned_data)
+            return super(TeamFormationView, self).form_valid(form)
+        return HttpResponse("404")
