@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block body %}
+{% csrf_token %}
+<br><br><br><br>
+<div class="wrap-input100 validate-input">
+{{ profile_team.teamId }}<br>
+{{ profile_team.sport }}<br>
+{{ profile_team.college }}<br>
+{{ profile_team.captian }}<br>
+{{ profile_team.members }}<br>
+{{ profile_team.score }}<br>
+</div>
+{% endblock %}
