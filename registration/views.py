@@ -1,5 +1,8 @@
 from django.views.generic import CreateView
 from .forms import CampusAmbassadorForm, TeamRegistrationForm
+from .models import TeamRegistration
+from django.shortcuts import get_object_or_404
+from accounts.models import UserProfile
 
 
 class CampusAmbassadorRegisterView(CreateView):
@@ -9,8 +12,14 @@ class CampusAmbassadorRegisterView(CreateView):
 
 
 class TeamFormationView(CreateView):
+    form_class = TeamRegistrationForm
     template_name = 'registration/team.html'
     success_url = 'team'
-    form_class = TeamRegistrationForm
-    # def __init__(self):
-    #     print(self.username)
+
+    def form_valid(self, form):
+        #form.captian = get_object_or_404(UserProfile, user=self.request.user)
+        team = form.save()
+        team.captian = get_object_or_404(UserProfile, user=self.request.user)
+        #TeamFormationView.create_team(team, **form.cleaned_data)
+        return super(TeamFormationView, self).form_valid(form)
+        

@@ -58,10 +58,14 @@ def DisplayProfile(request, username):
 
 @login_required
 def JoinTeam(request, teamId, username):
-    team = get_object_or_404(TeamRegistration, teamId=teamId)
-    user = get_object_or_404(User, username=username)
-    user = get_object_or_404(UserProfile, user=user)
-    user.teamId = teamId
-    user.save()
-    team.members.add(user)
-    return HttpResponse("Player {} added to team {}".format(username, teamId))
+    user = request.user
+
+    if user is not None and user.username==username:
+        team = get_object_or_404(TeamRegistration, teamId=teamId)
+        # user = get_object_or_404(User, username=username)
+        user = get_object_or_404(UserProfile, user=user)
+        user.teamId = teamId
+        user.save()
+        team.members.add(user)
+        return HttpResponse("Player {} added to team {}".format(user, teamId))
+    return reverse('login')

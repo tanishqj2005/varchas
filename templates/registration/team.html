@@ -47,86 +47,13 @@
                 {% csrf_token %}
 
 
-                {#                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">#}
-                {#                    <input class="input100" type="text" name="email" placeholder="Email">#}
-                {#                           id="{{ form.username.id_for_label }}">#}
-                {#                    <span class="focus-input100"></span>#}
-                {#                    <span class="symbol-input100">#}
-                {#							<i class="fa fa-envelope" aria-hidden="true"></i>#}
-                {#						</span>#}
-                {#                </div>#}
-
-{#                <div class="wrap-input100 validate-input">#}
-{#                    <input class="input100" type="text" name="{{ form.username.name }}"#}
-{#                           placeholder="RG-NUMBER EG:RG-ABC-123"#}
-{#                           id="{{ form.username.id_for_label }}" required autofocus>#}
-{#                    <span class="focus-input100"></span>#}
-{#                    <span class="symbol-input100">#}
-{#							<i class="fa fa-envelope" aria-hidden="true"></i>#}
-{#						</span>#}
-{#                </div>#}
-{##}
-{#                <div class="wrap-input100 validate-input" data-validate="Password is required">#}
-{#                    <input class="input100" type="password" id="{{ form.password.id_for_label }}">#}
-{#                           name="{{ form.password.name }}"#}
-{#                           placeholder="Password" required>#}
-{#                    <span class="focus-input100"></span>#}
-{#                    <span class="symbol-input100">#}
-{#							<i class="fa fa-id-card-o" aria-hidden="true"></i>#}
-{#						</span>#}
-{#                </div>#}
-{#                <div class="wrap-input100 validate-input">#}
-{#                    <input class="input100" type="text" name="{{ form.username.name }}"#}
-{#                           placeholder="RG-NUMBER EG:RG-ABC-123"#}
-{#                           id="{{ form.username.id_for_label }}" required autofocus>#}
-{#                    <span class="focus-input100"></span>#}
-{#                    <span class="symbol-input100">#}
-{#							<i class="fa fa-envelope" aria-hidden="true"></i>#}
-{#						</span>#}
-{#                </div><div class="wrap-input100 validate-input">#}
-{#                    <input class="input100" type="text" name="{{ form.username.name }}"#}
-{#                           placeholder="RG-NUMBER EG:RG-ABC-123"#}
-{#                           id="{{ form.username.id_for_label }}" required autofocus>#}
-{#                    <span class="focus-input100"></span>#}
-{#                    <span class="symbol-input100">#}
-{#							<i class="fa fa-envelope" aria-hidden="true"></i>#}
-{#						</span>#}
-{#                </div>#}
 
 
-
-<!--
             {% for field in form %}
-            {% if field.label != "Sport" %}
-               <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name={{ field.label }}
-                           placeholder={{field.label}}
-                            required autofocus>
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-							<i class="fa fa-id-card-o" aria-hidden="true"></i>
-						</span>
-                </div>
+            {% if field.label != "Captian"%}
+            {{ field.label }}: {{field}}<br>
             {% endif %}
-            {% if field.label == "Sport"%}
-{#              <div class="wrap-input100 validate-input">#}
-{#                    <input class="input100" type="text" name={{ field.label }}> #}
-{#                           placeholder={{field.label}}#}
-{#                            required autofocus>#}
-{#                    <span class="focus-input100"></span>#}
-{#                    <span class="symbol-input100">#}
-{#							<i class="fa fa-id-card-o" aria-hidden="true"></i>#}
-{#						</span>#}
-{#                </div>#}
-              <div style="padding-left: 20px">
-                  {{ field.label }}: {{ field }}
-              </div>
-
-            {% endif %}
-            {% endfor %} -->
-
-
-            {{ form }}
+            {% endfor %}
 
 
                 {% if messages %}
@@ -162,7 +89,6 @@
         </div>
     </div>
 </div>
-
 
 <!--===============================================================================================-->
 <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>

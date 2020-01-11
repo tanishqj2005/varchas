@@ -63,7 +63,7 @@ class TeamRegistration(models.Model):
     teamId = models.CharField(max_length=10, unique=True)
     sport = models.CharField(max_length=2, choices=SPORT_CHOICES)
     college = models.CharField(max_length=128)
-    captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    captian = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True)
     members = models.ManyToManyField(UserProfile, related_name="member")
     score = models.IntegerField(default=0)
 
