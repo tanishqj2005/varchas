@@ -39,11 +39,11 @@ class RegisterForm(UserCreationForm):
                                      widget=forms.Select(attrs={}))
     address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ' ', 'maxlength': '128'}),
                               required=True)
+    city = forms.CharField(widget=forms.TextInput(attrs={'class': 'mdb-autocomplete',
+                           'maxlength': '128', 'placeholder': ' '}), required=False)
     state = forms.ChoiceField(choices=UserProfile.STATE_CHOICES, required=True,
                               widget=forms.Select(attrs={'class': 'mdb-select'}))
-    city = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'mdb-autocomplete', 'maxlength': '128', 'placeholder': ' '}),
-        required=False)
+
     accommodation_required = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
     referred_by = forms.CharField(max_length=8, required=False, widget=forms.TextInput(attrs={'placeholder': ' '}))
 
