@@ -53,16 +53,19 @@ class CustomLoginView(LoginView):
 def DisplayProfile(request, username):
     user = get_object_or_404(User, username=username)
     user = get_object_or_404(UserProfile, user=user)
+    print("there")
     return render(request, 'accounts/profile.html', {'profile_user': user})
 
 
 @login_required
 def DisplayTeam(request):
-    user = request.user
-    user = get_object_or_404(UserProfile, user=user)
+    # user = request.user
+    # user = get_object_or_404(User, username=username)
+    user = get_object_or_404(UserProfile, user=request.user)
     teamId = user.teamId
+    print("here")
     team = get_object_or_404(TeamRegistration, teamId=teamId)
-    return render(request, 'accounts/my_team.html', {'profile_team': team})
+    return render(request, 'accounts/myTeam.html', {'profile_team': team})
 
 
 @login_required
