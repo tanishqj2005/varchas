@@ -502,7 +502,7 @@ section
 .fixed_header
 {
 	position: fixed;
-	top: 0;
+	top: -70px;
 	left: 0;
 	width: 100%;
 	height: 70px;
@@ -514,6 +514,10 @@ section
 	-ms-transition: all 400ms ease;
 	-o-transition: all 400ms ease;
 	transition: all 400ms ease;
+}
+.fixed_header.scrolled
+{
+	top: 0;
 }
 
 .hamburger
@@ -630,12 +634,12 @@ section
 .home
 {
 	width: 100%;
-	height: 650px;
+	height: 720px;
 }
 .home_slider_overlay
 {
 	position: absolute;
-	top: 0;
+	top: 0px;
 	left: 0;
 	width: 100%;
 	height: 100%;
