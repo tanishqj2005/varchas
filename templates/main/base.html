@@ -30,8 +30,12 @@
     
     <!-- Header -->
     <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="margin-top: -350px">
+          <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+        </video>
         <div class="overlay" >
-            <div class="sp-container">
+            <div class="sp-container" style="margin-top: 35vh;">
                 <div class="sp-content">
                     <div class="home_container" >
                     <div class="container">
@@ -39,8 +43,10 @@
                         <div class="col">
                           <div class="active">
                             <div class="home_title">
-                              <h1 style="font-size: 4vh;">Vigour Valour Victory</h1>
+                              <h1 style="font-size: 4vh;">GET YOUR GAME ON</h1>
                               <h1><span>Varchas</span></h1>
+                              <div class="button_3" style="margin-left:0vh;margin-top: 7vh;position: absolute;left: 45%;"><a href="{% url 'accounts:register' %}">Register</a></div>
+                              
                             </div>
                           </div>
                         </div>
@@ -49,9 +55,6 @@
                   </div></div>
             </div>
         </div>
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="margin-top: -350px">
-          <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
-        </video>
     </header>
 
     <!-- Fixed Header -->
