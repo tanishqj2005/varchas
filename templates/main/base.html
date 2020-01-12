@@ -58,7 +58,7 @@
                         {#                    <li><a href="{% url 'contact' %}">Contact</a></li>#}
                     {% endfor %}
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'accounts:Myteam' %}">Team Details</a></li>
+                        <li><a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
                         <li><a href="{% url 'login' %}">Login</a></li>
