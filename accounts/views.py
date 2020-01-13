@@ -65,9 +65,9 @@ def DisplayTeam(request):
 
 
 @login_required(login_url="login")
-def JoinTeam(request, teamId):
+def JoinTeam(request):
     user = request.user
-
+    teamId = request.teamId
     if user is not None:
         team = get_object_or_404(TeamRegistration, teamId=teamId)
         # user = get_object_or_404(User, username=username)
