@@ -67,7 +67,7 @@ def joinTeam(request):
     if request.method == 'POST':
         teamId = request.POST.get('teamId')
     else:
-        return render(request,'accounts/joinTeam.html')
+        return render(request, 'accounts/joinTeam.html')
     if user is not None:
         team = get_object_or_404(TeamRegistration, teamId=teamId)
         user = get_object_or_404(UserProfile, user=user)

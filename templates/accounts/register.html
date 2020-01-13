@@ -50,13 +50,13 @@
                 {{ field.label }}: {{field}}
                 {% else %}
                 <div class="wrap-input100 validate-input">
-                  <!-- {{ field.label }}: {{field}} -->
-                  <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
+                  {{ field.label }}: {{field}}
+                  <!-- <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
                          placeholder="{{ field.label }}">
                   <span class="focus-input100"></span>
                   <span class="symbol-input100">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                  </span>
+                  </span> -->
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -73,12 +73,6 @@
                     <button class="login100-form-btn">
                         Sign Up
                     </button>
-                </div>
-
-                <div class="text-center p-t-12">
-                    <a class="txt2" href="#">
-                        Username / Password?
-                    </a>
                 </div>
             </form>
         </div>
