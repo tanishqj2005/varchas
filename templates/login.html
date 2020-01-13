@@ -53,7 +53,7 @@
                          placeholder="{{ field.label }}" required autofocus>
                   <span class="focus-input100"></span>
                   <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <i class="{% if field.name == "password" %}fa fa-lock{% else %}fa fa-envelope{% endif %}" aria-hidden="true"></i>
                   </span>
                 </div>
                 {% endfor %}
