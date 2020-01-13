@@ -51,7 +51,6 @@ class CustomLoginView(LoginView):
 @login_required(login_url="login")
 def DisplayProfile(request):
     user = get_object_or_404(UserProfile, user=request.user)
-    print("there")
     return render(request, 'accounts/profile.html', {'profile_user': user})
 
 
@@ -59,18 +58,18 @@ def DisplayProfile(request):
 def DisplayTeam(request):
     user = get_object_or_404(UserProfile, user=request.user)
     teamId = user.teamId
-    print("here")
     team = get_object_or_404(TeamRegistration, teamId=teamId)
     return render(request, 'accounts/myTeam.html', {'profile_team': team})
 
 
-@login_required(login_url="login")
-def JoinTeam(request):
+def joinTeam(request):
     user = request.user
-    teamId = request.teamId
+    if request.method == 'POST':
+        teamId = request.POST.get('teamId')
+    else:
+        return render(request,'accounts/joinTeam.html')
     if user is not None:
         team = get_object_or_404(TeamRegistration, teamId=teamId)
-        # user = get_object_or_404(User, username=username)
         user = get_object_or_404(UserProfile, user=user)
         user.teamId = teamId
         user.save()
