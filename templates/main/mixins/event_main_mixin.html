@@ -6,7 +6,7 @@
         <!-- Intro Box -->
         {% for event in event_list %}
         <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center" style="padding: 0;">
-          <a href="{{ event.link }}">
+          <a href="{% url 'accounts:register' %}">
 
               <img src="{{ event.image }}" style="background-size: cover;width: 100%;
   height:500px;">
