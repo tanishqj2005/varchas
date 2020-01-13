@@ -21,6 +21,7 @@ class TeamFormationView(CreateView):
         if user is not None:
             team = form.save()
             team.captian = get_object_or_404(UserProfile, user=user)
+            user = get_object_or_404(UserProfile, user=user)
             user.teamId = team.teamId
             user.save()
             team.members.add(user)
