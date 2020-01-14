@@ -26,6 +26,6 @@ class TeamFormationView(CreateView):
             user.save()
             team.members.add(user)
             team.save()
-            # TeamFormationView.create_team(team, **form.cleaned_data)
+
             return super(TeamFormationView, self).form_valid(form)
         return HttpResponse("404")
