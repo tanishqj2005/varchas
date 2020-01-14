@@ -2,11 +2,10 @@ from django.views.generic import CreateView
 from .models import UserProfile
 from .forms import RegisterForm
 from django.contrib.auth.views import LoginView
-from django.shortcuts import reverse
+from django.shortcuts import reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 from registration.models import TeamRegistration
-from django.http import HttpResponse
 
 
 class RegisterView(CreateView):
@@ -56,23 +55,27 @@ def DisplayProfile(request):
 
 @login_required(login_url="login")
 def DisplayTeam(request):
+    print("here")
     user = get_object_or_404(UserProfile, user=request.user)
     teamId = user.teamId
     team = get_object_or_404(TeamRegistration, teamId=teamId)
     return render(request, 'accounts/myTeam.html', {'profile_team': team, 'profile_user': user})
 
 
+@login_required(login_url="login")
 def joinTeam(request):
     user = request.user
     if request.method == 'POST':
+        # print(here)
         teamId = request.POST.get('teamId')
-    else:
-        return render(request, 'accounts/joinTeam.html')
-    if user is not None:
-        team = get_object_or_404(TeamRegistration, teamId=teamId)
-        user = get_object_or_404(UserProfile, user=user)
-        user.teamId = teamId
-        user.save()
-        team.members.add(user)
-        return HttpResponse("Player {} added to team {}".format(user, teamId))
-    return reverse('login')
+        if user is not None:
+            team = get_object_or_404(TeamRegistration, teamId=teamId)
+            user = get_object_or_404(UserProfile, user=user)
+            user.teamId = teamId
+            user.save()
+            team.members.add(user)
+            print("here")
+            return redirect('accounts:myTeam')
+            print("here")
+        return reverse('login')
+    return render(request, 'accounts/joinTeam.html')

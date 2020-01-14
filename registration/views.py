@@ -14,7 +14,7 @@ class CampusAmbassadorRegisterView(CreateView):
 class TeamFormationView(CreateView):
     form_class = TeamRegistrationForm
     template_name = 'registration/team.html'
-    success_url = 'team'
+    success_url = '/account/myTeam'
 
     def form_valid(self, form):
         user = self.request.user
