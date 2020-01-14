@@ -24,7 +24,10 @@ SECRET_KEY = ')(ua(wy^=az#k^%=qpszc%ltzx0j5%7n2rzfuj*ysqjn^g!hl)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['varchas2020.org', '68.183.85.194',
+                 'www.varchas2020.org', '127.0.0.1']
+
 
 # Application definition
 
@@ -88,13 +91,24 @@ WSGI_APPLICATION = 'varchas_iitj.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'varchas',
+            'USER': 'admin',
+            'PASSWORD': 'admin@varchas',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -132,6 +146,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/'
 
@@ -146,7 +161,8 @@ CKEDITOR_CONFIGS = {
         'tabSpaces': 4,
         'mathJaxLib': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML',
         'toolbar_Basic': [
-            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste',
+                                            'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
             # {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
             {'name': 'basicstyles',
              'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
@@ -157,7 +173,8 @@ CKEDITOR_CONFIGS = {
             {'name': 'paragraph',
              'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-',
                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', ]},
-            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'styles', 'items': [
+                'Styles', 'Format', 'Font', 'FontSize']},
         ],
         'extraPlugins': ','.join([
             'uploadimage',
@@ -231,7 +248,6 @@ VENUE_CHOICES = (
     ('4', 'Open Air Theatre'),
     ('5', 'Lecture Hall Complex'),
 )
-
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 AUTHENTICATION_BACKENDS = (
