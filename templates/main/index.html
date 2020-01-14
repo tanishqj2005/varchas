@@ -30,13 +30,172 @@
     transform: scale(1.1);
   }
 
+  .vid-container {
+    height: 100%;
+    width: auto;
+    overflow: hidden;
+    display: block;
+    background-color: black;
+    margin: 0 auto !important;
+    margin-left: -225;
+  }
+  video {
+    margin: 0 auto !important;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 995px) {
+    video {
+    margin: 0 auto !important;
+    height: 100%;
+    width: auto;
+  }
+  .first-text-get {
+    padding-top: 10vh;
+  }
+  .first-text-your {
+    padding-top: 14vh;
+  }
+  .first-text-game {
+    padding-top: 18vh;
+  }
+  .first-text-on {
+    padding-top: 22vh;
+  }
+
+  @keyframes topFadeOutVertical {
+  0% {
+    position: absolute;
+    top: 200%;
+    left: 45%;
+    opacity: 0;
+  }
+  65% {
+    position: absolute;
+    top: 200%;
+    left: 45%;
+    opacity: 0;
+  }
+
+  85% {
+    position: absolute;
+    left: 45%;
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    position: absolute;
+    left: 45%;
+    top: 100%;
+    opacity: 1;
+  }
+}
+@keyframes topFadeOutVertical1 {
+  0% {
+    position: absolute;
+    top: 200%;
+    left: 52%;
+    opacity: 0;
+  }
+  65% {
+    position: absolute;
+    top: 500%;
+    left: 52%;
+    opacity: 0;
+  }
+
+  85% {
+    position: absolute;
+    left: 52%;
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    position: absolute;
+    left: 52%;
+    top: 100%;
+    opacity: 1;
+  }
+  }
+  @keyframes topFadeOutVertical2 {
+  0% {
+    position: absolute;
+    top: 200%;
+    left: 75%;
+    opacity: 0;
+  }
+  65% {
+    position: absolute;
+    top: 200%;
+    left: 60%;
+    opacity: 0;
+  }
+
+  85% {
+    position: absolute;
+    left: 45%;
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    position: absolute;
+    left: 45%;
+    top: 100%;
+    opacity: 1;
+  }
+}
+@keyframes topFadeOutVertical3 {
+  0% {
+    position: absolute;
+    top: -200%;
+    left: 85%;
+    opacity: 0;
+  }
+  65% {
+    position: absolute;
+    top: -200%;
+    left: 73%;
+    opacity: 0;
+  }
+
+  85% {
+    position: absolute;
+    left: 65%;
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    position: absolute;
+    left: 52%;
+    top: 100%;
+    opacity: 1;
+  }
+}
+}
+
+  @media screen and (max-width: 1295px) {
+  video {
+    margin: 0 auto !important;
+    height: 100%;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1295px) {
+  video {
+    margin: 0 auto !important;
+    width: 100%;
+  }
+}
+
   </style>
   <!-- Home -->
   <header>
-        <div class="overlay"></div>
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="margin-top:0;width: 100%;height: auto;">
+        <div class="vid-container">
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" class="video">
             <source src="{% static 'video/landing.mp4'%}" type="video/mp4">
         </video>
+      </div>
         <div class="overlay">
 
                     <div class="container" style="margin-top: 35vh;">
@@ -44,8 +203,8 @@
                         <div class="col">
 
                             <div style="color: blanchedalmond;">
-                              <div class="" style=" padding-top: 2vh" >
-                                <div class="first-text-get">GET</div>
+                              <div class="" style=" padding-top: 5vh;" >
+                                <span class="first-text-get">GET</span>
                                 <span class="first-text-your" style="color: #fff;"> YOUR</span>
                                 <span class="first-text-game"> GAME</span>
                                 <span class="first-text-on" style="color: #fff;"> ON</span>
