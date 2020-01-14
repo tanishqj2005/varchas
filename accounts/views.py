@@ -59,7 +59,7 @@ def DisplayTeam(request):
     user = get_object_or_404(UserProfile, user=request.user)
     teamId = user.teamId
     team = get_object_or_404(TeamRegistration, teamId=teamId)
-    return render(request, 'accounts/myTeam.html', {'profile_team': team})
+    return render(request, 'accounts/myTeam.html', {'profile_team': team, 'profile_user': user})
 
 
 def joinTeam(request):

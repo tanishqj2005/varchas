@@ -5,25 +5,47 @@
 
   {% csrf_token %}
   <!-- Profile -->
-  <div class="cta"  style="margin-top: 0px">
-    <div  style="padding: 100px" class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
+  <div class="cta" style=" ">
+    <div  style="padding: 100px;padding-top: 30px" class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
 
-      <div style="margin-top: 10vh;" class="cta_image align-self-stretch">
-        <div class="background_image" style="background-image:url(../../static/images/v1.jpeg)"></div>
-        <div class="overlay" style="background-color: rgba(0,0,0,0.75)"></div>
-      </div>
 
-      <div class="cta_content">
-        <div class="section_title_container">
+      <div class="cta_content" style="width: 100%;margin-top: 1vh; background-color: #211d1d;border-radius: 20px">
+        <div class="section_title_container" style="">
           <div class="section_subtitle">Profile</div>
-          <div class="section_title"><h1>{{profile_user.user.username}} </h1></div>
-          <div class="section_subtitle" style="padding-top: 1vh"><h2 style="color: #c0c0c0">{{ profile_user.college }}</h2></div>
-          <div class="section_subtitle" style="padding-top: 3vh"><h3 style="color: #c0c0c0">{{ profile_user.city }},{{ profile_user.get_state_display }}</h3></div>
-          <div class="section_subtitle" style="padding-top: 1vh"><h3 style="color: #c0c0c0">{{ profile_user.phone }}</h3></div>
 
+          <div class="section_title"><h1 style="padding: 2vh;opacity: 0;
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">{{profile_user.user.username}}</h1></div>
+          <div class="section_subtitle" style="padding-top: 3vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">College : {{ profile_user.college }}</h3></div>
+          <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">Addres : {{ profile_user.city }},{{ profile_user.get_state_display }}</h3></div>
+          <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">Phone : {{ profile_user.phone }}</h3></div>
+        </div>
+      <div style="padding-left: 4vh;padding-top: 10vh !important;;opacity: 0;
+  animation-name: fadeInOut;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">
+      <div class="row">
+         <div class="button" ><a href="{% if profile_user.teamId != "NULL" %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">{% if profile_user.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}</a></div>
+      {% if profile_user.teamId == "NULL" %}
+        <div style="padding-left: 10vh">
+         <div class="button"><a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>
         </div>
 
+       {% endif %}
+      </div>
 
+      </div>
       </div>
     </div>
   </div>
