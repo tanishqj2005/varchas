@@ -4,7 +4,7 @@ from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBrie
 
 
 class IndexView(TemplateView):
-    template_name = 'main/index.html'
+    template_name = 'main/comingSoon.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
