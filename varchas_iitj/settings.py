@@ -24,7 +24,10 @@ SECRET_KEY = ')(ua(wy^=az#k^%=qpszc%ltzx0j5%7n2rzfuj*ysqjn^g!hl)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['varchas2020.org', '68.183.85.194', 'www.varchas2020.org']
+
+ALLOWED_HOSTS = ['varchas2020.org', '68.183.85.194',
+                 'www.varchas2020.org', '127.0.0.1']
+
 
 # Application definition
 
