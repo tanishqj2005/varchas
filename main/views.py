@@ -8,7 +8,8 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['carousel'] = HomeImageCarousel.objects.filter(active=True).order_by('ordering')
+        context['carousel'] = HomeImageCarousel.objects.filter(
+            active=True).order_by('ordering')
         context['event_list'] = HomeEventCard.objects.all
         context['brief_list'] = HomeBriefCard.objects.all
         return context

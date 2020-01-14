@@ -6,10 +6,35 @@ from django.template.defaultfilters import slugify
 from django.core.exceptions import ValidationError
 
 
+class ourTeam(models.Model):
+    GENDER_CHOICES = (
+        ('1', 'Festival Cheif'),
+        ('2', 'Creativity'),
+        ('3', 'Informals'),
+        ('4', 'Marathon'),
+        ('5', 'Marketing'),
+        ('6', 'Public Relations and Hospitality'),
+        ('7', 'Publicity and Media'),
+        ('8', 'Pronite'),
+        ('9', 'Resources'),
+        ('10', 'Security'),
+        ('11', 'SOCH'),
+        ('12', 'Sport Events'),
+        ('13', 'Transport'),
+        ('14', 'Web and APP'),
+    )
+    # name =
+
+    def __init__(self, arg):
+        super(ourTeam, self).__init__()
+        self.arg = arg
+
+
 class HomeImageCarousel(models.Model):
     ordering = models.PositiveIntegerField(default=64)
     title = models.CharField(max_length=64)
-    image = models.ImageField(upload_to='homepage-carousel', blank=True, null=True)
+    image = models.ImageField(
+        upload_to='homepage-carousel', blank=True, null=True)
     active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -18,7 +43,8 @@ class HomeImageCarousel(models.Model):
 
 class HomeEventCard(models.Model):
     name = models.CharField(max_length=64)
-    image = models.ImageField(upload_to='homepage-events', blank=True, null=True)
+    image = models.ImageField(
+        upload_to='homepage-events', blank=True, null=True)
     link = models.URLField()
 
     def __str__(self):
@@ -42,7 +68,8 @@ class NavBarSubOptions(models.Model):
 
     def clean(self):
         if self.use_custom_html and not self.custom_html:
-            raise ValidationError('Custom HTML should be present with Use custom html option')
+            raise ValidationError(
+                'Custom HTML should be present with Use custom html option')
 
     def __str__(self):
         return self.title
