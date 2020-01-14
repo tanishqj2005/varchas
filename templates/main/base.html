@@ -51,8 +51,87 @@
     opacity: 1;
   }
 }
+@keyframes topFadeOutVertical1 {
+  0% {
+    position: absolute;
+    top: 200%;
+    left: 58%;
+    opacity: 0;
+  }
+  65% {
+    position: absolute;
+    top: 500%;
+    left: 58%;
+    opacity: 0;
+  }
 
+  85% {
+    position: absolute;
+    left: 58%;
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    position: absolute;
+    left: 58%;
+    top: 100%;
+    opacity: 1;
+  }
+}
+@keyframes topFadeOutVertical2 {
+  0% {
+    position: absolute;
+    top: 200%;
+    left: 45%;
+    opacity: 0;
+  }
+  65% {
+    position: absolute;
+    top: 200%;
+    left: 55%;
+    opacity: 0;
+  }
 
+  85% {
+    position: absolute;
+    left: 76%;
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    position: absolute;
+    left: 76%;
+    top: 100%;
+    opacity: 1;
+  }
+}
+@keyframes topFadeOutVertical3 {
+  0% {
+    position: absolute;
+    top: -200%;
+    left: 94%;
+    opacity: 0;
+  }
+  65% {
+    position: absolute;
+    top: -200%;
+    left: 94%;
+    opacity: 0;
+  }
+
+  85% {
+    position: absolute;
+    left: 94%;
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    position: absolute;
+    left: 94%;
+    top: 100%;
+    opacity: 1;
+  }
+}
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -68,7 +147,8 @@
 
 }
 
-.first-text {
+.first-text-get {
+  padding-top: 7vh;
   font-size: 4.4rem;
   position: relative;
   opacity: 0;
@@ -79,7 +159,43 @@
   animation-fill-mode:forwards;
   color:#ff7315;
 }
+.first-text-your {
+    padding-top: 7vh;
+  font-size: 4.4rem;
+  position: relative;
+  opacity: 0;
+  top: -200%;
+  animation-name: topFadeOutVertical1;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-fill-mode:forwards;
+  color:#fff;
+}
+.first-text-game {
+    padding-top: 7vh;
+  font-size: 4.4rem;
+  position: relative;
+  opacity: 0;
+  top: -200%;
+  animation-name: topFadeOutVertical2;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-fill-mode:forwards;
+  color:#ff7315;
+}
+.first-text-on {
+    padding-top: 7vh;
 
+  font-size: 4.4rem;
+  position: relative;
+  opacity: 0;
+  top: -200%;
+  animation-name: topFadeOutVertical3;
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-fill-mode:forwards;
+  color:#fff;
+}
 
 .second-text {
   font-size: 3.4rem;
