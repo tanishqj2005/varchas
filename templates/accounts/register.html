@@ -10,7 +10,6 @@
   <style>
     select {
       outline: none;
-  border-radius: 22px;
 	margin: 0 auto;
 	color: #ff7315;
   border-color: white;
@@ -29,10 +28,13 @@ select:hover {
 
 select option {
 	background-color: white;
-	color: gray;
+	color: white;
 	width: 100%;
   border-radius: 22px;
-	padding: 10px 15px;
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px;
 	cursor: pointer;
 }
 
@@ -104,6 +106,8 @@ select option:hover {
               {% with value=field.value %}
                 {% for object in field %}
                   <option
+
+                          style="background-color: #ff7315;"
                           value=""
                           class=""
                           {% if object.choice_label == value %}selected="selected"{% endif %}
