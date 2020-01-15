@@ -9,9 +9,12 @@ from registration.models import CampusAmbassador
 
 
 class RegisterForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' ', 'icon': 'a'}), required=True)
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={'type': 'text', 'placeholder': ' ', 'icon': 'a'}), required=True)
+    last_name = forms.CharField(widget=forms.TextInput(
+        attrs={'type': 'text', 'placeholder': ' '}), required=True)
+    first_name = forms.CharField(widget=forms.TextInput(
+        attrs={'type': 'text', 'placeholder': ' '}), required=True)
     email = forms.EmailField(
         widget=forms.TextInput(attrs={'type': 'email', 'maxlength': '254', 'placeholder': ' ', 'autocomplete': 'off'}))
 
@@ -33,25 +36,29 @@ class RegisterForm(UserCreationForm):
     gender = forms.ChoiceField(choices=UserProfile.GENDER_CHOICES, required=True,
                                widget=forms.Select(attrs={'class': 'mdb-select'}))
     college = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'mdb-autocomplete', 'maxlength': '128', 'placeholder': ' '}),
+        widget=forms.TextInput(
+            attrs={'class': 'mdb-autocomplete', 'maxlength': '128', 'placeholder': ' '}),
         required=True)
     current_year = forms.ChoiceField(choices=UserProfile.YEAR_CHOICES, required=True,
                                      widget=forms.Select(attrs={}))
     address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ' ', 'maxlength': '128'}),
                               required=True)
     city = forms.CharField(widget=forms.TextInput(attrs={'class': 'mdb-autocomplete',
-                           'maxlength': '128', 'placeholder': ' '}), required=False)
+                                                         'maxlength': '128', 'placeholder': ' '}), required=False)
     state = forms.ChoiceField(choices=UserProfile.STATE_CHOICES, required=True,
                               widget=forms.Select(attrs={'class': 'mdb-select'}))
 
-    accommodation_required = forms.BooleanField(widget=forms.CheckboxInput(), required=False)
-    referred_by = forms.CharField(max_length=8, required=False, widget=forms.TextInput(attrs={'placeholder': ' '}))
+    accommodation_required = forms.BooleanField(
+        widget=forms.CheckboxInput(), required=False)
+    referred_by = forms.CharField(
+        max_length=8, required=False, widget=forms.TextInput(attrs={'placeholder': ' '}))
 
     # captcha = NoReCaptchaField(gtag_attrs={'data-size': 'compact'})
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name',
+                  'email', 'password1', 'password2']
 
     def clean_first_name(self):
         _dict = super(RegisterForm, self).clean()
@@ -71,7 +78,8 @@ class RegisterForm(UserCreationForm):
         if self.data['referred_by'] == '':
             return None
         elif not CampusAmbassador.objects.filter(referral_code=_referred_by).exists():
-            raise forms.ValidationError('This is not a valid referral code, check again or leave blank')
+            raise forms.ValidationError(
+                'This is not a valid referral code, check again or leave blank')
         return CampusAmbassador.objects.get(referral_code=_referred_by)
 
     def __init__(self, *args, **kwargs):

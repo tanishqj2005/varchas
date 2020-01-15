@@ -9,14 +9,16 @@ class IndexView(TemplateView):
     template_name = 'main/index.html'
 
     def get_context_data(self, **kwargs):
-        user = get_object_or_404(
-            UserProfile, user=self.request.user)
+        if self.request.user.username != "":
+            userprofile = get_object_or_404(
+                UserProfile, user=self.request.user)
         context = super(IndexView, self).get_context_data(**kwargs)
         context['carousel'] = HomeImageCarousel.objects.filter(
             active=True).order_by('ordering')
         context['event_list'] = HomeEventCard.objects.all
         context['brief_list'] = HomeBriefCard.objects.all
-        context['userprofile'] = user
+        if self.request.user.username != "":
+            context['userprofile'] = userprofile
         return context
 
 
