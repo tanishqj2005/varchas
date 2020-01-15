@@ -192,7 +192,7 @@ iframe {
 
 .wrap-login100 {
   width: 960px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.75);
   border-radius: 10px;
   overflow: hidden;
 
@@ -205,7 +205,44 @@ iframe {
   justify-content: space-between;
   padding: 177px 130px 33px 95px;
 }
+    select {
+      outline: none;
+	margin: 0 auto;
+	color: #ff7315;
+  border-color: white;
+	width: 100%;
+	padding: 15px;
 
+	cursor: pointer;
+	background: #e6e6e6;
+}
+
+select:hover {
+	background-color: #ff7315;
+	color: white;
+	padding: 15px 5px 15px 25px;
+}
+
+select option {
+	background-color: white;
+	color: white;
+	width: 100%;
+  border-radius: 22px;
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px;
+	cursor: pointer;
+}
+
+select option:hover {
+	padding-left: 25px;
+	width: 270px;
+   z-index: 500;
+  box-shadow: 0 0 10px 100px #232020 inset;
+  background-color: #232020;
+	color: #EC6F66;
+}
 /*------------------------------------------------------------------
 [  ]*/
 .login100-pic {

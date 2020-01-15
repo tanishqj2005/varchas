@@ -25,16 +25,16 @@
     <!--===============================================================================================-->
   </head>
 
-  <body>
+  <body style="background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) no-repeat; background-size: 100% 125%;">
 
     <div class="limiter">
       <div class="container-login100">
-        <div class="wrap-login100">
+        <div class="wrap-login100" style="padding-top: 20vh;padding-bottom: 20vh;">
           <div class="login100-pic js-tilt" data-tilt>
             <img src="{% static 'images/img-01.png' %}" alt="IMG">
           </div>
 
-          <form class="login100-form validate-form" action="" method="post" id="login" autocomplete="off">
+          <form class="login100-form validate-form text-center" action="" method="post" id="login" autocomplete="off">
             <span class="login100-form-title">
               Team Registration
             </span>
@@ -69,7 +69,24 @@
               </span>
             </div>
             {% elif field.label == "Sport" %}
-            {{field.label}}: {{field}}<br><br>
+            <span  style="color: black;"> {{ field.label }}</span>
+            <div style="padding-bottom: 2vh;padding-top: 1vh">
+            <select style="border: none">
+              {% with value=field.value %}
+                {% for object in field %}
+                  <option
+
+                          style="background-color: #ff7315;"
+                          value=""
+                          class=""
+                          {% if object.choice_label == value %}selected="selected"{% endif %}
+                  >
+                    {{ object.choice_label }}
+                  </option>
+                {% endfor %}
+              {% endwith %}
+            </select>
+            </div>
             {% endif %}
             {% endfor %}
 
