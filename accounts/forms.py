@@ -9,7 +9,7 @@ from registration.models import CampusAmbassador
 
 
 class RegisterForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
+    username = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' ', 'icon': 'a'}), required=True)
     last_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
     first_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'placeholder': ' '}), required=True)
     email = forms.EmailField(
@@ -73,6 +73,20 @@ class RegisterForm(UserCreationForm):
         elif not CampusAmbassador.objects.filter(referral_code=_referred_by).exists():
             raise forms.ValidationError('This is not a valid referral code, check again or leave blank')
         return CampusAmbassador.objects.get(referral_code=_referred_by)
+
+    def __init__(self, *args, **kwargs):
+        super(RegisterForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['icon_name'] = "fa fa-id-card"
+        self.fields['first_name'].widget.attrs['icon_name'] = "fa fa-user"
+        self.fields['last_name'].widget.attrs['icon_name'] = "fa fa-user"
+        self.fields['email'].widget.attrs['icon_name'] = "fa fa-envelope"
+        self.fields['password1'].widget.attrs['icon_name'] = "fa fa-lock"
+        self.fields['password2'].widget.attrs['icon_name'] = "fa fa-lock"
+        self.fields['phone'].widget.attrs['icon_name'] = "fa fa-phone"
+        self.fields['college'].widget.attrs['icon_name'] = "fa fa-university"
+        self.fields['address'].widget.attrs['icon_name'] = "fa fa-map"
+        self.fields['city'].widget.attrs['icon_name'] = "fa fa-map-marker"
+        self.fields['referred_by'].widget.attrs['icon_name'] = "fa fa-id-badge"
 
 
 class PasswordResetCaptchaForm(PasswordResetForm):
