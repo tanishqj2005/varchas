@@ -42,7 +42,7 @@
             <img src="{% static 'images/img-01.png' %}" alt="IMG">
           </div>
 
-          <form class="login100-form validate-form text-center" action="" method="post" id="login" autocomplete="off">
+          <form class="login100-form validate-form " action="" method="post" id="login" autocomplete="off">
             <span class="login100-form-title">
               Sign Up
             </span>
@@ -67,19 +67,10 @@
             {% csrf_token %}
             {% for field in form %}
             {% if field.label == "State" or field.label == "Gender" or  field.label == "Current year"  %}
-            <!-- <span style="color: grey"> {{ field.label }}</span> -->
+            <div style="padding-top: 1vh;padding-bottom: 2vh">
             {{ field.label }} : {{field}}
-            <!-- <div style="padding-bottom: 2vh">
-              <select>
-                {% with value=field.value %}
-                {% for object in field %}
-                <option style="background-color: #ff7315;" value="" class="" {% if object.choice_label == value %}selected="selected" {% endif %}>
-                  {{ object.choice_label }}
-                </option>
-                {% endfor %}
-                {% endwith %}
-              </select>
-            </div> -->
+            </div>
+
             {% elif field.label == "Accommodation required" %}
             {{ field.label }}:{{ field }}
             {% else %}

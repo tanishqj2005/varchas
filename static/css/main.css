@@ -221,7 +221,7 @@ select:hover {
 
 select option {
 	background-color: white;
-	color: white;
+	color: #ff7315;
 	width: 100%;
   border-radius: 22px;
   -webkit-appearance: none;
