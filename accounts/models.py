@@ -71,8 +71,10 @@ class UserProfile(models.Model):
     # Model
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=10, validators=[contact])
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')
-    current_year = models.CharField(max_length=1, choices=YEAR_CHOICES, default='1')
+    gender = models.CharField(
+        max_length=1, choices=GENDER_CHOICES, default='M')
+    current_year = models.CharField(
+        max_length=1, choices=YEAR_CHOICES, default='1')
     college = models.CharField(max_length=128)
     address = models.CharField(max_length=128)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
@@ -87,14 +89,6 @@ class UserProfile(models.Model):
     qr_code = models.ImageField(upload_to='qr_code', blank=True, null=True)
     events_registered = models.ManyToManyField(Event, blank=True)
     teamId = models.CharField(max_length=10, default="NULL")
-    # workshops_registered =
 
     def __str__(self):
         return self.user.username
-
-# def set_new_user_rg_number(sender, instance, **kwargs):
-#     if instance._state.adding is True:
-#         instance.username = unique_rg_number(instance)
-#
-#
-# pre_save.connect(set_new_user_rg_number, sender=User)

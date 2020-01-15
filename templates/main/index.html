@@ -178,13 +178,16 @@
     margin: 0 auto !important;
     height: 100%;
     width: auto;
+
   }
 }
 
-@media screen and (min-width: 1295px) {
+@media screen and (min-width: 30em) {
   video {
-    margin: 0 auto !important;
+
+    margin-left: -80vh;
     width: 100%;
+    left: 50%;
   }
 }
 
@@ -222,7 +225,7 @@
     </header>
     <!-- About -->
 
-  <div id="about" class="about" style="margin-top: -10px">
+  <div id="about" class="about" style="margin-top: -10px;background-color: #232020">
     <div class="container">
       <div class="row">
 
@@ -230,7 +233,7 @@
         <div class="col-lg-8">
           <div class="about_content">
             <div class="section_title_container">
-              <div class="section_title"><h1>about varchas</h1></div>
+              <div class="section_title"><h1 style="color: white">about varchas</h1></div>
             </div>
             <div class="about_text" >
               <p>“Varchas” is the annual fest of IIT Jodhpur. Being the largest sports fest of
@@ -254,15 +257,15 @@
 
   <!-- Quote -->
 
-  <div class="quote">
+  <div class="quote" style="background-color: #232020">
     <div class="container">
       <div class="row">
         <div class="col">
           <div class="quote_content text-center">
-            <p>“Training gives us an outlet for suppressed energies created by stress and thus tones the
+            <p style="color: lightgrey">“Training gives us an outlet for suppressed energies created by stress and thus tones the
               spirit just as exercise conditions the body.”</p>
           </div>
-          <div class="quote_author text-center">– Arnold Schwarzenegger</div>
+          <div class="quote_author text-center" style="color: lightgrey">– Arnold Schwarzenegger</div>
         </div>
       </div>
     </div>
@@ -318,141 +321,38 @@ poker nights and other recreational informal events..</span>
   </div>
 
   <!-- Classes -->
-  <div class="classes" style="margin-top: 0;padding-top: 0">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="section_title_container text-center">
-
-            <div class="section_title"  style="margin-top: 0;padding-top: 0;color: rgba(39,39,39,0.95)"  >
-              <span style="font-size: 14vw; font-family:tosca_zeroregular;margin-right: -120px">
-                                     </span>
-                  <span style="font-size: 8vw;font-family:tosca_zeroregular">
-                  </span>
-
-                <span style="font-size: 14vw; font-family:technomaregular;margin-left: -50px"></span>
-              </div>
-
-  {% include 'main/mixins/brief_main_mixin.html' with brief_list=brief_list %}
-  <div class="image-holder">
-  <img class="background-image" alt="" src="">
-   <div class="responsive-overlay">
-     <div class="hover-state text-center preserve3d">
-       <div class="social-links vertical-align">
-
-       </div>
-     </div>
-   </div>
- </div>
-              
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-  <!-- Pricing -->
-{##}
-{#  <div class="pricing">#}
-{#    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/pricing.jpg"#}
-{#         data-speed="0.8"></div>#}
+{#  <div class="classes" style="margin-top: 0;padding-top: 0">#}
 {#    <div class="container">#}
 {#      <div class="row">#}
 {#        <div class="col">#}
 {#          <div class="section_title_container text-center">#}
-{#            <div class="section_subtitle">our programs</div>#}
-{#            <div class="section_title"><h1>pricing</h1></div>#}
-{#          </div>#}
-{#          <div class="pricing_slider_container">#}
-{#            <div class="owl-carousel owl-theme pricing_slider">#}
 {##}
-{#              <!-- Slide -->#}
-{#              <div>#}
-{#                <div class="pricing_box text-center">#}
-{#                  <div class="pricing_title_box">#}
-{#                    <div>#}
-{#                      <div class="pricing_name">beginner</div>#}
-{#                      <div class="pricing_price">Free</div>#}
-{#                      <div class="pricing_per">1 day</div>#}
-{#                    </div>#}
-{#                  </div>#}
-{#                  <div class="pricing_content">#}
-{#                    <div class="pricing_list">#}
-{#                      <ul>#}
-{#                        <li>2 E-mail Addresess</li>#}
-{#                        <li>25 GB Space</li>#}
-{#                        <li>24h Live Support</li>#}
-{#                        <li>Documetation inside</li>#}
-{#                        <li>SEO Plan</li>#}
-{#                      </ul>#}
-{#                    </div>#}
-{#                    <div class="pricing_info"><a href="#">i</a></div>#}
-{#                    <div class="button pricing_button ml-auto mr-auto"><a href="#">order plan</a>#}
-{#                    </div>#}
-{#                  </div>#}
-{#                </div>#}
+{#            <div class="section_title"  style="margin-top: 0;padding-top: 0;color: rgba(39,39,39,0.95)"  >#}
+{#              <span style="font-size: 14vw; font-family:tosca_zeroregular;margin-right: -120px">#}
+{#                                     </span>#}
+{#                  <span style="font-size: 8vw;font-family:tosca_zeroregular">#}
+{#                  </span>#}
+{##}
+{#                <span style="font-size: 14vw; font-family:technomaregular;margin-left: -50px"></span>#}
 {#              </div>#}
 {##}
-{#              <!-- Slide -->#}
-{#              <div>#}
-{#                <div class="pricing_box text-center pricing_box_alt">#}
-{#                  <div class="pricing_title_box">#}
-{#                    <div>#}
-{#                      <div class="pricing_name">beginner</div>#}
-{#                      <div class="pricing_price">$29<span>90</span></div>#}
-{#                      <div class="pricing_per">Per Month</div>#}
-{#                    </div>#}
-{#                  </div>#}
-{#                  <div class="pricing_content">#}
-{#                    <div class="pricing_list">#}
-{#                      <ul>#}
-{#                        <li>2 E-mail Addresess</li>#}
-{#                        <li>25 GB Space</li>#}
-{#                        <li>24h Live Support</li>#}
-{#                        <li>Documetation inside</li>#}
-{#                        <li>SEO Plan</li>#}
-{#                      </ul>#}
-{#                    </div>#}
-{#                    <div class="pricing_info"><a href="#">i</a></div>#}
-{#                    <div class="button_2 pricing_button ml-auto mr-auto"><a href="#">order plan</a>#}
-{#                    </div>#}
-{#                  </div>#}
-{#                </div>#}
-{#              </div>#}
+{#  {% include 'main/mixins/brief_main_mixin.html' with brief_list=brief_list %}#}
+{#  <div class="image-holder">#}
+{#  <img class="background-image" alt="" src="">#}
+{#   <div class="responsive-overlay">#}
+{#     <div class="hover-state text-center preserve3d">#}
+{#       <div class="social-links vertical-align">#}
 {##}
-{#              <!-- Slide -->#}
-{#              <div>#}
-{#                <div class="pricing_box text-center">#}
-{#                  <div class="pricing_title_box">#}
-{#                    <div>#}
-{#                      <div class="pricing_name">beginner</div>#}
-{#                      <div class="pricing_price">$59<span>90</span></div>#}
-{#                      <div class="pricing_per">Per Month</div>#}
-{#                    </div>#}
-{#                  </div>#}
-{#                  <div class="pricing_content">#}
-{#                    <div class="pricing_list">#}
-{#                      <ul>#}
-{#                        <li>2 E-mail Addresess</li>#}
-{#                        <li>25 GB Space</li>#}
-{#                        <li>24h Live Support</li>#}
-{#                        <li>Documetation inside</li>#}
-{#                        <li>SEO Plan</li>#}
-{#                      </ul>#}
-{#                    </div>#}
-{#                    <div class="pricing_info"><a href="#">i</a></div>#}
-{#                    <div class="button pricing_button ml-auto mr-auto"><a href="#">order plan</a>#}
-{#                    </div>#}
-{#                  </div>#}
-{#                </div>#}
-{#              </div>#}
-{##}
-{#            </div>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
+{#       </div>#}
+{#     </div>#}
+{#   </div>#}
+{# </div>#}
+{#              #}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
 
   <!-- Footer -->
 
@@ -461,20 +361,20 @@ poker nights and other recreational informal events..</span>
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="footer_logo text-center"><a href="#"><img src="images/logo_3.png" alt=""></a></div>
+            <div class=" text-center" style="font-size: 7vh;color: white">Contact Us</div>
           </div>
         </div>
         <div class="row footer_row">
           <div class="col-lg-4 footer_col">
             <div class="footer_item text-center">
               <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><img src="images/phone.png" alt=""></div>
+                <div><i class="fa fa-phone fa-4x" style="color: white"></i></div>
               </div>
               <div class="footer_title">talk to us</div>
               <div class="footer_list">
                 <ul>
-                  <li>+34 5667 4332 244</li>
-                  <li>+224 667 889</li>
+                  <li>+91 87664 43560 - ASHISH CHAVHAN</li>
+                  <li>+91 83404 60791 -  MANISH</li>
                 </ul>
               </div>
             </div>
@@ -482,13 +382,13 @@ poker nights and other recreational informal events..</span>
           <div class="col-lg-4 footer_col">
             <div class="footer_item text-center">
               <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><img src="images/mail.png" alt=""></div>
+                <div><i class="fa fa-envelope fa-4x" style="margin-left: -1vh;margin-top:-1vh;color: white"></i></div>
               </div>
               <div class="footer_title">e-mail</div>
               <div class="footer_list">
                 <ul>
-                  <li>Contact@sportify25.com</li>
-                  <li>office@sportify25.com</li>
+                  <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a></li>
+                  <li><a href="mailto:pr_varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
                 </ul>
               </div>
             </div>
@@ -496,13 +396,13 @@ poker nights and other recreational informal events..</span>
           <div class="col-lg-4 footer_col">
             <div class="footer_item text-center">
               <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><img src="images/contact.png" alt=""></div>
+                <div><i class="fa fa-map-marker fa-4x" style="color: white;margin-top: -1vh"></i></div>
               </div>
               <div class="footer_title">location</div>
               <div class="footer_list">
                 <ul>
-                  <li>MAin str. 25</li>
-                  <li>458811 CA</li>
+                  <li>Indian Institute of Technology</li>
+                  <li>JODHPUR</li>
                 </ul>
               </div>
             </div>
@@ -515,7 +415,7 @@ poker nights and other recreational informal events..</span>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         Copyright &copy;<script>document.write(new Date().getFullYear());</script>
         All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-              href="https://colorlib.com" target="_blank">Colorlib</a>
+              href="https://colorlib.com" target="_blank">Varchas Web D Team</a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
     </div>
   </footer>

@@ -6,6 +6,10 @@
   <head>
     <title>Sign Up</title>
     <meta charset="UTF-8">
+    <script></script>
+    <style>
+
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}" />
@@ -28,13 +32,17 @@
   <body>
 
     <div class="limiter">
-      <div class="container-login100">
-        <div class="wrap-login100">
+      <div class="container-login100" style="background: #000000;
+  background: -webkit-linear-gradient(-135deg, #333333, #000000);
+  background: -o-linear-gradient(-135deg, #333333, #000000);
+  background: -moz-linear-gradient(-135deg, #333333, #000000);
+  background: linear-gradient(-135deg, #333333, #000000);">
+        <div class="wrap-login100" style="background: white">
           <div class="login100-pic js-tilt" data-tilt>
             <img src="{% static 'images/img-01.png' %}" alt="IMG">
           </div>
 
-          <form class="login100-form validate-form" action="" method="post" id="login" autocomplete="off">
+          <form class="login100-form validate-form " action="" method="post" id="login" autocomplete="off">
             <span class="login100-form-title">
               Sign Up
             </span>
@@ -58,17 +66,22 @@
 
             {% csrf_token %}
             {% for field in form %}
-            {% if field.label == "State" or field.label == "Gender" or  field.label == "Current year" or field.label == "Referred by" or field.label == "Accommodation required" %}
-            {{ field.label }}: {{field}}
+            {% if field.label == "State" or field.label == "Gender" or  field.label == "Current year"  %}
+            <div style="padding-top: 1vh;padding-bottom: 2vh">
+            {{ field.label }} : {{field}}
+            </div>
+
+            {% elif field.label == "Accommodation required" %}
+            {{ field.label }}:{{ field }}
             {% else %}
-            <div class="wrap-input100 validate-input">
-              {{ field.label }}: {{field}}
-              <!-- <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
-                         placeholder="{{ field.label }}">
-                  <span class="focus-input100"></span>
-                  <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                  </span> -->
+            <div class="wrap-input100" style="position:relative;">
+              {#              {{ field.label }}: {{field}}#}
+
+              <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" placeholder="{{ field.label }}">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
+              </span>
             </div>
             {% endif %}
             {% endfor %}

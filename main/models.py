@@ -4,12 +4,43 @@ from django.db.models.signals import pre_save
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
+
+
+class ourTeam(models.Model):
+    POSITION_CHOICES = (
+        ('1', 'Festival Cheif'),
+        ('2', 'Creativity'),
+        ('3', 'Informals'),
+        ('4', 'Marathon'),
+        ('5', 'Marketing'),
+        ('6', 'Public Relations and Hospitality'),
+        ('7', 'Publicity and Media'),
+        ('8', 'Pronite'),
+        ('9', 'Resources'),
+        ('10', 'Security'),
+        ('11', 'SOCH'),
+        ('12', 'Sport Events'),
+        ('13', 'Transport'),
+        ('14', 'Web and APP'),
+    )
+    contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
+
+    name = models.CharField(max_length=20)
+    phone = models.CharField(max_length=10, validators=[contact])
+    position = models.CharField(max_length=2, choices=POSITION_CHOICES)
+    picture = models.ImageField(
+        upload_to='teamPics/', blank=True, null=True, default="teamPics/default.jpg")
+
+    def __str__(self):
+        return self.name
 
 
 class HomeImageCarousel(models.Model):
     ordering = models.PositiveIntegerField(default=64)
     title = models.CharField(max_length=64)
-    image = models.ImageField(upload_to='homepage-carousel', blank=True, null=True)
+    image = models.ImageField(
+        upload_to='homepage-carousel', blank=True, null=True)
     active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -18,7 +49,8 @@ class HomeImageCarousel(models.Model):
 
 class HomeEventCard(models.Model):
     name = models.CharField(max_length=64)
-    image = models.ImageField(upload_to='homepage-events', blank=True, null=True)
+    image = models.ImageField(
+        upload_to='homepage-events', blank=True, null=True)
     link = models.URLField()
 
     def __str__(self):
@@ -42,7 +74,8 @@ class NavBarSubOptions(models.Model):
 
     def clean(self):
         if self.use_custom_html and not self.custom_html:
-            raise ValidationError('Custom HTML should be present with Use custom html option')
+            raise ValidationError(
+                'Custom HTML should be present with Use custom html option')
 
     def __str__(self):
         return self.title
