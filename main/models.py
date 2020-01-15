@@ -4,10 +4,11 @@ from django.db.models.signals import pre_save
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
 
 
 class ourTeam(models.Model):
-    GENDER_CHOICES = (
+    POSITION_CHOICES = (
         ('1', 'Festival Cheif'),
         ('2', 'Creativity'),
         ('3', 'Informals'),
@@ -23,11 +24,16 @@ class ourTeam(models.Model):
         ('13', 'Transport'),
         ('14', 'Web and APP'),
     )
-    # name =
+    contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
 
-    def __init__(self, arg):
-        super(ourTeam, self).__init__()
-        self.arg = arg
+    name = models.CharField(max_length=20)
+    phone = models.CharField(max_length=10, validators=[contact])
+    position = models.CharField(max_length=2, choices=POSITION_CHOICES)
+    picture = models.ImageField(
+        upload_to='teamPics/', blank=True, null=True, default="teamPics/default.jpg")
+
+    def __str__(self):
+        return self.name
 
 
 class HomeImageCarousel(models.Model):

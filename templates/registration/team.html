@@ -2,12 +2,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <title>Login V1</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+    <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
     <!--===============================================================================================-->
@@ -22,37 +23,38 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <!--===============================================================================================-->
-</head>
-<body>
+  </head>
 
-<div class="limiter">
-    <div class="container-login100">
+  <body>
+
+    <div class="limiter">
+      <div class="container-login100">
         <div class="wrap-login100">
-            <div class="login100-pic js-tilt" data-tilt>
-                <img src="{% static 'images/img-01.png' %}" alt="IMG">
-            </div>
+          <div class="login100-pic js-tilt" data-tilt>
+            <img src="{% static 'images/img-01.png' %}" alt="IMG">
+          </div>
 
-            <form class="login100-form validate-form" action="" method="post" id="login" autocomplete="off">
-					<span class="login100-form-title">
-						Team Registration
-					</span>
+          <form class="login100-form validate-form" action="" method="post" id="login" autocomplete="off">
+            <span class="login100-form-title">
+              Team Registration
+            </span>
 
 
 
             {% csrf_token %}
             {% if form.errors %}
-              {% for field in form %}
-                {% for error in field.errors %}
-                  <div class="alert alert-danger">
-                    <strong>{{ error|escape }}</strong>
-                  </div>
-                {% endfor %}
-              {% endfor %}
-              {% for error in form.non_field_errors %}
-                <div class="alert alert-danger">
-                  <strong>{{ error|escape }}</strong>
-                </div>
-              {% endfor %}
+            {% for field in form %}
+            {% for error in field.errors %}
+            <div class="alert alert-danger">
+              <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+              <strong>{{ error|escape }}</strong>
+            </div>
+            {% endfor %}
             {% endif %}
 
 
@@ -60,8 +62,7 @@
             {% for field in form %}
             {% if field.label != "Captian" and field.label != "Sport" %}
             <div class="wrap-input100 validate-input">
-              <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
-                     placeholder="{{ field.label }}" required autofocus>
+              <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" placeholder="{{ field.label }}" required autofocus>
               <span class="focus-input100"></span>
               <span class="symbol-input100">
                 <i class="{% if field.name == "password" %}fa fa-lock{% else %}fa fa-envelope{% endif %}" aria-hidden="true"></i>
@@ -73,42 +74,43 @@
             {% endfor %}
 
 
-                {% if messages %}
-                    {% for message in messages %}
-                        {% if 'register-success' in message.tags %}
-                            <div class="form-header green mb-4">{{ message }}</div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
+            {% if messages %}
+            {% for message in messages %}
+            {% if 'register-success' in message.tags %}
+            <div class="form-header green mb-4">{{ message }}</div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
 
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        Register
-                    </button>
-                </div>
-            </form>
+            <div class="container-login100-form-btn">
+              <button class="login100-form-btn">
+                Register
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
 
-<!--===============================================================================================-->
-<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
-<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
-<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
-<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-<!--===============================================================================================-->
-<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
-<script>
-    $('.js-tilt').tilt({
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+    <!--===============================================================================================-->
+    <script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+    <script>
+      $('.js-tilt').tilt({
         scale: 1.1
-    })
-</script>
-<!--===============================================================================================-->
-<script src="{% static 'js/main.js' %}"></script>
+      })
+    </script>
+    <!--===============================================================================================-->
+    <script src="{% static 'js/main.js' %}"></script>
 
-</body>
+  </body>
+
 </html>
 {#<!DOCTYPE html>#}
 {#<html lang="en" dir="ltr">#}
