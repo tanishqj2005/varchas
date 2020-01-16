@@ -1,3 +1,17 @@
+<style>
+ @media screen and (min-width: 350px) {
+
+    div.card1{
+      top: 60%;
+    }
+}
+    @media screen and (min-width: 700px) {
+
+    div.card1{
+      top: 70%;
+    }
+}
+</style>
 <div class="intro">
   <div class="intro_boxes_wrap">
       <div class="d-flex flex-row align-items-start justify-content-start flex-wrap" style="height: auto">
@@ -6,10 +20,10 @@
         <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% url 'accounts:register' %}">
-            <img src="{{ event.image }}" style="background-size: cover;width: 100%;
-  height:440px;">
+            <img src="{{ event.image }}" style="background-size: contain;width: 100%;
+  height:auto;">
             <div class="overlay">
-              <div class="intro_box_title" style="position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
                   <h2 style="color: #353535;font-weight: lighter">{{ event.name }}</h2>
               </div>
