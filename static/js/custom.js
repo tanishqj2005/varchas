@@ -95,7 +95,7 @@ $(document).ready(function()
 				});
 				TweenMax.to(door, 1,
 				{
-					width:'50%',
+					right: 0,
 					ease: Power3.easeOut
 				});
 				TweenMax.to(menuContent, 0.4,
@@ -125,8 +125,8 @@ $(document).ready(function()
 				});
 				TweenMax.to(door, 1,
 				{
-					width:0,
-					ease: Power3.easeOut,
+					right:'-100%',
+					ease: Power3.easeInBack,
 					delay:0.6
 				});
 				TweenMax.to(menu, 0,
