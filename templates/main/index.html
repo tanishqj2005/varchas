@@ -275,8 +275,25 @@
               platform to showcase the countless hours of perspiration put in by teams o
               achieve excellence in their sport. Since its inception in 2011 the grandeur of
               Varchas has spread far and wide across the best college's of India.</p>
+          </div><br>
+          <div class="row">
+            {% if user.is_authenticated %}
+            {% if userprofile.teamId != "NULL" %}
+            <div class="button cta_button"><a href="{% url 'accounts:myTeam' %}">Team Details</a></div>
+            <div style="padding:10px"></div>
+            <div class="button cta_button"><a href="{% url 'accounts:profile' %}">View Profile</a></div>
+            {% else %}
+            <div class="button cta_button"><a href="{% url 'accounts:joinTeam' %}">Join Team</a></div>
+            <div style="padding:10px"></div>
+            <div class="button cta_button"><a href="{% url 'registration:team' %}">Create Team</a></div>
+            {% endif %}
+            {% else %}
+            <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register</a></div>
+            <div style="padding:10px"></div>
+            <div class="button cta_button"><a href="{% url 'login' %}">Login</a></div>
+            {% endif %}
           </div>
-          <div class="button about_button"><a href="{% url 'accounts:register' %}">Register</a></div>
+
         </div>
       </div>
 
@@ -335,11 +352,11 @@
           <li class="d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
             <span> More than 1500 participant from all over the country participated in
-              the fest last year. <span>
+              the fest last season. <span>
           </li>
           <li class="d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
-            <span>Last year, Varchas witnessed a sensation among the youth. Athletes participate wholeheartedly in
+            <span>Varchas witnessed a sensation among the youth. Athletes participate wholeheartedly in
               poker nights and other recreational informal events..</span>
           </li>
 
@@ -347,7 +364,7 @@
       </div>
       <div class="cta_buttons">
         <div class="d-flex flex-row align-items-start justify-content-start flex-wrap">
-          <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register</a></div>
+          <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register your team</a></div>
 
         </div>
       </div>
@@ -452,7 +469,7 @@
       Copyright &copy;<script>
         document.write(new Date().getFullYear());
       </script>
-      All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Varchas Web D Team</a>
+      All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://students.iitj.ac.in/" target="_blank">Varchas Web D Team</a>
       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
     </div>
   </div>
