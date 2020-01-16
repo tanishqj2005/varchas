@@ -30,36 +30,59 @@
     transform: scale(1.1);
   }
 
-  .vid-container {
+  /* .vid-container {
     height: 100%;
     width: auto;
     overflow: hidden;
     display: block;
     background-color: black;
-    margin-top: -19vh;
-  }
+  } */
   video {
-    margin: 0 auto !important;
     height: 100%;
   }
-
-  @media screen and (max-width: 995px) {
-    video {
-    margin: 0 auto !important;
+  @media screen and (max-width: 995px) and (orientation: landscape) {
+  video {
+    height: 100%;
+    width: auto;
+  }
+  .get-your-game-on {
+    padding-left: 128%;
+  }
+  .first-text-get {
+    padding-top: 0vh;
+  }
+  .first-text-your {
+    padding-top: 7vh;
+  }
+  .first-text-game {
+    padding-top: 14vh;
+  }
+  .first-text-on {
+    padding-top: 21vh;
+  }
+}
+@media screen and (max-width: 995px) and (orientation: portrait) {
+  video {
     height: 100%;
     width: auto;
   }
   .first-text-get {
-    padding-top: 10vh;
+    padding-top: 0vh;
   }
   .first-text-your {
-    padding-top: 14vh;
+    padding-top: 4vh;
   }
   .first-text-game {
-    padding-top: 18vh;
+    padding-top: 8vh;
   }
   .first-text-on {
-    padding-top: 22vh;
+    padding-top: 12vh;
+  }
+}
+
+  @media screen and (max-width: 995px) {
+    video {
+    height: 100%;
   }
 
   @keyframes topFadeOutVertical {
@@ -85,7 +108,6 @@
   100% {
     position: absolute;
     left: 45%;
-    top: 100%;
     opacity: 1;
   }
 }
@@ -98,21 +120,15 @@
   }
   65% {
     position: absolute;
-    top: 500%;
+    top: 200%;
     left: 52%;
     opacity: 0;
   }
 
-  85% {
-    position: absolute;
-    left: 52%;
-    top: 100%;
-    opacity: 1;
-  }
   100% {
     position: absolute;
     left: 52%;
-    top: 100%;
+    top: -200%;
     opacity: 1;
   }
   }
@@ -129,17 +145,16 @@
     left: 60%;
     opacity: 0;
   }
-
   85% {
     position: absolute;
     left: 45%;
-    top: 100%;
+    top: -200%;
     opacity: 1;
   }
   100% {
     position: absolute;
     left: 45%;
-    top: 100%;
+    top: -200%;
     opacity: 1;
   }
 }
@@ -161,12 +176,12 @@
     position: absolute;
     left: 65%;
     top: 100%;
-    opacity: 1;
+    opacity: 0;
   }
   100% {
     position: absolute;
     left: 52%;
-    top: 100%;
+    top: -200%;
     opacity: 1;
   }
 }
@@ -174,16 +189,13 @@
 
   @media screen and (max-width: 1295px) {
   video {
-    margin: 0 auto !important;
-    height: 120%;
+    height: 100%;
     width: auto;
-
   }
 }
 
 @media screen and (min-width: 1295px) {
   video {
-    margin: 0 auto !important;
     width: 100%;
   }
 }
@@ -203,13 +215,14 @@
                         <div class="col">
 
                             <div style="color: blanchedalmond;">
-                              <div class="" style=" padding-top: 5vh;" >
+                              <h1><span class="second-text">Varchas</span></h1>
+                              <div class = "get-your-game-on"  >
                                 <span class="first-text-get">GET</span>
                                 <span class="first-text-your" style="color: #fff;"> YOUR</span>
                                 <span class="first-text-game"> GAME</span>
                                 <span class="first-text-on" style="color: #fff;"> ON</span>
                               </div>
-                              <h1><span class="second-text">Varchas</span></h1>
+                              
                              {# <div class="button_3" style="margin-left:0vh;margin-top: 15vh;position: absolute;left: 45%;"><a href="{% url 'accounts:register' %}">Register</a></div>#}
 
 
