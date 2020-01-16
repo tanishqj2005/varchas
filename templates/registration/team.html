@@ -69,8 +69,9 @@
               </span>
             </div>
             {% elif field.label == "Sport" %}
-            <span  style="color: black;"> {{ field.label }}</span>
-            <div style="padding-bottom: 2vh;padding-top: 1vh">
+            {{ field.label }}:
+            {{field}}<br><br>
+            <!-- <div style="padding-bottom: 2vh;padding-top: 1vh">
             <select style="border: none">
               {% with value=field.value %}
                 {% for object in field %}
@@ -86,7 +87,7 @@
                 {% endfor %}
               {% endwith %}
             </select>
-            </div>
+            </div> -->
             {% endif %}
             {% endfor %}
 
