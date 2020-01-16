@@ -6,6 +6,9 @@ staticfiles/
 # Distribution / packaging
 .Python
 git.py
+*.save.1
+*.save.2
+*.save
 varchasenv/
 env/
 .env
