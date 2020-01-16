@@ -261,9 +261,21 @@
           </div>
         </div><br>
         <div class="row">
+          {% if user.is_authenticated %}
+          {% if userprofile.teamId != "NULL" %}
+          <div class="button cta_button"><a href="{% url 'accounts:myTeam' %}">Team Details</a></div>
+          <div style="padding:10px"></div>
+          <div class="button cta_button"><a href="{% url 'accounts:profile' %}">View Profile</a></div>
+          {% else %}
+          <div class="button cta_button"><a href="{% url 'accounts:joinTeam' %}">Join Team</a></div>
+          <div style="padding:10px"></div>
+          <div class="button cta_button"><a href="{% url 'registration:team' %}">Create Team</a></div>
+          {% endif %}
+          {% else %}
           <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register</a></div>
           <div style="padding:10px"></div>
           <div class="button cta_button"><a href="{% url 'login' %}">Login</a></div>
+          {% endif %}
         </div>
       </div>
 
@@ -334,8 +346,8 @@
       </div>
       <div class="cta_buttons">
         <div class="d-flex flex-row align-items-start justify-content-start flex-wrap">
-          <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register</a></div>
-          <div class="button cta_button"><a href="{% url 'login' %}">Login</a></div>
+          <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register you team</a></div>
+          <!-- <div class="button cta_button"><a href="{% url 'login' %}">Login</a></div> -->
         </div>
       </div>
     </div>
