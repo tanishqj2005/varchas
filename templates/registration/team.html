@@ -69,24 +69,8 @@
               </span>
             </div>
             {% elif field.label == "Sport" %}
-            <span  style="color: black;"> {{ field.label }}</span>
-            <div style="padding-bottom: 2vh;padding-top: 1vh">
-            <select style="border: none">
-              {% with value=field.value %}
-                {% for object in field %}
-                  <option
-
-                          style="background-color: #ff7315;"
-                          value=""
-                          class=""
-                          {% if object.choice_label == value %}selected="selected"{% endif %}
-                  >
-                    {{ object.choice_label }}
-                  </option>
-                {% endfor %}
-              {% endwith %}
-            </select>
-            </div>
+            {{ field.label }}:
+            {{field}} <br><br>
             {% endif %}
             {% endfor %}
 
