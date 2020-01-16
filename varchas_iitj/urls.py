@@ -32,7 +32,7 @@ urlpatterns = [
     path('sponsors/', include('sponsors.urls')),
 ]
 
-if settings.DEBUG:
+if settings.DEBUG or settings.DEBUG==False:
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL,

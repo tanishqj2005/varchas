@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')(ua(wy^=az#k^%=qpszc%ltzx0j5%7n2rzfuj*ysqjn^g!hl)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['varchas2020.org', '68.183.85.194',
