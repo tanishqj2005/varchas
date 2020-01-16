@@ -36,7 +36,8 @@
     overflow: hidden;
     display: block;
     background-color: black;
-    margin-top: -19vh;
+    margin: 0 auto !important;
+    margin-left: -225;
   }
   video {
     margin: 0 auto !important;
@@ -175,16 +176,18 @@
   @media screen and (max-width: 1295px) {
   video {
     margin: 0 auto !important;
-    height: 120%;
+    height: 100%;
     width: auto;
 
   }
 }
 
-@media screen and (min-width: 1295px) {
+@media screen and (min-width: 30em) {
   video {
-    margin: 0 auto !important;
+
+    margin-left: -80vh;
     width: 100%;
+    left: 50%;
   }
 }
 
@@ -259,8 +262,8 @@
       <div class="row">
         <div class="col">
           <div class="quote_content text-center">
-            <p style="color: lightgrey">“Training gives us an outlet for suppressed energies created by stress and thus tones the
-              spirit just as exercise conditions the body.”</p>
+            <p style="color: lightgrey">“Vigor | Valor 
+|"</p>
           </div>
           <div class="quote_author text-center" style="color: lightgrey">– Arnold Schwarzenegger</div>
         </div>
