@@ -31,6 +31,9 @@ class OurTeam(models.Model):
     position = models.CharField(max_length=2, choices=POSITION_CHOICES)
     picture = models.ImageField(
         upload_to='teamPics/', blank=True, null=True, default="teamPics/default.jpg")
+    insta = models.URLField(max_length=25, null=True, blank=True)
+    fp = models.URLField(max_length=25, null=True, blank=True)
+    linkedIn = models.URLField(max_length=25, null=True, blank=True)
 
     def __str__(self):
         return self.name
