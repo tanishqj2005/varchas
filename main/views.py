@@ -1,12 +1,13 @@
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView
+from django.views.generic.detail import DetailView
 # from .utils import SiteAccessMixin
-from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard
+from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
 from django.shortcuts import get_object_or_404
 from accounts.models import UserProfile
 
 
 class IndexView(TemplateView):
-    template_name = 'main/index.html'
+    template_name = 'main/error.html'
 
     def get_context_data(self, **kwargs):
         if self.request.user.username != "":
@@ -38,3 +39,13 @@ class NavBarSubOptionsPageView(DetailView):
         else:
             self.template_name = 'main/navbarsuboptionpage.html'
         return self.render_to_response(context)
+
+
+class OurTeamView(TemplateView):
+    template_name = 'main/our_team.html'
+    model = OurTeam
+
+    def get_context_data(self,**kwargs):
+        context = super(OurTeamView, self).get_context_data(**kwargs)
+        context["our_team"] = OurTeam.objects.all
+        return context
