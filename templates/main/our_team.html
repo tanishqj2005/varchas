@@ -3,11 +3,9 @@
 {% block body %}
   {% csrf_token %}
   <!-- Profile -->
-  <div class="cta" style=" ">
-    <div style="padding: 100px;padding-top: 10vh"
-         class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
-
-
+  <div class="" style=" ">
+    <div >
+  {% include 'main/mixins/our_team_main_mixin.html' with our_team=our_team %}
   </div>
  <!-- Footer -->
 
