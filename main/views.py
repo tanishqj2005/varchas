@@ -51,6 +51,6 @@ class OurTeamView(TemplateView):
         return context
 
 
-def error_404(request):
+def error_404(request, exceptios):
     data = {}
     return render(request, 'main/error_404.html', data)
