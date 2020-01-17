@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HomeImageCarousel, NavBarOptions, NavBarSubOptions, HomeEventCard, HomeBriefCard, ourTeam
+from .models import HomeImageCarousel, NavBarOptions, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
 
 
 class HomeImageCarouselAdmin(admin.ModelAdmin):
@@ -38,7 +38,7 @@ admin.site.register(HomeBriefCard)
 
 class ourTeamAdmin(admin.ModelAdmin):
     class Meta:
-        model = ourTeam
+        model = OurTeam
 
 
-admin.site.register(ourTeam, ourTeamAdmin)
+admin.site.register(OurTeam, ourTeamAdmin)
