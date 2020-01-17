@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 
 
-class ourTeam(models.Model):
+class OurTeam(models.Model):
     POSITION_CHOICES = (
         ('1', 'Festival Cheif'),
         ('2', 'Creativity'),
