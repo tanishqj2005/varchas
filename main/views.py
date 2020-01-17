@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 # from .utils import SiteAccessMixin
 from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
 
 
@@ -49,3 +49,8 @@ class OurTeamView(TemplateView):
         context = super(OurTeamView, self).get_context_data(**kwargs)
         context["our_team"] = OurTeam.objects.all
         return context
+
+
+def error_404(request):
+    data = {}
+    return render(request, 'main/error_404.html', data)
