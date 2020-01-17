@@ -19,8 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
 from accounts.views import CustomLoginView
-from django.conf.urls import handler404
-from main.views import error_404
+from django.conf.urls import handler404, handler500
+from main.views import error_404, error_500
 
 urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
@@ -35,7 +35,7 @@ urlpatterns = [
 ]
 
 handler404 = error_404
-
+handler500 = error_500
 urlpatterns += static(settings.STATIC_URL,
                       document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL,
