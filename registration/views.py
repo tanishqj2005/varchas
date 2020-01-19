@@ -1,9 +1,10 @@
 from django.views.generic import CreateView
-from .forms import CampusAmbassadorForm, TeamRegistrationForm
+from .forms import CampusAmbassadorForm, TeamRegistrationForm, TeamRegistrationForm1
 from django.shortcuts import get_object_or_404
 from accounts.models import UserProfile
 from django.http import HttpResponse
-
+from random import random
+from .models import SPORT_CHOICES
 
 class CampusAmbassadorRegisterView(CreateView):
     template_name = 'registration/ca_reg.html'
@@ -19,6 +20,10 @@ class TeamFormationView(CreateView):
     def form_valid(self, form):
         user = self.request.user
         if user is not None:
+            data = self.request.POST.copy()
+            spor = SPORT_CHOICES[int(data['sport'])-1][1][:3]
+            data['teamId'] = "VA-"+ spor[:3].upper() + '-' + user.username[:3].upper() + "{}".format(int(random()*100))
+            form = TeamRegistrationForm1(data)
             team = form.save()
             team.captian = get_object_or_404(UserProfile, user=user)
             user = get_object_or_404(UserProfile, user=user)
@@ -26,6 +31,5 @@ class TeamFormationView(CreateView):
             user.save()
             team.members.add(user)
             team.save()
-            print("here")
             return super(TeamFormationView, self).form_valid(form)
         return HttpResponse("404")

@@ -66,7 +66,6 @@ def DisplayTeam(request):
 def joinTeam(request):
     user = request.user
     if request.method == 'POST':
-        # print(here)
         teamId = request.POST.get('teamId')
         if user is not None:
             team = get_object_or_404(TeamRegistration, teamId=teamId)
@@ -74,8 +73,6 @@ def joinTeam(request):
             user.teamId = teamId
             user.save()
             team.members.add(user)
-            print("here")
             return redirect('accounts:myTeam')
-            print("here")
         return reverse('login')
     return render(request, 'accounts/joinTeam.html')
