@@ -24,28 +24,35 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
   <!--===============================================================================================-->
   <style>
-    @media screen and (max-width: 1280px) {
-      .form1 {
-        /*padding-left: 250px;*/
-        padding-left: 1vh;
-        width: 100%
-      }
-    }
 
-    /* If screen bigger than 1440px */
-    @media screen and (min-width: 1280px) {
-      .form1 {
-        padding-left: 1vh;
-        width: 40%
+       @media screen and (min-width: 300px) {
+     body{
+       background: url("https://us.123rf.com/450wm/swhite/swhite0709/swhite070900027/1694342-new-red-cricket-ball-on-grass-sporting-field-.jpg?ver=6");
+        background-size: 100% ;
+     }
+         .warp-login101{
+           justify-content: center;
+
+         }
       }
-    }
+      @media screen and (min-width: 800px) {
+     body{
+       background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) no-repeat;
+       background-size: 100% 125%;
+     }
+          .warp-login101{
+           justify-content: space-between;
+
+         }
+      }
+
   </style>
 </head>
 
-<body style="background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) no-repeat; background-size: 100% 125%;">
+<body style="">
 <div class="limiter">
   <div class="container-login100">
-    <div class="wrap-login100" style="padding-top: 20vh;padding-bottom: 20vh;">
+    <div class="wrap-login100 warp-login101" style="padding:20vh 10vh 20vh 10vh;">
 
       <div class="login100-pic js-tilt" data-tilt>
         <img src="{% static 'images/img-01.png' %}" alt="IMG">

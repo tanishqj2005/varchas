@@ -205,7 +205,7 @@ iframe {
       outline: none;
 	margin: 0 auto;
 	color: #ff7315;
-  border-color: white;
+  border: none;
 	width: 100%;
 	padding: 15px;
 
@@ -237,7 +237,7 @@ select option:hover {
    z-index: 500;
   box-shadow: 0 0 10px 100px #232020 inset;
   background-color: #232020;
-	color: #EC6F66;
+	color: #ff7315;
 }
 /*------------------------------------------------------------------
 [  ]*/

@@ -23,9 +23,24 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <!--===============================================================================================-->
+    <style>
+      @media screen and (min-width: 300px) {
+     body{
+       background: url("https://us.123rf.com/450wm/swhite/swhite0709/swhite070900027/1694342-new-red-cricket-ball-on-grass-sporting-field-.jpg?ver=6");
+        background-size: 100% ;
+     }
+      }
+      @media screen and (min-width: 700px) {
+     body{
+       background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) no-repeat;
+       background-size: 100% 125%;
+     }
+      }
+
+    </style>
   </head>
 
-  <body style="background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) no-repeat; background-size: 100% 125%;">
+  <body style="">
 
     <div class="limiter">
       <div class="container-login100">
@@ -65,7 +80,7 @@
               <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" placeholder="{{ field.label }}" required autofocus>
               <span class="focus-input100"></span>
               <span class="symbol-input100">
-                <i class="{% if field.name == "password" %}fa fa-lock{% else %}fa fa-envelope{% endif %}" aria-hidden="true"></i>
+                <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
               </span>
             </div>
             {% elif field.label == "Sport" %}
