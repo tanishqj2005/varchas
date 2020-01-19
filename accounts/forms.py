@@ -90,7 +90,6 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].widget.attrs['icon_name'] = "fa fa-lock"
         self.fields['phone'].widget.attrs['icon_name'] = "fa fa-phone"
         self.fields['college'].widget.attrs['icon_name'] = "fa fa-university"
-        self.fields['address'].widget.attrs['icon_name'] = "fa fa-map"
         self.fields['city'].widget.attrs['icon_name'] = "fa fa-map-marker"
         self.fields['referred_by'].widget.attrs['icon_name'] = "fa fa-id-badge"
 
