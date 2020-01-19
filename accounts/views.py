@@ -23,7 +23,7 @@ class RegisterView(CreateView):
     def create_profile(user=None, **kwargs):
         # Creates a new UserProfile object after successful creation of User object
         userprofile = UserProfile.objects.create(user=user, gender=kwargs['gender'], phone=kwargs['phone'],
-                                                 college=kwargs['college'], address=kwargs['address'],
+                                                 college=kwargs['college'],
                                                  state=kwargs['state'], city=kwargs['city'],
                                                  accomodation_required=kwargs['accommodation_required'],
                                                  # no_of_days=kwargs['no_of_days'],
