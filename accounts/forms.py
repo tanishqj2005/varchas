@@ -41,10 +41,8 @@ class RegisterForm(UserCreationForm):
         required=True)
     current_year = forms.ChoiceField(choices=UserProfile.YEAR_CHOICES, required=True,
                                      widget=forms.Select(attrs={}))
-    address = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ' ', 'maxlength': '128'}),
-                              required=True)
     city = forms.CharField(widget=forms.TextInput(attrs={'class': 'mdb-autocomplete',
-                                                         'maxlength': '128', 'placeholder': ' '}), required=False)
+                                                         'maxlength': '128', 'placeholder': ' '}), required=True)
     state = forms.ChoiceField(choices=UserProfile.STATE_CHOICES, required=True,
                               widget=forms.Select(attrs={'class': 'mdb-select'}))
 
