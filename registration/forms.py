@@ -3,7 +3,6 @@ from .models import CampusAmbassador, TeamRegistration
 
 
 class CampusAmbassadorForm(forms.ModelForm):
-
     class Meta:
         model = CampusAmbassador
         exclude = ['referral_code']
@@ -16,9 +15,16 @@ class CampusAmbassadorForm(forms.ModelForm):
             raise forms.ValidationError('This email is already registered')
         return self.data['email']
 
+    def __init__(self, *args, **kwargs):
+        super(CampusAmbassadorForm, self).__init__(*args, **kwargs)
+
 
 class TeamRegistrationForm(forms.ModelForm):
-
     class Meta:
         model = TeamRegistration
         fields = ['sport', 'teamId', 'college']
+
+    def __init__(self, *args, **kwargs):
+        super(TeamRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['teamId'].widget.attrs['icon_name'] = "fa fa-id-card"
+        self.fields['college'].widget.attrs['icon_name'] = "fa fa-university"
