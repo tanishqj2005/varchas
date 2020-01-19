@@ -58,7 +58,7 @@ class TeamRegistration(models.Model):
         ('6', 'Football'),
         ('7', 'Table Tenis'),
         ('8', 'Tenis'),
-        ('9', 'Voleyball'),
+        ('9', 'Volleyball'),
     )
     teamId = models.CharField(max_length=15, unique=True, blank=True)
     sport = models.CharField(max_length=2, choices=SPORT_CHOICES)

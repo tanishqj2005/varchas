@@ -55,7 +55,6 @@ def DisplayProfile(request):
 
 @login_required(login_url="login")
 def DisplayTeam(request):
-    print("here")
     user = get_object_or_404(UserProfile, user=request.user)
     teamId = user.teamId
     team = get_object_or_404(TeamRegistration, teamId=teamId)
