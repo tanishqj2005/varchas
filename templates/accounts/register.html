@@ -66,19 +66,20 @@
 
                 {% csrf_token %}
                 {% for field in form %}
+
                     {% if field.label == "State" or field.label == "Gender" or  field.label == "Current year" %}
                         <div style="padding-top: 1vh;padding-bottom: 2vh">
-                            {{ field.label }} : {{ field }}
+                            {{ field.label }}{% if field.field.required %}*{% endif %} : {{ field }}
                         </div>
 
                     {% elif field.label == "Accommodation required" %}
-                        {{ field.label }}:{{ field }}
+                        {{ field.label }}{% if field.field.required %}*{% endif %}:{{ field }}
                     {% else %}
                         <div class="wrap-input100" style="position:relative;">
                             {#              {{ field.label }}: {{field}}#}
 
                             <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
-                                   placeholder="{{ field.label }}">
+                                   placeholder="{{ field.label }}{% if field.field.required %}*{% endif %}">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                 <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
