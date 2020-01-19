@@ -76,7 +76,6 @@ class UserProfile(models.Model):
     current_year = models.CharField(
         max_length=1, choices=YEAR_CHOICES, default='1')
     college = models.CharField(max_length=128)
-    address = models.CharField(max_length=128)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
     accomodation_required = models.BooleanField(default=False)
     accomodation_type = models.CharField(max_length=1, default=1)
