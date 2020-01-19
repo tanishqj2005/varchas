@@ -23,7 +23,7 @@ class CampusAmbassador(models.Model):
     current_year = models.CharField(max_length=1, choices=YEAR_CHOICES)
     address = models.CharField(max_length=128)
     phone = models.CharField(max_length=10, validators=[contact])
-    fb_link = models.URLField()
+    fb_link = models.CharField(max_length=30, default='facebook.com')
     publicize_varchas = models.TextField(max_length=512)
     past_experience = models.TextField(max_length=512)
     referral_code = models.CharField(max_length=7, editable=False)
