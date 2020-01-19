@@ -32,6 +32,6 @@ class TeamRegistrationForm1(forms.ModelForm):
         fields = ['sport', 'teamId', 'college']
 
     def __init__(self, *args, **kwargs):
-        super(TeamRegistrationForm, self).__init__(*args, **kwargs)
+        super(TeamRegistrationForm1, self).__init__(*args, **kwargs)
         self.fields['teamId'].widget.attrs['icon_name'] = "fa fa-id-card"
         self.fields['college'].widget.attrs['icon_name'] = "fa fa-university"
