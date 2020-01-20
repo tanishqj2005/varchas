@@ -15,13 +15,6 @@ class UserProfile(models.Model):
         ('F', 'Female'),
         ('T', 'Transgender'),
     )
-    YEAR_CHOICES = (
-        ('1', 'First Year'),
-        ('2', 'Second Year'),
-        ('3', 'Third Year'),
-        ('4', 'Fourth Year'),
-        ('5', 'Fifth Year')
-    )
     DAYS_CHOICES = (
         ('1', 'One'),
         ('2', 'Two'),
@@ -70,18 +63,15 @@ class UserProfile(models.Model):
     contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
     # Model
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=10, validators=[contact])
+    phone = models.CharField(max_length=11, validators=[contact])
     gender = models.CharField(
         max_length=1, choices=GENDER_CHOICES, default='M')
-    current_year = models.CharField(
-        max_length=1, choices=YEAR_CHOICES, default='1')
     college = models.CharField(max_length=128)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
     accomodation_required = models.BooleanField(default=False)
     accomodation_type = models.CharField(max_length=1, default=1)
     amount_required = models.PositiveSmallIntegerField(default=0, blank=True)
     amount_paid = models.PositiveSmallIntegerField(default=0, blank=True)
-    city = models.CharField(max_length=32)
     no_of_days = models.CharField(max_length=1, choices=DAYS_CHOICES)
     referral = models.CharField(max_length=7, blank=True, null=True)
     id_issued = models.BooleanField(default=False)

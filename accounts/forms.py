@@ -39,10 +39,6 @@ class RegisterForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={'class': 'mdb-autocomplete', 'maxlength': '128', 'placeholder': ' '}),
         required=True)
-    current_year = forms.ChoiceField(choices=UserProfile.YEAR_CHOICES, required=True,
-                                     widget=forms.Select(attrs={}))
-    city = forms.CharField(widget=forms.TextInput(attrs={'class': 'mdb-autocomplete',
-                                                         'maxlength': '128', 'placeholder': ' '}), required=True)
     state = forms.ChoiceField(choices=UserProfile.STATE_CHOICES, required=True,
                               widget=forms.Select(attrs={'class': 'mdb-select'}))
 
@@ -90,7 +86,6 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].widget.attrs['icon_name'] = "fa fa-lock"
         self.fields['phone'].widget.attrs['icon_name'] = "fa fa-phone"
         self.fields['college'].widget.attrs['icon_name'] = "fa fa-university"
-        self.fields['city'].widget.attrs['icon_name'] = "fa fa-map-marker"
         self.fields['referred_by'].widget.attrs['icon_name'] = "fa fa-id-badge"
 
 

@@ -10,7 +10,7 @@
 
       <div class="cta_content" style="width: 100%;margin-top: 1vh; background-color: #211d1d;border-radius: 20px">
         <div class="section_title_container" style="">
-          <div class="section_subtitle">{{ profile_user.user.username }}'s Team</div>
+          <div class="section_subtitle">{{ profile_user.user.first_name }}'s Team</div>
 
           <div class="section_title"><h1 style="padding: 2vh;opacity: 0;
   animation-name: fadeInOut;
@@ -35,7 +35,7 @@
   animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">
             <i class="fa fa-user" style="padding-right: 1em"></i>
             Team
-            Captain: {{ profile_team.captian }}</h3></div>
+            Captain: {{ profile_team.captian.user.first_name }}</h3></div>
         <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
@@ -44,7 +44,7 @@
           <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">{{ member.user.username }}</h3></div>
+  animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">{{ member.user.first_name }} {{ member.user.last_name }}</h3></div>
           {% endfor %}
           <div class="section_subtitle" style="adding-top: 2vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
