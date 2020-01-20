@@ -15,9 +15,9 @@ class RegisterView(CreateView):
     success_url = '/login/'
 
     def form_valid(self, form):
-        # data = self.request.POST.copy()
-        # data['username'] = data['email']
-        # form = RegisterForm(data)
+        data = self.request.POST.copy()
+        data['username'] = data['email']
+        form = RegisterForm(data)
         user = form.save()
         RegisterView.create_profile(user, **form.cleaned_data)
         # messages.success(self.request, 'Hi %s,' % user.get_full_name())
@@ -25,7 +25,6 @@ class RegisterView(CreateView):
 
     @staticmethod
     def create_profile(user=None, **kwargs):
-        # Creates a new UserProfile object after successful creation of User object
         userprofile = UserProfile.objects.create(user=user, gender=kwargs['gender'], phone=kwargs['phone'],
                                                  college=kwargs['college'],
                                                  state=kwargs['state'],

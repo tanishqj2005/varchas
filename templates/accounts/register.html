@@ -49,21 +49,6 @@
 
 
 
-{#                {% if form.errors %}#}
-{#                    {% for field in form %}#}
-{#                        {% for error in field.errors %}#}
-{#                            <div class="alert alert-danger">#}
-{#                                <strong>{{ error|escape }}</strong>#}
-{#                            </div>#}
-{#                        {% endfor %}#}
-{#                    {% endfor %}#}
-{#                    {% for error in form.non_field_errors %}#}
-{#                        <div class="alert alert-danger">#}
-{#                            <strong>{{ error|escape }}</strong>#}
-{#                        </div>#}
-{#                    {% endfor %}#}
-{#                {% endif %}#}
-
                 {% csrf_token %}
                 {% for field in form %}
 
@@ -71,7 +56,7 @@
                         <div style="padding-top: 1vh;padding-bottom: 2vh">
                             {{ field.label }}{% if field.field.required %}*{% endif %} : {{ field }}
                         </div>
-
+                    {% elif field.label == "Username" %}
                     {% elif field.label == "Accommodation required" %}
                         {{ field.label }}{% if field.field.required %}*{% endif %}:{{ field }}<br><br>
                     {% else %}

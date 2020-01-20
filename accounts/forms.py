@@ -7,10 +7,9 @@ from registration.models import CampusAmbassador
 
 # from nocaptcha_recaptcha.fields import NoReCaptchaField
 
-
 class RegisterForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(
-        attrs={'type': 'text', 'placeholder': ' ', 'icon': 'a'}), required=True)
+        attrs={'type': 'text', 'placeholder': ' ', 'icon': 'a'}), required=False)
     last_name = forms.CharField(widget=forms.TextInput(
         attrs={'type': 'text', 'placeholder': ' '}), required=True)
     first_name = forms.CharField(widget=forms.TextInput(
