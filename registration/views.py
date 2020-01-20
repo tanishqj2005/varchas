@@ -32,10 +32,9 @@ class TeamFormationView(CreateView):
                 return HttpResponse(message, content_type="text/plain")
             team = form.save()
             team.captian = user
-
             user.teamId = team.teamId
             user.save()
             team.members.add(user)
-            team.save()
+            # team.save()
             return super(TeamFormationView, self).form_valid(form)
         return HttpResponse("404")
