@@ -323,8 +323,168 @@
 
 <!-- Intro -->
 
-{% include 'main/mixins/event_main_mixin.html' with event_list=event_list %}
+{#{% include 'main/mixins/event_main_mixin.html' with event_list=event_list %}#}
+<style>
+ @media screen and (max-width: 700px) {
 
+    div.card1{
+      top: 60%;
+    }
+     h2.card1{
+         font-size: 1.17em;
+     }
+}
+    @media screen and (min-width: 700px) {
+
+    div.card1{
+      top: 70%;
+    }
+        img.card1{
+            min-height: 460px;
+        }
+}
+</style>
+<div class="intro">
+  <div class="intro_boxes_wrap">
+      <div class="d-flex flex-row align-items-start justify-content-start flex-wrap" style="height: auto">
+      <!-- Intro Box -->
+
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/cricket.jpg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">CRICKET</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/football.JPG' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">FOOTBALL</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+         <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/athletics.jpeg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">ATHELETICS</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/badminton.jpg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">BADMINTON</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/basketball.jpeg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">BASKETBALL</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/chess.jpg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">CHESS</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/TT.jpg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">TABLE TENNIS</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/tenis.jpg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">TENNIS</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/volleyball.jpg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">VOLLEYBALL</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+             style="padding: 0;">
+          <a href="{% url 'accounts:register' %}">
+            <img class="card1" src="{% static 'images/informals.jpg' %}" style="background-size: contain;width: 100%;
+  height:auto;">
+            <div class="overlay">
+              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
+                  <h2 class="card1" style="color: #353535;font-weight: lighter">INFORMALS</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+    </div>
+  </div>
+</div>
 
 <!-- CTA -->
 
