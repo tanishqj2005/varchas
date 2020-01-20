@@ -21,10 +21,10 @@
   animation-name: fadeInOut;
   animation-duration: 1s;
   animation-fill-mode:forwards;">College : {{ profile_user.college }}</h3></div>
-          <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
+          {% if profile_user.teamId != "NULL" %}<div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;">Addres : {{ profile_user.city }},{{ profile_user.get_state_display }}</h3></div>
+  animation-fill-mode:forwards;">Team : {{ profile_user.teamId }}</h3></div>{% endif %}
           <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;

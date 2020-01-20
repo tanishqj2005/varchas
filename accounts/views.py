@@ -66,6 +66,17 @@ def DisplayTeam(request):
 
 
 @login_required(login_url="login")
+def leaveTeam(request):
+    user = get_object_or_404(UserProfile, user=request.user)
+    teamId = user.teamId
+    user.teamId = "NULL"
+    user.save()
+    team = get_object_or_404(TeamRegistration, teamId=teamId)
+    team.members.remove(user)
+    return redirect('main:home')
+
+
+@login_required(login_url="login")
 def joinTeam(request):
     user = request.user
     if request.method == 'POST':

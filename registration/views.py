@@ -21,18 +21,17 @@ class TeamFormationView(CreateView):
     def form_valid(self, form):
         user = self.request.user
         if user is not None:
+            data = self.request.POST.copy()
+            spor = TeamRegistration.SPORT_CHOICES[int(data['sport'])-1][1][:3]
+            data['teamId'] = "VA-" + spor[:3].upper() + '-' + user.username[:3].upper() + "{}".format(int(random()*100))
+            form = TeamRegistrationForm1(data)
             user = get_object_or_404(UserProfile, user=user)
             if user.teamId != "NULL":
                 message = "You are already in team {}".format(user.teamId)
                 message += "\nYou have to register again to join another team. \nContact Varchas administrators."
                 return HttpResponse(message, content_type="text/plain")
-
-            data = self.request.POST.copy()
-            spor = TeamRegistration.SPORT_CHOICES[int(data['sport'])-1][1][:3]
-            data['teamId'] = "VA-" + spor[:3].upper() + '-' + user.username[:3].upper() + "{}".format(int(random()*100))
-            form = TeamRegistrationForm1(data)
             team = form.save()
-            team.captian = get_object_or_404(UserProfile, user=user)
+            team.captian = user
 
             user.teamId = team.teamId
             user.save()
