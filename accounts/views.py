@@ -6,6 +6,7 @@ from django.shortcuts import reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render
 from registration.models import TeamRegistration
+from django.http import HttpResponse
 
 
 class RegisterView(CreateView):
@@ -70,8 +71,12 @@ def joinTeam(request):
     if request.method == 'POST':
         teamId = request.POST.get('teamId')
         if user is not None:
-            team = get_object_or_404(TeamRegistration, teamId=teamId)
             user = get_object_or_404(UserProfile, user=user)
+            if user.teamId != "NULL":
+                message = "You are already in team {}".format(user.teamId)
+                message += "\nYou have to register again to join another team. \nContact Varchas administrators."
+                return HttpResponse(message, content_type="text/plain")
+            team = get_object_or_404(TeamRegistration, teamId=teamId)
             user.teamId = teamId
             user.save()
             team.members.add(user)
