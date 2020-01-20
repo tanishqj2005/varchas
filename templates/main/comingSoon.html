@@ -1,33 +1,37 @@
 {% load static %}
-
+<<!DOCTYPE html>
+<html>
 <head>
     <style>
         body {
+  background-image: url("{% static 'images/209588.gif' %}");
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #000;
 }
-
 p {
   position: relative;
   font-family: sans-serif;
+  color: white;
   text-transform: uppercase;
   font-size: 2em;
   letter-spacing: 4px;
-  overflow: hidden;
-  background: linear-gradient(90deg, #000, #fff, #000);
-  background-repeat: no-repeat;
-  background-size: 80%;
+  /* overflow: hidden; */
+  /* background: linear-gradient(90deg, #000, #fff, #000); */
+  /* background-repeat: no-repeat; */
+  /* background-size: 80%; */
   left: 40%;
-  animation: animate 4.4s linear infinite;
-  animation-delay:0.4s;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  /* animation: animate 4.4s linear infinite; */
+  /* animation-delay:0.4s; */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: rgba(255, 255, 255, 0); */
 }
+/*
 .ptwo {
   position: relative;
   font-family: sans-serif;
@@ -119,18 +123,20 @@ h2 {
   100% {
     background-position: 500%;
   }
-}
-    </style>    
+} */
+
+</style>
 </head>
 
 <body>
 <div class="row">
+    <!-- <img src="{% static 'images/209588.gif' %}" alt=""> -->
     <h1>VARCHAS'20</h1>
-  <p>Coming Soon</p>
-  <p style="margin-top: -16%" class="ptwo">4-6 April</p>  
+  <h1 color="white">Coming Soon</h1>
+  <p  style="margin-top: -16%" class="ptwo">4-6 April</p>
     <h2 class="one">GET YOUR</h2>
     <h2 class="two" style="margin-top: -15%">GAME ON</h2>
   </div>
 
 </body>
-  
+</html>

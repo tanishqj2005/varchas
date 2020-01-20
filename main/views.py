@@ -51,6 +51,10 @@ class OurTeamView(TemplateView):
         return context
 
 
+def comingSoon(request):
+    return render(request, 'main/comingSoon.html')
+
+
 def error_404(request, exception):
     return render(request, 'main/error_404.html', status=404)
 
