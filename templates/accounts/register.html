@@ -73,13 +73,13 @@
                         </div>
 
                     {% elif field.label == "Accommodation required" %}
-                        {{ field.label }}{% if field.field.required %}*{% endif %}:{{ field }}
+                        {{ field.label }}{% if field.field.required %}*{% endif %}:{{ field }}<br><br>
                     {% else %}
                         <div class="wrap-input100" style="position:relative;">
                             {#              {{ field.label }}: {{field}}#}
 
                             <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
-                                   placeholder="{{ field.label }}{% if field.field.required %}*{% endif %}">
+                                   placeholder="{% if field.field.required %}{{ field.label }}*{% else %} Referral code (optional){% endif %}">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
                 <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>
