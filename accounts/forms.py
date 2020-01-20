@@ -77,10 +77,10 @@ class RegisterForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs['icon_name'] = "fa fa-envelope"
         self.fields['username'].widget.attrs['icon_name'] = "fa fa-id-card"
         self.fields['first_name'].widget.attrs['icon_name'] = "fa fa-user"
         self.fields['last_name'].widget.attrs['icon_name'] = "fa fa-user"
-        self.fields['email'].widget.attrs['icon_name'] = "fa fa-envelope"
         self.fields['password1'].widget.attrs['icon_name'] = "fa fa-lock"
         self.fields['password2'].widget.attrs['icon_name'] = "fa fa-lock"
         self.fields['phone'].widget.attrs['icon_name'] = "fa fa-phone"

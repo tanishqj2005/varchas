@@ -64,8 +64,13 @@
 
                 {% for field in form %}
                     <div class="wrap-input100 validate-input">
+                      {% if field.label == "Username" %}
                         <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
-                               placeholder="{{ field.label }}" required autofocus>
+                               placeholder="Email" required autofocus>
+                      {% else %}
+                        <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
+                             placeholder="Password" required autofocus>
+                      {% endif %}
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                 <i class="{% if field.name == "password" %}fa fa-lock{% else %}fa fa-envelope{% endif %}"
