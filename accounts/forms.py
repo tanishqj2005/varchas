@@ -22,16 +22,13 @@ class RegisterForm(UserCreationForm):
         label=("Password"),
         strip=False,
         widget=forms.PasswordInput(attrs={'placeholder': ' '}),
-        # help_text=password_validation.password_validators_help_text_html(),
     )
     password2 = forms.CharField(
         label=("Confirm Password"),
         strip=False,
         widget=forms.PasswordInput(attrs={'placeholder': ' '}),
-        # help_text=("Enter the same password as before, for verification."),
     )
-    phone = forms.CharField(max_length=10, validators=[UserProfile.contact],
-                            widget=forms.TextInput(attrs={'placeholder': ' '}))
+    phone = forms.CharField(max_length=13, widget=forms.TextInput(attrs={'placeholder': ' '}))
     gender = forms.ChoiceField(choices=UserProfile.GENDER_CHOICES, required=True,
                                widget=forms.Select(attrs={'class': 'mdb-select'}))
     college = forms.CharField(
@@ -56,6 +53,13 @@ class RegisterForm(UserCreationForm):
     def clean_first_name(self):
         _dict = super(RegisterForm, self).clean()
         return _dict['first_name'].capitalize()
+
+    def clean_phone(self):
+        _dict = super(RegisterForm, self).clean()
+        if not _dict['phone'].isdigit():
+            raise forms.ValidationError('Phone number invalid')
+        _dict['phone'] = _dict['phone'][-10:]
+        return _dict['phone']
 
     def clean_last_name(self):
         _dict = super(RegisterForm, self).clean()

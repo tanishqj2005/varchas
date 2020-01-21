@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.core.validators import RegexValidator
 from events.models import Event
 
 
@@ -59,11 +58,9 @@ class UserProfile(models.Model):
         ('35', 'Lakshadweep'),
         ('36', 'Puducherry'),
     )
-    # Validators
-    contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
     # Model
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=11, validators=[contact])
+    phone = models.CharField(max_length=11)
     gender = models.CharField(
         max_length=1, choices=GENDER_CHOICES, default='M')
     college = models.CharField(max_length=128)
