@@ -17,7 +17,7 @@ class CampusAmbassador(models.Model):
     # Validators
     contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
     # Model
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=80)
     email = models.EmailField()
     college = models.CharField(max_length=128)
     current_year = models.CharField(max_length=1, choices=YEAR_CHOICES)
