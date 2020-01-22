@@ -2,10 +2,30 @@
 {% load static %}
 {% block body %}
   {% csrf_token %}
+  <style>
+    @media screen and (min-width: 300px) {
+      .pad{
+        padding: 0 0 30vh 0;
+      }
+
+    }
+     @media screen and (min-width: 400px) {
+      .pad{
+        padding: 10vh 4vh 12vh 4vh;
+      }
+
+    }
+    @media screen and (min-width: 700px) {
+      .pad{
+        padding: 5% 10% 10% 10%;
+      }
+
+    }
+  </style>
   <!-- Profile -->
   <div class="cta" style=" ">
-    <div style="padding: 100px;padding-top: 10vh"
-         class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
+    <div
+         class="d-flex flex-xl-row pad flex-column align-items-start justify-content-start">
 
 
       <div class="cta_content" style="width: 100%;margin-top: 1vh; background-color: #211d1d;border-radius: 20px">
