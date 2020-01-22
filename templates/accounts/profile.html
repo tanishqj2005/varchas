@@ -56,12 +56,12 @@
   animation-delay: 1s;
   animation-duration: 1s;
   animation-fill-mode:forwards;">
-      <div class="row" >
-        <div style="padding: 4%">
+      <div class="row" style="padding: 0">
+        <div style="padding: 0 4vh 2vh 4vh">
         <div class="button" ><a href="{% if profile_user.teamId != "NULL" %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">{% if profile_user.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}</a></div>
       </div>
         {% if profile_user.teamId == "NULL" %}
-        <div style="padding: 4%">
+        <div style="padding: 0 4vh 2vh 4vh">
          <div class="button"><a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>
         </div>
 
