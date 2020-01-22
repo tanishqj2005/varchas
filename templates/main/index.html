@@ -95,6 +95,9 @@
     video {
       height: 100%;
     }
+    
+    
+  
 
     @keyframes topFadeOutVertical {
       0% {
@@ -207,6 +210,8 @@
         opacity: 1;
       }
     }
+
+    
   }
 
   @media screen and (max-width: 1295px) {
@@ -221,8 +226,79 @@
       width: 100%;
     }
   }
+ /* ------------- */
+
+  .popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.overlay-pop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay-pop:target {
+  visibility: visible;
+  opacity: 1;
+}
+ol {
+    padding-left: 3vh; 
+    list-style-type: decimal;
+
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 90%;
+    margin-top: 3vh;
+  }
+}
+
+@media screen and(max-width: 700px) and (orientation: landscape){
+  .popup{
+    width: 95%;
+  }
+}
 </style>
 <!-- Home -->
+
 <header>
   <div class="vid-container">
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" class="video">
@@ -262,6 +338,8 @@
 </header>
 <!-- About -->
 
+
+
 <div id="about" class="about" style="margin-top: -10px;background-color: #232020">
   <div class="container">
     <div class="row">
@@ -284,21 +362,76 @@
           <div class="row wow fadeInUp">
             {% if user.is_authenticated %}
             {% if userprofile.teamId != "NULL" %}
-            <div class="button cta_button"><a href="{% url 'accounts:myTeam' %}">Team Details</a></div>
-            <div style="padding:10px"></div>
-            <div class="button cta_button"><a href="{% url 'accounts:profile' %}">View Profile</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:myTeam' %}">Team Details</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:profile' %}">View Profile</a></div>
             {% else %}
-            <div class="button cta_button"><a href="{% url 'accounts:joinTeam' %}">Join Team</a></div>
-            <div style="padding:10px"></div>
-            <div class="button cta_button"><a href="{% url 'registration:team' %}">Create Team</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:joinTeam' %}">Join Team</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'registration:team' %}">Create Team</a></div>
             {% endif %}
             {% else %}
-            <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register</a></div>
-            <div style="padding:10px"></div>
-            <div class="button cta_button"><a href="{% url 'login' %}">Login</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:register' %}">Register</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'login' %}">Login1</a></div>
             {% endif %}
+            <div class="button cta_button" style="margin:10px"><a href="#popup1">Instructions</a></div>
           </div>
 
+        </div>
+
+      </div>
+      <div id="popup1" class="overlay-pop" style="z-index: 10000;">
+        <div class="popup">
+          <h3>Step by step guide</h3><br>
+          <a class="close" href="#about">&times;</a>
+          <div class="content">
+          <ol>
+              <li dir="ltr">
+                  <p dir="ltr">
+                      Register to create an account.
+                  </p>
+              </li>
+              <li dir="ltr">
+                  <p dir="ltr">
+                      Log into your account.
+                  </p>
+              </li>
+              <li dir="ltr">
+                  <p dir="ltr">
+                      For the captain (or individual sports):
+                  </p>
+              </li>
+              <ol>
+                  <li dir="ltr">
+                      <p dir="ltr">
+                          Create a team by clicking on the “Create Team” button.
+                      </p>
+                  </li>
+                  <li dir="ltr">
+                      <p dir="ltr">
+                          Obtain the VA number by successfully creating a team. (Eg:
+                          VA-ATH-HAR00)
+                      </p>
+                  </li>
+                  <li dir="ltr">
+                      <p dir="ltr">
+                          Share the VA number with your team.
+                      </p>
+                  </li>
+              </ol>
+              <li dir="ltr">
+                  <p dir="ltr">
+                      For other team members:
+                  </p>
+              </li>
+              <ol>
+                  <li dir="ltr">
+                      <p dir="ltr">
+                          Click “Join Team” button and enter the VA number of the team.
+                      </p>
+                  </li>
+              </ol>
+            </ol>
+              
+          </div>
         </div>
       </div>
 
@@ -310,6 +443,7 @@
     </div>
   </div>
 </div>
+        
 
 <!-- Quote -->
 
