@@ -269,19 +269,19 @@
       <!-- About Content -->
       <div class="col-lg-8">
         <div class="about_content">
-          <div class="section_title_container">
+          <div class="section_title_container wow fadeInUp animated">
             <div class="section_title">
               <h1 style="color: white">about varchas</h1>
             </div>
           </div>
-          <div class="about_text">
+          <div class="about_text wow fadeInUp">
             <p>“Varchas” is the annual sports fest of IIT Jodhpur. Being the largest sports fest of
               Rajasthan, Varchas celebrates the spirit of sportsmanship and serves as a
               platform to showcase the countless hours of perspiration put in by the teams to
               achieve excellence in their sport. Since its inception in 2011 the grandeur of
               Varchas has spread far and wide across the best colleges of India.</p>
           </div><br>
-          <div class="row">
+          <div class="row wow fadeInUp">
             {% if user.is_authenticated %}
             {% if userprofile.teamId != "NULL" %}
             <div class="button cta_button"><a href="{% url 'accounts:myTeam' %}">Team Details</a></div>
@@ -303,7 +303,7 @@
       </div>
 
       <!-- About Image -->
-      <div class="col-lg-4">
+      <div class="col-lg-4 wow fadeInUp">
         <div class="about_image"><img src="{% static 'images/about.png' %}" alt=""></div>
       </div>
 
@@ -317,11 +317,11 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="quote_content text-center">
+        <div class="quote_content text-center wow bounceInLeft">
           <p style="color: lightgrey">“Training gives us an outlet for suppressed energies created by stress and thus tones the
             spirit just as exercise conditions the body.”</p>
         </div>
-        <div class="quote_author text-center" style="color: lightgrey">– Arnold Schwarzenegger</div>
+        <div class="quote_author text-center wow bounceInRight" style="color: lightgrey">– Arnold Schwarzenegger</div>
       </div>
     </div>
   </div>
@@ -355,7 +355,7 @@
       <div class="d-flex flex-row align-items-start justify-content-start flex-wrap" style="height: auto">
       <!-- Intro Box -->
 
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% static 'Rules/Cricket.pdf' %}">
             <img class="card1" src="{% static 'images/cricket.jpg' %}" style="background-size: contain;width: 100%;
@@ -369,7 +369,7 @@
           </a>
         </div>
 
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% static 'Rules/Football.pdf' %}">
             <img class="card1" src="{% static 'images/football.JPG' %}" style="background-size: contain;width: 100%;
@@ -382,7 +382,7 @@
             </div>
           </a>
         </div>
-         <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+         <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% static 'Rules/Athletics.pdf' %}">
             <img class="card1" src="{% static 'images/athletics.jpeg' %}" style="background-size: contain;width: 100%;
@@ -395,7 +395,7 @@
             </div>
           </a>
         </div>
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% static 'Rules/Badminton.pdf' %}">
             <img class="card1" src="{% static 'images/badminton.jpg' %}" style="background-size: contain;width: 100%;
@@ -408,7 +408,7 @@
             </div>
           </a>
         </div>
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% static 'Rules/Basketball.pdf' %}">
             <img class="card1" src="{% static 'images/basketball.jpeg' %}" style="background-size: contain;width: 100%;
@@ -434,7 +434,7 @@
             </div>
           </a>
         </div>
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% static 'Rules/TT.pdf' %}">
             <img class="card1" src="{% static 'images/TT.jpg' %}" style="background-size: contain;width: 100%;
@@ -447,7 +447,7 @@
             </div>
           </a>
         </div>
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% static 'Rules/Tennis.pdf' %}">
             <img class="card1" src="{% static 'images/tennis.jpg' %}" style="background-size: contain;width: 100%;
@@ -473,7 +473,7 @@
             </div>
           </a>
         </div>
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
              style="padding: 0;">
           <a href="{% url 'main:comingSoon' %}">
             <img class="card1" src="{% static 'images/informals.jpg' %}" style="background-size: contain;width: 100%;
@@ -503,30 +503,30 @@
     <!-- CTA Content -->
     <div class="cta_content">
       <div class="section_title_container">
-        <div class="section_subtitle">Do you have it in you?</div>
-        <div class="section_title">
+        <div class="section_subtitle wow fadeIn">Do you have it in you?</div>
+        <div class="section_title wow fadeIn">
           <h1>Register NOW</h1>
         </div>
       </div>
       <div class="cta_list">
         <ul>
-          <li class="d-flex flex-row align-items-center justify-content-start">
+          <li class="wow fadeIn d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
             <span>Varchas is an embodiment of the ideology and provides a platform to athletes to showcase their talent. </span>
           </li>
-          <li class="d-flex flex-row align-items-center justify-content-start">
+          <li class="wow faedIn d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
             <span> More than 1200 participant from all over the country participated in
-              the fest last season. <span>
+              the fest last season. </span>
           </li>
-          <li class="d-flex flex-row align-items-center justify-content-start">
+          <li class="wow fadeIn d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
             <span>Varchas witnessed a sensation among the youth. Apart from the spectacular athletic events, varchas witnessed an array of informal events.</span>
           </li>
 
         </ul>
       </div>
-      <div class="cta_buttons">
+      <div class="cta_buttons wow fadeInUp">
 {#        <div class="d-flex flex-row align-items-start justify-content-start flex-wrap">#}
 {#          <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register your team</a></div>#}
 {##}
@@ -578,11 +578,11 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class=" text-center" style="font-size: 7vh;color: white">Contact Us</div>
+          <div class="wow fadeInDownBig text-center" style="font-size: 7vh;color: white">Contact Us</div>
         </div>
       </div>
       <div class="row footer_row">
-        <div class="col-lg-4 footer_col">
+        <div class="col-lg-4 footer_col wow fadeInLeft">
           <div class="footer_item text-center">
             <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
               <div><i class="fa fa-phone fa-4x" style="color: white"></i></div>
@@ -598,7 +598,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 footer_col">
+        <div class="col-lg-4 footer_col wow fadeInUpBig">
           <div class="footer_item text-center">
             <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
               <div><i class="fa fa-envelope fa-4x" style="margin-left: -1vh;margin-top:-1vh;color: white"></i></div>
@@ -612,7 +612,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 footer_col">
+        <div class="col-lg-4 footer_col wow fadeInRightBig">
           <div class="footer_item text-center">
             <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
               <div><i class="fa fa-map-marker fa-4x" style="color: white;margin-top: -1vh"></i></div>
@@ -629,7 +629,7 @@
       </div>
     </div>
   </div>
-  <div class="footer_bar d-flex flex-row align-items-center justify-content-center">
+  <div class="wow fadeIn footer_bar d-flex flex-row align-items-center justify-content-center">
     <div class="copyright">
       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       Copyright &copy;<script>
@@ -641,7 +641,10 @@
   </div>
 </footer>
 </div>
-
+  <script src="{% static 'js/wow.min.js' %}"></script>
+  <script>
+      new WOW().init();
+      </script>
 
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
