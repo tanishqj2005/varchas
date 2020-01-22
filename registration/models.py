@@ -17,13 +17,13 @@ class CampusAmbassador(models.Model):
     # Validators
     contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
     # Model
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=32)
     email = models.EmailField()
     college = models.CharField(max_length=128)
     current_year = models.CharField(max_length=1, choices=YEAR_CHOICES)
     address = models.CharField(max_length=128)
     phone = models.CharField(max_length=10, validators=[contact])
-    fb_link = models.CharField(max_length=30, default='facebook.com')
+    fb_link = models.CharField(max_length=80, default='facebook.com')
     publicize_varchas = models.TextField(max_length=512)
     past_experience = models.TextField(max_length=512)
     referral_code = models.CharField(max_length=7, editable=False)
