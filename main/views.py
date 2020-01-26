@@ -5,6 +5,8 @@ from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBrie
 from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
 from registration.models import TeamRegistration
+import csv
+from django.http import HttpResponse
 
 
 class IndexView(TemplateView):
@@ -27,6 +29,18 @@ class IndexView(TemplateView):
 def AdminView(request):
     teams = TeamRegistration.objects.all()
     return render(request, 'main/dashboard.html', {'teams': teams})
+
+
+def downloadPDF(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="teams.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
+    teams = TeamRegistration.objects.all().values_list('teamId', 'sport', 'captian_id', 'college', 'members')
+    for team in teams:
+        writer.writerow(team)
+        # [team, team.get_sport_display, team.captian.user.first_name, team.college, team.members.all])
+    return response
 
 
 class NavBarSubOptionsPageView(DetailView):

@@ -7,19 +7,26 @@
     </head>
     <body class="py-4" data-gr-c-s-loaded="true">
         <div class="container">
-        <div class="row mb-3">
-            <div class="col-4 themed-grid-col">Team Name</div>
-            <div class="col-4 themed-grid-col">Sport</div>
-            <div class="col-4 themed-grid-col">College</div>
+        <div class="row mb-5">
+            
+            <div class="col-2 themed-grid-col"><b>Team Name</b></div>
+            <div class="col-2 themed-grid-col"><b>Sport</b></div>
+            <div class="col-2 themed-grid-col"><b>Captian</b></div>
+            <div class="col-2 themed-grid-col"><b>College</b></div>
+            <div class="col-2 themed-grid-col"><b>Team Members</b></div>
+            
         </div>
         {% for team in teams %}
-        <div class="row mb-3">
-            <div class="col-4 themed-grid-col">{{team}}</div>
-            <div class="col-4 themed-grid-col">{{team.get_sport_display}}</div>
-            <div class="col-4 themed-grid-col">{{team.college}}</div>
+        <div class="row mb-5">
+            <div class="col-2 themed-grid-col">{{team}}</div>
+            <div class="col-2 themed-grid-col">{{team.get_sport_display}}</div>
+            <div class="col-2 themed-grid-col">{{team.captian.user.first_name}}</div>
+            <div class="col-2 themed-grid-col">{{team.college}}</div>
+            <div class="col-2 themed-grid-col">{% for member in team.members.all %} {{member}}<br> {% endfor %} </div>
         </div>
         {% endfor %}
         </div>
+        <a href="{% url 'main:teamInfo' %}">get pdf</a>
     </body>
 
 </html>
