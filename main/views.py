@@ -4,6 +4,7 @@ from django.views.generic.detail import DetailView
 from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
 from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
+from registration.models import TeamRegistration
 
 
 class IndexView(TemplateView):
@@ -21,6 +22,11 @@ class IndexView(TemplateView):
         if self.request.user.username != "":
             context['userprofile'] = userprofile
         return context
+
+
+def AdminView(request):
+    teams = TeamRegistration.objects.all()
+    return render(request, 'main/dashboard.html', {'teams': teams})
 
 
 class NavBarSubOptionsPageView(DetailView):

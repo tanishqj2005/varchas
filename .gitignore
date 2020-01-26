@@ -11,6 +11,7 @@ git.py
 *.save
 varchasenv/
 env/
+myenv/
 .env
 build/
 develop-eggs/
@@ -45,4 +46,5 @@ copy
 .venv
 venv/
 ENV/
+myenv/
 .vscode/settings.json
