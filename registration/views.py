@@ -5,6 +5,8 @@ from accounts.models import UserProfile
 from django.http import HttpResponse
 from random import random
 from .models import TeamRegistration
+# import gspread
+# from oauth2client.service_account import ServiceAccountCredentials
 
 
 class CampusAmbassadorRegisterView(CreateView):
@@ -35,6 +37,16 @@ class TeamFormationView(CreateView):
             user.teamId = team.teamId
             user.save()
             team.members.add(user)
+
+            # Adding Data to google sheet
+
+            # scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+            # creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+            # client = gspread.authorize(creds)
+            # sheet = client.open('Varchas-Teams').sheet1
+            # row = [team.teamId, team.get_sport_display(), team.captian.user.first_name, team.captian.phone,team.college]
+            # sheet.insert_row(row, 2) # inserting row at the top
+
             # team.save()
             return super(TeamFormationView, self).form_valid(form)
         return HttpResponse("404")
