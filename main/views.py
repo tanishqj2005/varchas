@@ -36,7 +36,7 @@ def downloadPDF(request):
     response['Content-Disposition'] = 'attachment; filename="teams.csv"'
     writer = csv.writer(response)
     writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
-    teams = TeamRegistration.objects.all()  # .values_list('teamId', 'sport', 'captian_id', 'college', 'members')
+    teams = TeamRegistration.objects.all()
     for team in teams:
         members = []
         for member in team.members.all():
