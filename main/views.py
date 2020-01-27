@@ -41,7 +41,7 @@ def downloadPDF(request):
         members = []
         for member in team.members.all():
             members.append(member.user.first_name)
-        writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, "\n".join(members)])
+        writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
     return response
 
 
