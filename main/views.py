@@ -36,10 +36,12 @@ def downloadPDF(request):
     response['Content-Disposition'] = 'attachment; filename="teams.csv"'
     writer = csv.writer(response)
     writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
-    teams = TeamRegistration.objects.all().values_list('teamId', 'sport', 'captian_id', 'college', 'members')
+    teams = TeamRegistration.objects.all()  # .values_list('teamId', 'sport', 'captian_id', 'college', 'members')
     for team in teams:
-        writer.writerow(team)
-        # [team, team.get_sport_display, team.captian.user.first_name, team.college, team.members.all])
+        members = []
+        for member in team.members.all():
+            members.append(member.user.first_name)
+        writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, "\n".join(members)])
     return response
 
 
