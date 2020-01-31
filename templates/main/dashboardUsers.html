@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>
+        Dashboard
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="py-4" data-gr-c-s-loaded="true">
+    <div class="container">
+        <div class="row mb-6">
+            <div class="col-2 themed-grid-col"><b>Player Name</b></div>
+            <div class="col-2 themed-grid-col"><b>Gender</b></div>
+            <div class="col-2 themed-grid-col"><b>Email</b></div>
+            <div class="col-2 themed-grid-col"><b>Phone Number</b></div>
+            <div class="col-2 themed-grid-col"><b>College</b></div>
+            <div class="col-2 themed-grid-col"><b>Team Id</b></div>
+        </div>
+        {% for user in users %}
+        <div class="row mb-6">
+            <div class="col-2 themed-grid-col">{{user.user.first_name}}</div>
+            <div class="col-2 themed-grid-col">{{user.gender}}</div>
+            <div class="col-2 themed-grid-col">{{user.user}}</div>
+            <div class="col-2 themed-grid-col">{{user.phone}}</div>
+            <div class="col-2 themed-grid-col">{{user.college}}</div>
+            <div class="col-2 themed-grid-col">{{user.teamId}}</div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'main:teamInfo' %}">Get Excel Sheet</a>
+</body>
+
+</html>

@@ -11,7 +11,7 @@ from .models import TeamRegistration
 
 class CampusAmbassadorRegisterView(CreateView):
     template_name = 'registration/ca_reg.html'
-    success_url = '/admin'
+    success_url = '/login/'
     form_class = CampusAmbassadorForm
 
 

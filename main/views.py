@@ -26,25 +26,6 @@ class IndexView(TemplateView):
         return context
 
 
-def AdminView(request):
-    teams = TeamRegistration.objects.all()
-    return render(request, 'main/dashboard.html', {'teams': teams})
-
-
-def downloadPDF(request):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="teams.csv"'
-    writer = csv.writer(response)
-    writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
-    teams = TeamRegistration.objects.all()
-    for team in teams:
-        members = []
-        for member in team.members.all():
-            members.append(member.user.first_name)
-        writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
-    return response
-
-
 class NavBarSubOptionsPageView(DetailView):
     template_name = 'main/navbarsuboptionpage.html'
     model = NavBarSubOptions
@@ -71,6 +52,34 @@ class OurTeamView(TemplateView):
         context = super(OurTeamView, self).get_context_data(**kwargs)
         context["our_team"] = OurTeam.objects.all
         return context
+
+
+def dashboard(request):
+    return render(request, 'main/dashboard.html')
+
+
+def dashboardTeams(request):
+    teams = TeamRegistration.objects.all()
+    return render(request, 'main/dashboardTeams.html', {'teams': teams})
+
+
+def dashboardUsers(request):
+    users = UserProfile.objects.all()
+    return render(request, 'main/dashboardUsers.html', {'users': users})
+
+
+def downloadPDF(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="teams.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
+    teams = TeamRegistration.objects.all()
+    for team in teams:
+        members = []
+        for member in team.members.all():
+            members.append(member.user.first_name)
+        writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
+    return response
 
 
 def comingSoon(request):
