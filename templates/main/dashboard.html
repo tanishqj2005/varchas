@@ -119,16 +119,19 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-            <!-- Nav Item - Messages -->
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user}}</span>
-                <i class="fa fa-user"></i>
+              <i class="fa fa-user"></i>
               </a>
             </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link" href="{% url 'logout' %}">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Logout</span>
+                    <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-600"></i>
+                </a>
+                </li>
 
           </ul>
 
