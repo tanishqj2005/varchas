@@ -55,7 +55,7 @@ class OurTeamView(TemplateView):
 
 
 def dashboard(request):
-    return render(request, 'main/dashboard.html')
+    return render(request, 'main/dashboard.html', {'user': request.user})
 
 
 def dashboardTeams(request):
@@ -68,7 +68,7 @@ def dashboardUsers(request):
     return render(request, 'main/dashboardUsers.html', {'users': users})
 
 
-def downloadPDF(request):
+def downloadExcel(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="teams.csv"'
     writer = csv.writer(response)
