@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 # from .utils import SiteAccessMixin
+from django.contrib.auth.decorators import login_required
 from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
 from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
@@ -54,7 +55,10 @@ class OurTeamView(TemplateView):
         return context
 
 
+@login_required(login_url='login')
 def dashboard(request):
+    if not request.user.is_superuser:
+        return render(request, "404")
     teams = TeamRegistration.objects.all()
     nteams = teams.count()
     users = UserProfile.objects.all()
@@ -62,16 +66,19 @@ def dashboard(request):
     return render(request, 'main/dashboard.html', {'user': request.user, 'nteams': nteams, 'nusers': nusers})
 
 
+@login_required(login_url='login')
 def dashboardTeams(request):
     teams = TeamRegistration.objects.all()
     return render(request, 'main/dashboardTeams.html', {'teams': teams})
 
 
+@login_required(login_url='login')
 def dashboardUsers(request):
     users = UserProfile.objects.all()
     return render(request, 'main/dashboardUsers.html', {'users': users})
 
 
+@login_required(login_url='login')
 def downloadExcel(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="teams.csv"'
