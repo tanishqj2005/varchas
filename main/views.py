@@ -55,7 +55,11 @@ class OurTeamView(TemplateView):
 
 
 def dashboard(request):
-    return render(request, 'main/dashboard.html', {'user': request.user})
+    teams = TeamRegistration.objects.all()
+    nteams = teams.count()
+    users = UserProfile.objects.all()
+    nusers = users.count()
+    return render(request, 'main/dashboard.html', {'user': request.user, 'nteams': nteams, 'nusers': nusers})
 
 
 def dashboardTeams(request):
