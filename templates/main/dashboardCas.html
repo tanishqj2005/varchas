@@ -4,26 +4,28 @@
     <title>
         Dashboard
     </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
 <body class="py-4" data-gr-c-s-loaded="true">
     <div class="container">
         <div class="row mb-6">
             <div class="col-2 themed-grid-col"><b>Name</b></div>
-            <div class="col-2 themed-grid-col"><b>Email</b></div>
-            <div class="col-2 themed-grid-col"><b>College</b></div>
+            <div class="col-3 themed-grid-col"><b>Email</b></div>
+            <div class="col-3 themed-grid-col"><b>College</b></div>
             <div class="col-2 themed-grid-col"><b>Phone</b></div>
-            <div class="col-2 themed-grid-col"><b>FB</b></div>
-            <div class="col-2 themed-grid-col"><b>Code</b></div>
+            <div class="col-1 themed-grid-col"><b>FB</b></div>
+            <div class="col-1 themed-grid-col"><b>Code</b></div>
         </div>
         {% for ca in cas %}
         <div class="row mb-6">
             <div class="col-2 themed-grid-col">{{ca}}</div>
-            <div class="col-2 themed-grid-col">{{ca.email}}</div>
-            <div class="col-2 themed-grid-col">{{ca.college}}</div>
+            <div class="col-3 themed-grid-col">{{ca.email}}</div>
+            <div class="col-3 themed-grid-col">{{ca.college}}</div>
             <div class="col-2 themed-grid-col">{{ca.phone}}</div>
-            <div class="col-2 themed-grid-col"><a href="{{ca.fb_link}}">FB</a></div>
-            <div class="col-2 themed-grid-col">{{ca.referral_code}}</div>
+            <div class="col-1 themed-grid-col"><a href="{{ca.fb_link}}">FB</a></div>
+            <div class="col-1 themed-grid-col">{{ca.referral_code}}</div>
         </div>
         {% endfor %}
     </div>
