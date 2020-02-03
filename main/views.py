@@ -81,6 +81,12 @@ def dashboardUsers(request):
 
 
 @login_required(login_url='login')
+def dashboardCas(request):
+    cas = CampusAmbassador.objects.all()
+    return render(request, 'main/dashboardCas.html', {'cas': cas})
+
+
+@login_required(login_url='login')
 def downloadExcel(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="teams.csv"'
