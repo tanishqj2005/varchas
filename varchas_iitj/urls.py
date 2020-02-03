@@ -23,7 +23,7 @@ from django.conf.urls import handler404, handler500
 from main.views import error_404, error_500
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
+    path('webd', admin.site.urls, name='admin'),
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('', include('main.urls')),
