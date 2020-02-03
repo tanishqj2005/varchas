@@ -8,12 +8,19 @@ class CampusAmbassadorForm(forms.ModelForm):
         exclude = ['referral_code']
 
     def clean_name(self):
-        return self.data['name'].strip().title()
+        return self.data['name']
 
     def clean_email(self):
         if CampusAmbassador.objects.filter(email__iexact=self.data['email']).exists():
             raise forms.ValidationError('This email is already registered')
         return self.data['email']
+
+    def clean_phone(self):
+        _dict = super(CampusAmbassadorForm, self).clean()
+        if not _dict['phone'].isdigit():
+            raise forms.ValidationError('Phone number invalid')
+        _dict['phone'] = _dict['phone'][-10:]
+        return _dict['phone']
 
     def __init__(self, *args, **kwargs):
         super(CampusAmbassadorForm, self).__init__(*args, **kwargs)

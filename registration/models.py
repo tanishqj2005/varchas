@@ -1,28 +1,17 @@
 from django.db.models.signals import pre_save
 from django.db import models
 from .utils import unique_ca_referral_code
-from django.core.validators import RegexValidator
 from accounts.models import UserProfile
 from events.models import Event
 
 
 class CampusAmbassador(models.Model):
-    YEAR_CHOICES = (
-        ('1', 'First Year'),
-        ('2', 'Second Year'),
-        ('3', 'Third Year'),
-        ('4', 'Fourth Year'),
-        ('5', 'Fifth Year'),
-    )
-    # Validators
-    contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
     # Model
     name = models.CharField(max_length=32)
     email = models.EmailField()
     college = models.CharField(max_length=128)
-    current_year = models.CharField(max_length=1, choices=YEAR_CHOICES)
     address = models.CharField(max_length=128)
-    phone = models.CharField(max_length=10, validators=[contact])
+    phone = models.CharField(max_length=13)
     fb_link = models.CharField(max_length=80, default='facebook.com')
     publicize_varchas = models.TextField(max_length=512)
     past_experience = models.TextField(max_length=512)
