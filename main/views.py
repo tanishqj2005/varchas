@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
 from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
-from registration.models import TeamRegistration
+from registration.models import TeamRegistration, CampusAmbassador
 import csv
 from django.http import HttpResponse
 
@@ -63,7 +63,9 @@ def dashboard(request):
     nteams = teams.count()
     users = UserProfile.objects.all()
     nusers = users.count()
-    return render(request, 'main/dashboard.html', {'user': request.user, 'nteams': nteams, 'nusers': nusers})
+    cas = CampusAmbassador.objects.all()
+    ncas = cas.count()
+    return render(request, 'main/dashboard.html', {'user': request.user, 'nteams': nteams, 'nusers': nusers, 'ncas': ncas})
 
 
 @login_required(login_url='login')
