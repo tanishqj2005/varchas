@@ -14,6 +14,9 @@ class CampusAmbassadorRegisterView(CreateView):
     success_url = '/login/'
     form_class = CampusAmbassadorForm
 
+    def form_valid(self, form):
+        return super(CampusAmbassadorForm, self).form_valid(form)
+
 
 class TeamFormationView(CreateView):
     form_class = TeamRegistrationForm

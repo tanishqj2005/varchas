@@ -24,6 +24,14 @@ class CampusAmbassadorForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CampusAmbassadorForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs['icon_name'] = "fa fa-envelope"
+        self.fields['name'].widget.attrs['icon_name'] = "fa fa-user"
+        self.fields['fb_link'].widget.attrs['icon_name'] = "fa fa-facebook"
+        self.fields['address'].widget.attrs['icon_name'] = "fa fa-address-card"
+        self.fields['phone'].widget.attrs['icon_name'] = "fa fa-phone"
+        self.fields['college'].widget.attrs['icon_name'] = "fa fa-university"
+        self.fields['past_experience'].widget.attrs['icon_name'] = "fa fa-file-text"
+        self.fields['publicize_varchas'].widget.attrs['icon_name'] = " fa fa-globe"
 
 
 class TeamRegistrationForm(forms.ModelForm):
