@@ -60,6 +60,11 @@ class HomeEventCard(models.Model):
         return self.name
 
 
+class email(models.Model):
+    emails = models.CharField(max_length=64)
+    subject = models.CharField(max_length=64)
+
+
 class HomeBriefCard(models.Model):
     title = models.CharField(max_length=20)
     description = models.CharField(max_length=64)

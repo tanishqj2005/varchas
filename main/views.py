@@ -1,13 +1,17 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 from django.views.generic.detail import DetailView
 # from .utils import SiteAccessMixin
 from django.contrib.auth.decorators import login_required
 from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
 from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
+from .forms import emailForm
 from registration.models import TeamRegistration, CampusAmbassador
 import csv
+import os
 from django.http import HttpResponse
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 
 class IndexView(TemplateView):
@@ -99,6 +103,25 @@ def downloadExcel(request):
             members.append(member.user.first_name)
         writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
     return response
+
+
+class sendMail(CreateView):
+    form_class = emailForm
+    template_name = 'main/email.html'
+    success_url = '/admin'
+
+    def form_valid(self, form):
+        data = self.request.POST.copy()
+        message = Mail(
+            from_email='noreply@varchas2020.org',
+            to_emails=data['emails'],
+            subject=data['subject'],
+            html_content='<strong>Hello world</strong>')
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
 
 
 def comingSoon(request):
