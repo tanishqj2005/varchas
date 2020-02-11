@@ -13,7 +13,7 @@ class CampusAmbassador(models.Model):
     address = models.CharField(max_length=128)
     phone = models.CharField(max_length=13)
     fb_link = models.CharField(max_length=80, default='facebook.com')
-    publicize_varchas = models.TextField(max_length=512)
+    publicize_varchas = models.CharField(max_length=512, blank=True)
     past_experience = models.TextField(max_length=512)
     referral_code = models.CharField(max_length=7, editable=False)
 
