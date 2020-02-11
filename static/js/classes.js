@@ -46,19 +46,19 @@ $(document).ready(function()
 
 	*/
 
-	function setHeader()
-	{
-		var header = $('.fixed_header');
-
-		if($(window).scrollTop() > 180)
-		{
-			header.addClass('scrolled');
-		}
-		else
-		{
-			header.removeClass('scrolled');
-		}
-	}
+	// function setHeader()
+	// {
+	// 	var header = $('.fixed_header');
+	//
+	// 	if($(window).scrollTop() > 180)
+	// 	{
+	// 		header.addClass('scrolled');
+	// 	}
+	// 	else
+	// 	{
+	// 		header.removeClass('scrolled');
+	// 	}
+	// }
 
 	/* 
 
