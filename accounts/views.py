@@ -53,7 +53,7 @@ class CustomLoginView(LoginView):
 @login_required(login_url="login")
 def DisplayProfile(request):
     user = get_object_or_404(UserProfile, user=request.user)
-    return render(request, 'accounts/profile.html', {'profile_user': user})
+    return render(request, 'accounts/profile.html', {'userprofile': user, 'user': request.user, 'page': "profile"})
 
 
 @login_required(login_url="login")
@@ -61,7 +61,7 @@ def DisplayTeam(request):
     user = get_object_or_404(UserProfile, user=request.user)
     teamId = user.teamId
     team = get_object_or_404(TeamRegistration, teamId=teamId)
-    return render(request, 'accounts/myTeam.html', {'profile_team': team, 'profile_user': user})
+    return render(request, 'accounts/myTeam.html', {'profile_team': team, 'profile_user': user, 'page': "team"})
 
 
 @login_required(login_url="login")

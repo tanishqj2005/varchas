@@ -226,76 +226,84 @@
       width: 100%;
     }
   }
- /* ------------- */
+
+  /* ------------- */
 
   .popup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 40%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
 
-.popup h2 {
-  margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
-}
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popup .close:hover {
-  color: #06D85F;
-}
-.popup .content {
-  max-height: 30%;
-  overflow: auto;
-}
-.overlay-pop {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-.overlay-pop:target {
-  visibility: visible;
-  opacity: 1;
-}
-ol {
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .popup .close:hover {
+    color: #06D85F;
+  }
+
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+
+  .overlay-pop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .overlay-pop:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  ol {
     padding-left: 3vh;
     list-style-type: decimal;
 
-}
+  }
 
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 90%;
-    margin-top: 3vh;
-  }
-}
+  @media screen and (max-width: 700px) {
+    .box {
+      width: 70%;
+    }
 
-@media screen and(max-width: 700px) and (orientation: landscape){
-  .popup{
-    width: 95%;
+    .popup {
+      width: 90%;
+      margin-top: 3vh;
+    }
   }
-}
+
+  @media screen and(max-width: 700px) and (orientation: landscape) {
+    .popup {
+      width: 95%;
+    }
+  }
 </style>
 <!-- Home -->
 
@@ -321,9 +329,9 @@ ol {
             </div>
             <div class="get-your-game-on" style="padding: 5vh 0 4vh 0">
               <span class="first-text-your"> 4 - 6 APRIL</span>
-{#              <span class="first-text-your" style="color: #fff;"> APRIL -</span>#}
-{#              <span class="first-text-game"> 6</span>#}
-{#              <span class="first-text-on" style="color: #fff;"> APRIL</span>#}
+              {#              <span class="first-text-your" style="color: #fff;"> APRIL -</span>#}
+              {#              <span class="first-text-game"> 6</span>#}
+              {#              <span class="first-text-on" style="color: #fff;"> APRIL</span>#}
             </div>
 
             {# <div class="button_3" style="margin-left:0vh;margin-top: 15vh;position: absolute;left: 45%;"><a href="{% url 'accounts:register' %}">Register</a></div>#}
@@ -362,14 +370,19 @@ ol {
           <div class="row wow fadeInUp">
             {% if user.is_authenticated %}
             {% if userprofile.teamId != "NULL" %}
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:myTeam' %}">Team Details</a></div>
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:profile' %}">View Profile</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:myTeam' %}">Team Details</a>
+            </div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:profile' %}">View Profile</a>
+            </div>
             {% else %}
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:joinTeam' %}">Join Team</a></div>
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'registration:team' %}">Create Team</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:joinTeam' %}">Join Team</a>
+            </div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'registration:team' %}">Create Team</a>
+            </div>
             {% endif %}
             {% else %}
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:register' %}">Register</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:register' %}">Register</a>
+            </div>
             <div class="button cta_button" style="margin:10px"><a href="{% url 'login' %}">Login</a></div>
             {% endif %}
             <div class="button cta_button" style="margin:10px"><a href="#popup1">Instructions</a></div>
@@ -383,52 +396,57 @@ ol {
           <h3>Step by step guide</h3><br>
           <a class="close" href="#about">&times;</a>
           <div class="content">
-          <ol>
+            <ol>
               <li dir="ltr">
-                  <p dir="ltr">
-                      Register to create an account.
-                  </p>
+                <p dir="ltr">
+                  Register to create an account.
+                </p>
               </li>
               <li dir="ltr">
-                  <p dir="ltr">
-                      Log into your account.
-                  </p>
+                <p dir="ltr">
+                  Log into your account.
+                </p>
               </li>
               <li dir="ltr">
-                  <p dir="ltr">
-                      For the captain (or individual sports):
-                  </p>
-              </li>
-              <ol>
-                  <li dir="ltr">
-                      <p dir="ltr">
-                          Create a team by clicking on the “Create Team” button.
-                      </p>
-                  </li>
-                  <li dir="ltr">
-                      <p dir="ltr">
-                          Obtain the VA number by successfully creating a team. (Eg:
-                          VA-ATH-HAR00)
-                      </p>
-                  </li>
-                  <li dir="ltr">
-                      <p dir="ltr">
-                          Share the VA number with your team.
-                      </p>
-                  </li>
-              </ol>
-              <li dir="ltr">
-                  <p dir="ltr">
-                      For other team members:
-                  </p>
+                <p dir="ltr">
+                  For the captain (or individual sports):
+                </p>
               </li>
               <ol>
-                  <li dir="ltr">
-                      <p dir="ltr">
-                          Click “Join Team” button and enter the VA number of the team.
-                      </p>
-                  </li>
+                <li dir="ltr">
+                  <p dir="ltr">
+                    Create a team by clicking on the “Create Team” button.
+                  </p>
+                </li>
+                <li dir="ltr">
+                  <p dir="ltr">
+                    Obtain the VA number by successfully creating a team. (Eg:
+                    VA-ATH-HAR00)
+                  </p>
+                </li>
+                <li dir="ltr">
+                  <p dir="ltr">
+                    Share the VA number with your team.
+                  </p>
+                </li>
               </ol>
+              <li dir="ltr">
+                <p dir="ltr">
+                  For other team members:
+                </p>
+              </li>
+              <ol>
+                <li dir="ltr">
+                  <p dir="ltr">
+                    Click “Join Team” button and enter the VA number of the team.
+                  </p>
+                </li>
+              </ol>
+              <li dir="ltr">
+                <p dir="ltr">
+                  Get Your Game On!
+                </p>
+              </li>
             </ol>
 
           </div>
@@ -452,7 +470,8 @@ ol {
     <div class="row">
       <div class="col">
         <div class="quote_content text-center wow bounceInLeft">
-          <p style="color: lightgrey">“Training gives us an outlet for suppressed energies created by stress and thus tones the
+          <p style="color: lightgrey">“Training gives us an outlet for suppressed energies created by stress and thus
+            tones the
             spirit just as exercise conditions the body.”</p>
         </div>
         <div class="quote_author text-center wow bounceInRight" style="color: lightgrey">– Arnold Schwarzenegger</div>
@@ -465,161 +484,164 @@ ol {
 
 {#{% include 'main/mixins/event_main_mixin.html' with event_list=event_list %}#}
 <style>
- @media screen and (max-width: 700px) {
+  @media screen and (max-width: 700px) {
 
-    div.card1{
+    div.card1 {
       top: 60%;
     }
-     h2.card1{
-         font-size: 1.17em;
-     }
-}
-    @media screen and (min-width: 700px) {
 
-    div.card1{
+    h2.card1 {
+      font-size: 1.17em;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+
+    div.card1 {
       top: 70%;
     }
-        img.card1{
-            min-height: 460px;
-        }
-}
+
+    img.card1 {
+      min-height: 460px;
+    }
+  }
 </style>
 <div class="intro">
   <div class="intro_boxes_wrap">
-      <div class="d-flex flex-row align-items-start justify-content-start flex-wrap" style="height: auto">
+    <div class="d-flex flex-row align-items-start justify-content-start flex-wrap" style="height: auto">
       <!-- Intro Box -->
 
-        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Cricket.pdf' %}">
-            <img class="card1" src="{% static 'images/cricket.jpg' %}" style="background-size: contain;width: 100%;
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Cricket.pdf' %}">
+          <img class="card1" src="{% static 'images/cricket.jpg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">CRICKET</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">CRICKET</h2>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
+      </div>
 
-        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Football.pdf' %}">
-            <img class="card1" src="{% static 'images/football.JPG' %}" style="background-size: contain;width: 100%;
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Football.pdf' %}">
+          <img class="card1" src="{% static 'images/football.JPG' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">FOOTBALL</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">FOOTBALL</h2>
             </div>
-          </a>
-        </div>
-         <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Athletics.pdf' %}">
-            <img class="card1" src="{% static 'images/athletics.jpeg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Athletics.pdf' %}">
+          <img class="card1" src="{% static 'images/athletics.jpeg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">ATHELETICS</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">ATHELETICS</h2>
             </div>
-          </a>
-        </div>
-        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Badminton.pdf' %}">
-            <img class="card1" src="{% static 'images/badminton.jpg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Badminton.pdf' %}">
+          <img class="card1" src="{% static 'images/badminton.jpg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">BADMINTON</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">BADMINTON</h2>
             </div>
-          </a>
-        </div>
-        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Basketball.pdf' %}">
-            <img class="card1" src="{% static 'images/basketball.jpeg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Basketball.pdf' %}">
+          <img class="card1" src="{% static 'images/basketball.jpeg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">BASKETBALL</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">BASKETBALL</h2>
             </div>
-          </a>
-        </div>
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Chess.pdf' %}">
-            <img class="card1" src="{% static 'images/chess.jpg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Chess.pdf' %}">
+          <img class="card1" src="{% static 'images/chess.jpg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">CHESS</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">CHESS</h2>
             </div>
-          </a>
-        </div>
-        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/TT.pdf' %}">
-            <img class="card1" src="{% static 'images/TT.jpg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/TT.pdf' %}">
+          <img class="card1" src="{% static 'images/TT.jpg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">TABLE TENNIS</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">TABLE TENNIS</h2>
             </div>
-          </a>
-        </div>
-        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Tennis.pdf' %}">
-            <img class="card1" src="{% static 'images/tennis.jpg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Tennis.pdf' %}">
+          <img class="card1" src="{% static 'images/tennis.jpg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">TENNIS</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">TENNIS</h2>
             </div>
-          </a>
-        </div>
-        <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% static 'Rules/Volleyball.pdf' %}">
-            <img class="card1" src="{% static 'images/volleyball.jpg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% static 'Rules/Volleyball.pdf' %}">
+          <img class="card1" src="{% static 'images/volleyball.jpg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">VOLLEYBALL</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">VOLLEYBALL</h2>
             </div>
-          </a>
-        </div>
-        <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
-             style="padding: 0;">
-          <a href="{% url 'main:comingSoon' %}">
-            <img class="card1" src="{% static 'images/informals.jpg' %}" style="background-size: contain;width: 100%;
+          </div>
+        </a>
+      </div>
+      <div class="wow fadeInUpBig intro_box d-flex flex-column align-items-center justify-content-center text-center"
+        style="padding: 0;">
+        <a href="{% url 'main:comingSoon' %}">
+          <img class="card1" src="{% static 'images/informals.jpg' %}" style="background-size: contain;width: 100%;
   height:auto;">
-            <div class="overlay">
-              <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
+          <div class="overlay">
+            <div class="intro_box_title card1" style="position: absolute;left: 50%;transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.74);width: 100%;padding: 10px">
-                  <h2 class="card1" style="color: #353535;font-weight: lighter">INFORMALS</h2>
-              </div>
+              <h2 class="card1" style="color: #353535;font-weight: lighter">INFORMALS</h2>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
+      </div>
 
 
     </div>
@@ -646,7 +668,8 @@ ol {
         <ul>
           <li class="wow fadeIn d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
-            <span>Varchas is an embodiment of the ideology and provides a platform to athletes to showcase their talent. </span>
+            <span>Varchas is an embodiment of the ideology and provides a platform to athletes to showcase their talent.
+            </span>
           </li>
           <li class="wow faedIn d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
@@ -655,16 +678,17 @@ ol {
           </li>
           <li class="wow fadeIn d-flex flex-row align-items-center justify-content-start">
             <img src="{% static 'images/check.png' %}" alt="">
-            <span>Varchas witnessed a sensation among the youth. Apart from the spectacular athletic events, varchas witnessed an array of informal events.</span>
+            <span>Varchas witnessed a sensation among the youth. Apart from the spectacular athletic events, varchas
+              witnessed an array of informal events.</span>
           </li>
 
         </ul>
       </div>
       <div class="cta_buttons wow fadeInUp">
-{#        <div class="d-flex flex-row align-items-start justify-content-start flex-wrap">#}
-{#          <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register your team</a></div>#}
-{##}
-{#        </div>#}
+        {#        <div class="d-flex flex-row align-items-start justify-content-start flex-wrap">#}
+        {#          <div class="button cta_button"><a href="{% url 'accounts:register' %}">Register your team</a></div>#}
+        {##}
+        {#        </div>#}
       </div>
     </div>
 
@@ -740,8 +764,10 @@ ol {
             <div class="footer_title">e-mail</div>
             <div class="footer_list">
               <ul>
-                <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a></li>
-                <li><a href="mailto:pr_varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
+                <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a>
+                </li>
+                <li><a href="mailto:pr_varchas@iitj.ac.in"
+                    style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
               </ul>
             </div>
           </div>
@@ -769,16 +795,17 @@ ol {
       Copyright &copy;<script>
         document.write(new Date().getFullYear());
       </script>
-      All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://students.iitj.ac.in/" target="_blank">Varchas Web D Team</a>
+      All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+        href="https://students.iitj.ac.in/" target="_blank">Varchas Web D Team</a>
       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
     </div>
   </div>
 </footer>
 </div>
-  <script src="{% static 'js/wow.min.js' %}"></script>
-  <script>
-      new WOW().init();
-      </script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+  new WOW().init();
+</script>
 
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>

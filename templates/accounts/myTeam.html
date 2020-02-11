@@ -1,80 +1,95 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block body %}
-  {% csrf_token %}
-  <style>
-    @media screen and (min-width: 300px) {
-      .pad{
-        padding: 0 0 30vh 0;
-      }
-
+{% csrf_token %}
+<style>
+  @media screen and (min-width: 300px) {
+    .pad {
+      padding: 0 0 30vh 0;
     }
-     @media screen and (min-width: 400px) {
-      .pad{
-        padding: 10vh 4vh 12vh 4vh;
-      }
 
+  }
+
+  @media screen and (min-width: 400px) {
+    .pad {
+      padding: 10vh 4vh 12vh 4vh;
     }
-    @media screen and (min-width: 700px) {
-      .pad{
-        padding: 5% 10% 10% 10%;
-      }
 
+  }
+
+  @media screen and (min-width: 700px) {
+    .pad {
+      padding: 5% 10% 10% 10%;
     }
-  </style>
-  <!-- Profile -->
-  <div class="cta" style=" ">
-    <div
-         class="d-flex flex-xl-row pad flex-column align-items-start justify-content-start">
+
+  }
+</style>
+<!-- Profile -->
+<div class="cta" style=" ">
+  <div class="d-flex flex-xl-row pad flex-column align-items-start justify-content-start">
 
 
-      <div class="cta_content" style="width: 100%;margin-top: 1vh; background-color: #211d1d;border-radius: 20px">
-        <div class="section_title_container" style="">
-          <div class="section_subtitle">{{ profile_user.user.first_name }}'s Team</div>
+    <div class="cta_content" style="width: 100%;margin-top: 1vh; background-color: #211d1d;border-radius: 20px">
+      <div class="section_title_container" style="">
+        <div class="section_subtitle">{{ profile_user.user.first_name }}'s Team</div>
 
-          <div class="section_title"><h1 style="padding: 2vh;opacity: 0;
+        <div class="section_title">
+          <h1 style="padding: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;">Team ID : {{ profile_team.teamId }}</h1></div>
-          <div class="section_subtitle" style="padding-top: 0vh;padding-left: 2vh;opacity: 0;
+  animation-fill-mode:forwards;">Team ID : {{ profile_team.teamId }}</h1>
+        </div>
+        <div class="section_subtitle" style="padding-top: 0vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;"><h2 style="color: #c0c0c0;">
+  animation-fill-mode:forwards;">
+          <h2 style="color: #c0c0c0;">
             <i class="fa fa-futbol-o"></i>
             Sport
-            : {{ profile_team.get_sport_display }}</h2></div>
-          <div class="section_subtitle" style="padding-top: 3vh;padding-left: 2vh;opacity: 0;
+            : {{ profile_team.get_sport_display }}</h2>
+        </div>
+        <div class="section_subtitle" style="padding-top: 3vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">
+  animation-fill-mode:forwards;">
+          <h3 style="color: #c0c0c0">
             <i class="fa fa-university" style="padding-right: 2vh"></i>
-            College : {{ profile_team.college }}</h3></div>
-          <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh;opacity: 0;
-  animation-name: fadeInOut;
-  animation-duration: 1s;
-  animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">
-            <i class="fa fa-user" style="padding-right: 1em"></i>
-            Team
-            Captain: {{ profile_team.captian.user.first_name }}</h3></div>
+            College : {{ profile_team.college }}</h3>
+        </div>
         <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">Team Members</h3></div>
-          {% for member in profile_team.members.all %}
-          <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
+  animation-fill-mode:forwards;">
+          <h3 style="color: #c0c0c0">
+            <i class="fa fa-user" style="padding-right: 1em"></i>
+            Team
+            Captain: {{ profile_team.captian.user.first_name }}</h3>
+        </div>
+        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">{{ member.user.first_name }} {{ member.user.last_name }}</h3></div>
-          {% endfor %}
-          <div class="section_subtitle" style="adding-top: 2vh;padding-left: 2vh;opacity: 0;
+  animation-fill-mode:forwards;">
+          <h3 style="color: #c0c0c0">Team Members</h3>
+        </div>
+        {% for member in profile_team.members.all %}
+        <div class="section_subtitle" style="padding-top: 1vh;padding-left: 4vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;"><h3 style="color: #c0c0c0">Score : {{ profile_team.score }}</h3></div>
+  animation-fill-mode:forwards;">
+          <h3 style="color: #c0c0c0">{{ member.user.first_name }} {{ member.user.last_name }}</h3>
+        </div>
+        {% endfor %}
+        <div class="section_subtitle" style="adding-top: 2vh;padding-left: 2vh;opacity: 0;
+  animation-name: fadeInOut;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;">
+          <h3 style="color: #c0c0c0">Score : {{ profile_team.score }}</h3>
+        </div>
       </div><br>
-      <div class="button"><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></div>
+      <div class="button"><a href="{% url 'main:home' %}">Home</a></div>
     </div>
   </div>
- <!-- Footer -->
+  <!-- Footer -->
 
   <footer class="footer">
     <div class="footer_content">
@@ -94,7 +109,7 @@
               <div class="footer_list">
                 <ul>
                   <li>+91 87664 43560 - ASHISH CHAVHAN</li>
-                  <li>+91 83404 60791 -  MANISH</li>
+                  <li>+91 83404 60791 - MANISH</li>
                 </ul>
               </div>
             </div>
@@ -107,8 +122,10 @@
               <div class="footer_title">e-mail</div>
               <div class="footer_list">
                 <ul>
-                  <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a></li>
-                  <li><a href="mailto:pr_varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
+                  <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a>
+                  </li>
+                  <li><a href="mailto:pr_varchas@iitj.ac.in"
+                      style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
                 </ul>
               </div>
             </div>
@@ -133,29 +150,33 @@
     <div class="footer_bar d-flex flex-row align-items-center justify-content-center">
       <div class="copyright">
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+        Copyright &copy;<script>
+          document.write(new Date().getFullYear());
+        </script>
         All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-              href="https://colorlib.com" target="_blank">Varchas Web D Team</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+          href="https://colorlib.com" target="_blank">Varchas Web D Team</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </div>
     </div>
   </footer>
-  </div>
+</div>
 
 
-  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
-  <script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
-  <script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
-  <script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
-  <script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
-  <script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
-  <script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
-  <script src="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
-  <script src="{% static 'plugins/easing/easing.js' %}"></script>
-  <script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
-  <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
-  <script src="{% static 'js/custom.js' %}"></script>
-  </body>
-  </html>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
 
 {% endblock %}

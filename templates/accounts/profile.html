@@ -37,19 +37,19 @@
           <div class="section_title"><h1 style="padding: 2vh;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;">{{profile_user.user.first_name}} {{profile_user.user.last_name}}</h1></div>
+  animation-fill-mode:forwards;">{{userprofile.user.first_name}} {{userprofile.user.last_name}}</h1></div>
           <div class="section_subtitle" style="padding-top: 3vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;">College : {{ profile_user.college }}</h3></div>
-          {% if profile_user.teamId != "NULL" %}<div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
+  animation-fill-mode:forwards;">College : {{ userprofile.college }}</h3></div>
+          {% if userprofile.teamId != "NULL" %}<div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;">Team : {{ profile_user.teamId }}</h3></div>{% endif %}
+  animation-fill-mode:forwards;">Team : {{ userprofile.teamId }}</h3></div>{% endif %}
           <div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
-  animation-fill-mode:forwards;">Phone : {{ profile_user.phone }}</h3></div>
+  animation-fill-mode:forwards;">Phone : {{ userprofile.phone }}</h3></div>
         </div>
       <div style="padding-left: 4vh;padding-top: 10vh !important;;opacity: 0;
   animation-name: fadeInOut;
@@ -58,9 +58,9 @@
   animation-fill-mode:forwards;">
       <div class="row" style="padding: 0">
         <div style="padding: 0 4vh 2vh 4vh">
-        <div class="button" ><a href="{% if profile_user.teamId != "NULL" %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">{% if profile_user.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}</a></div>
+        <div class="button" ><a href="{% if userprofile.teamId != "NULL" %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">{% if userprofile.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}</a></div>
       </div>
-        {% if profile_user.teamId == "NULL" %}
+        {% if userprofile.teamId == "NULL" %}
         <div style="padding: 0 4vh 2vh 4vh">
          <div class="button"><a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>
         </div>
@@ -156,14 +156,4 @@
   </body>
   </html>
 {% endblock %}
-{#{% extends 'main/base.html' %}#}
-{#{% load static %}#}
-{#{% block body %}#}
-{##}
-{#    {% load widget_tweaks %}#}
-{#    {% csrf_token %}#}
-{#    <div class="wrap-input100 validate-input">#}
-{#      {{ profile_user.user.username }}<br>#}
-{#      {{ profile_user.phone }}#}
-{#    </div>#}
-{#{% endblock %}#}
+

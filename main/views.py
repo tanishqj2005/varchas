@@ -28,6 +28,7 @@ class IndexView(TemplateView):
         context['brief_list'] = HomeBriefCard.objects.all
         if self.request.user.username != "":
             context['userprofile'] = userprofile
+            context['page'] = "home"
         return context
 
 
