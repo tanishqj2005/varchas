@@ -23,6 +23,11 @@ class RegisterView(CreateView):
         # messages.success(self.request, 'Hi %s,' % user.get_full_name())
         return super(RegisterView, self).form_valid(form)
 
+    def form_invalid(self, form, **kwargs):
+        context = self.get_context_data(**kwargs)
+        context['form'] = form
+        return self.render_to_response(context)
+
     @staticmethod
     def create_profile(user=None, **kwargs):
         userprofile = UserProfile.objects.create(user=user, gender=kwargs['gender'], phone=kwargs['phone'],
