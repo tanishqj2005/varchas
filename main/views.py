@@ -111,9 +111,21 @@ class sendMail(CreateView):
 
     def form_valid(self, form):
         data = self.request.POST.copy()
-        # if int(data['recipient']) < 10:
-
-        send_mail(data['subject'], data['message'], 'noreply@varchas2020.org', [data['recipient']], fail_silently=False)
+        recipient = []
+        if int(data['recipient']) < 10:
+            teams = TeamRegistration.objects.all()
+            for team in teams:
+                if int(team.sport) == int(data['recipient']):
+                    recipient.append(team.captian.user.email)
+        elif int(data['recipient']) == 10:
+            cas = CampusAmbassador.objects.all()
+            for ca in cas:
+                recipient.append(ca.email)
+        else:
+            users = UserProfile.objects.all()
+            for user in users:
+                recipient.append(user.user.email)
+        send_mail(data['subject'], data['message'], 'noreply@varchas2020.org', recipient, fail_silently=False)
         return super(sendMail, self).form_valid(form)
 
 
