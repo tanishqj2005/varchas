@@ -55,10 +55,9 @@
                         <strong>{{ error|escape }}</strong>
                     </div>
                     {% endfor %}
-                      {{ field.label }}
+                      
                       {% if field.label == "Publicize varchas" %}
-                                              {{ field.label }}
-                      {{ field.label }}
+                        How will you {{ field.label }}?
 
                     <div class="wrap-input100">
                         <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
@@ -69,9 +68,10 @@
                         </span>
                     </div>
                       {% else %}
+                      {{ field.label }}
                        <div class="wrap-input100 validate-input">
                         <input class="input100" type="{{ field.field.widget.input_type }}" name="{{ field.name }}"
-                            placeholder="{{ field.label }}" required autofocus>
+                            placeholder="{{ field.label }}*" required autofocus>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="{{ field.field.widget.attrs.icon_name }}" aria-hidden="true"></i>

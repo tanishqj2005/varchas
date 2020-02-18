@@ -111,6 +111,8 @@ class sendMail(CreateView):
 
     def form_valid(self, form):
         data = self.request.POST.copy()
+        # if int(data['recipient']) < 10:
+
         send_mail(data['subject'], data['message'], 'noreply@varchas2020.org', [data['recipient']], fail_silently=False)
         return super(sendMail, self).form_valid(form)
 

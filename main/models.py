@@ -61,7 +61,20 @@ class HomeEventCard(models.Model):
 
 
 class email(models.Model):
-    recipient = models.CharField(max_length=64)
+    RECIPIENT_CHOICES = (
+        ('1', 'Athletics'),
+        ('2', 'Badminton'),
+        ('3', 'Basketball'),
+        ('4', 'Chess'),
+        ('5', 'Cricket'),
+        ('6', 'Football'),
+        ('7', 'Table Tenis'),
+        ('8', 'Tenis'),
+        ('9', 'Volleyball'),
+        ('10', 'CA'),
+        ('11', 'All Teams'),
+    )
+    recipient = models.CharField(max_length=2, choices=RECIPIENT_CHOICES)
     subject = models.CharField(max_length=64)
     message = models.CharField(max_length=256)
 
