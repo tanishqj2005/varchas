@@ -76,7 +76,7 @@ class email(models.Model):
     )
     recipient = models.CharField(max_length=3, choices=RECIPIENT_CHOICES)
     subject = models.CharField(max_length=64)
-    message = models.CharField(max_length=256)
+    message = models.CharField(max_length=200)
 
 
 class HomeBriefCard(models.Model):
