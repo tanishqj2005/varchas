@@ -71,12 +71,12 @@ class email(models.Model):
         ('7', 'Table Tenis'),
         ('8', 'Tenis'),
         ('9', 'Volleyball'),
-        ('10', 'CA'),
-        ('11', 'All Teams'),
+        # ('10', 'CA'),
+        # ('11', 'All Teams'),
     )
     recipient = models.CharField(max_length=3, choices=RECIPIENT_CHOICES)
     subject = models.CharField(max_length=64)
-    message = models.CharField(max_length=200)
+    message = models.CharField(max_length=64)
 
 
 class HomeBriefCard(models.Model):
