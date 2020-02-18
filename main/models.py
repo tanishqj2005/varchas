@@ -74,7 +74,7 @@ class email(models.Model):
         ('10', 'CA'),
         ('11', 'All Teams'),
     )
-    recipient = models.CharField(max_length=2, choices=RECIPIENT_CHOICES)
+    recipient = models.CharField(max_length=3, choices=RECIPIENT_CHOICES)
     subject = models.CharField(max_length=64)
     message = models.CharField(max_length=256)
 
