@@ -120,7 +120,20 @@ class sendMail(CreateView):
         elif int(data['recipient']) == 10:
             cas = CampusAmbassador.objects.all()
             for ca in cas:
-                recipient.append(ca.email)
+                message = '''<!DOCTYPE html> <html><body> <p>{}</p> <h3>{}
+                          </h3></body></html>'''.format(data['message'], "Your Referral Code:" + ca.referral_code)
+                send_mail(data['subject'], message, 'noreply@varchas2020.org',
+                          [ca.email], fail_silently=False, html_message=message)
+            return super(sendMail, self).form_valid(form)
+        elif int(data['recipient']) == 11:
+            teams = TeamRegistration.objects.all()
+            for team in teams:
+                if team.captian:
+                    message = '''<!DOCTYPE html> <html><body><p>{}</p>
+                              <h3>{}</h3></body></html>'''.format(data['message'], "Your Team ID:" + team.teamId)
+                    send_mail(data['subject'], message, 'noreply@varchas2020.org',
+                              [team.captian.user.email], fail_silently=False, html_message=message)
+            return super(sendMail, self).form_valid(form)
         else:
             users = UserProfile.objects.all()
             for user in users:
