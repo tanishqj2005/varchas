@@ -8,10 +8,8 @@ from accounts.models import UserProfile
 from .forms import emailForm
 from registration.models import TeamRegistration, CampusAmbassador
 import csv
-import os
 from django.http import HttpResponse
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+from django.core.mail import send_mail
 
 
 class IndexView(TemplateView):
@@ -113,16 +111,8 @@ class sendMail(CreateView):
 
     def form_valid(self, form):
         data = self.request.POST.copy()
-        message = Mail(
-            from_email='noreply@varchas2020.org',
-            to_emails=data['emails'],
-            subject=data['subject'],
-            html_content='<strong>Hello world</strong>')
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-        response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
+        send_mail(data['subject'], data['message'], 'noreply@varchas2020.org', [data['recipient']], fail_silently=False)
+        return super(sendMail, self).form_valid(form)
 
 
 def comingSoon(request):

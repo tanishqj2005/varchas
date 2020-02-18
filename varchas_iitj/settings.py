@@ -244,5 +244,13 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 AUTHENTICATION_BACKENDS = (
     ('django.contrib.auth.backends.ModelBackend'),
 )
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' if DEBUG \
-    else 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+# SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'noreply@varchas2020.org'

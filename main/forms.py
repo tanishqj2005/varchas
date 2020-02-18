@@ -5,4 +5,5 @@ from .models import email
 class emailForm(forms.ModelForm):
     class Meta:
         model = email
-        fields = ['emails', 'subject']
+        fields = ['recipient', 'subject', 'message']
+        # fields = ['subject', 'message']
