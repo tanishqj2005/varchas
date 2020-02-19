@@ -26,9 +26,10 @@ def pre_save_campus_ambassador(sender, instance, **kwargs):
     if instance._state.adding is True:
         instance.referral_code = unique_ca_referral_code(instance)
 
-        message = '''<!DOCTYPE html> <html><body>Hi {}!<br>You are now team Varchas2020.<br>Your referral cose is: <b>{}</b><br>
-                     <p>Get Your Game On.</p></body></html>'''.format(instance.name, instance.referral_code)
-        send_mail('Your referral Code', message, 'noreply@varchas2020.org', [instance.email],
+        message = '''<!DOCTYPE html> <html><body>Hey {}!<br>You are now team Varchas.<br>Your referral code is: <b>{}</b><br>
+                     Spread the referral code, get more registrations from your code to win exciting prizes<p>Get Your Game
+                      On.</p></body></html>'''.format(instance.name, instance.referral_code)
+        send_mail('Varchas CA Referral Code', message, 'noreply@varchas2020.org', [instance.email],
                   fail_silently=False, html_message=message)
 
 
