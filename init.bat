@@ -1,9 +1,9 @@
 git pull upstream master
-python3 manage.py makemigrations main
-python3 manage.py makemigrations accounts
-python3 manage.py makemigrations adminportal
-python3 manage.py makemigrations events
-python3 manage.py makemigrations registration
-python3 manage.py makemigrations sponsors
-python3 manage.py migrate
-python3 manage.py runserver
+python manage.py makemigrations main
+python manage.py makemigrations accounts
+python manage.py makemigrations adminportal
+python manage.py makemigrations events
+python manage.py makemigrations registration
+python manage.py makemigrations sponsors
+python manage.py migrate
+python manage.py runserver
