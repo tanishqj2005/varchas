@@ -312,12 +312,20 @@
               </li>
               {% endfor %}
               {% if user.is_authenticated %}
-              <li><a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
-              <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
-              <li><a href="{% url 'logout' %}">Logout</a></li>
-              {% else %}
-              <li><a href="{%url 'login'%}">Login</a>
-                {% endif %}
+            {% if userprofile.teamId != "NULL" %}
+            {% if page == "team" %}<li class="active">{% else %}<li>{% endif %}
+            <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+            {% else %}
+            <li><a href="{% url 'accounts:joinTeam' %}">Join Team</a></li>
+            <li><a href="{% url 'registration:team' %}">Create Team</a></li>
+            {% endif %}
+            {% if page == "profile" %}<li class="active">{% else %}<li>{% endif %}
+            <a href="{% url 'accounts:profile' %}">Profile</a></li>
+            {% if page == "team" %}<li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
             </ul>
           </nav>
         </div>
