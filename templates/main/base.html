@@ -242,8 +242,9 @@
         <!-- Main Nav -->
         <nav class="main_nav">
           <ul class="d-flex flex-row align-items-center justify-content-center">
-            {% if page == "home" %}<li class="active">{% else %}<li>{% endif %}
-            <a href="{% url 'main:home' %}">Home</a></li>
+            {% if page == "home" %}<li class="active">{% else %}
+            <li>{% endif %}
+              <a href="{% url 'main:home' %}">Home</a></li>
             {% for navbaroption in navbaroptions %}
             <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" style="color: white    ">{{ navbaroption.title }}</a>
@@ -257,17 +258,22 @@
             {% endfor %}
             {% if user.is_authenticated %}
             {% if userprofile.teamId != "NULL" %}
-            {% if page == "team" %}<li class="active">{% else %}<li>{% endif %}
-            <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+            {% if page == "team" %}<li class="active">{% else %}
+            <li>{% endif %}
+              <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
             {% else %}
             <li><a href="{% url 'accounts:joinTeam' %}">Join Team</a></li>
             <li><a href="{% url 'registration:team' %}">Create Team</a></li>
             {% endif %}
-            {% if page == "profile" %}<li class="active">{% else %}<li>{% endif %}
-            <a href="{% url 'accounts:profile' %}">Profile</a></li>
+            {% if page == "profile" %}<li class="active">{% else %}
+            <li>{% endif %}
+              <a href="{% url 'accounts:profile' %}">Profile</a></li>
             {% if page == "team" %}<li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
             <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
+
+            <!-- <li><a href="{% url 'accounts:register' %}">Register as Player</a></li> -->
+            <!-- <li><a href="{% url 'registration:ca' %}">Campus Ambassador</a></li> -->
             <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
           </ul>
@@ -312,20 +318,24 @@
               </li>
               {% endfor %}
               {% if user.is_authenticated %}
-            {% if userprofile.teamId != "NULL" %}
-            {% if page == "team" %}<li class="active">{% else %}<li>{% endif %}
-            <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
-            {% else %}
-            <li><a href="{% url 'accounts:joinTeam' %}">Join Team</a></li>
-            <li><a href="{% url 'registration:team' %}">Create Team</a></li>
-            {% endif %}
-            {% if page == "profile" %}<li class="active">{% else %}<li>{% endif %}
-            <a href="{% url 'accounts:profile' %}">Profile</a></li>
-            {% if page == "team" %}<li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-            {% endif %}
+              {% if userprofile.teamId != "NULL" %}
+              {% if page == "team" %}<li class="active">{% else %}
+              <li>{% endif %}
+                <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+              {% else %}
+              <li><a href="{% url 'accounts:joinTeam' %}">Join Team</a></li>
+              <li><a href="{% url 'registration:team' %}">Create Team</a></li>
+              {% endif %}
+              {% if page == "profile" %}<li class="active">{% else %}
+              <li>{% endif %}
+                <a href="{% url 'accounts:profile' %}">Profile</a></li>
+              {% if page == "team" %}<li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+              {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+              <li><a href="{% url 'accounts:register' %}">Register</a></li>
+              <li><a href="{% url 'registration:ca' %}">CA</a></li>
+              {% endif %}
             </ul>
           </nav>
         </div>

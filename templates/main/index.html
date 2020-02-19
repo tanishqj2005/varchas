@@ -381,9 +381,11 @@
             </div>
             {% endif %}
             {% else %}
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:register' %}">Register</a>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:register' %}">Register as
+                Player</a>
             </div>
-            <div class="button cta_button" style="margin:10px"><a href="{% url 'login' %}">Login</a></div>
+            <div class="button cta_button" style="margin:10px"><a href="{% url 'registration:ca' %}">Register as CA</a>
+            </div>
             {% endif %}
             <div class="button cta_button" style="margin:10px"><a href="#popup1">Instructions</a></div>
           </div>
