@@ -44,7 +44,8 @@ class TeamFormationView(CreateView):
 
             message = '''<!DOCTYPE html> <html><body><h4>You have successfully registered for Varchas2020 {}.</h4><h3>Your TeamID is:<br>{}
                           </h3><p>Get Your Game On.</p></body></html>'''.format(user.name, user.teamId)
-            send_mail('Your team is Created', message, 'noreply@varchas2020.org', [team.captian.user.email], fail_silently=False, html_message=message)
+            send_mail('Your team is Created', message, 'noreply@varchas2020.org', [team.captian.user.email],
+                      fail_silently=False, html_message=message)
 
             # Adding Data to google sheet
 
