@@ -12,7 +12,7 @@ from django.core.mail import send_mail
 
 class CampusAmbassadorRegisterView(CreateView):
     template_name = 'registration/ca_reg.html'
-    success_url = '/login/'
+    success_url = '/'
     form_class = CampusAmbassadorForm
 
     # def form_valid(self, form):
