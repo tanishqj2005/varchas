@@ -5,6 +5,7 @@ from accounts.models import UserProfile
 from django.http import HttpResponse
 from random import random
 from .models import TeamRegistration
+from django.core.mail import send_mail
 # import gspread
 # from oauth2client.service_account import ServiceAccountCredentials
 
@@ -15,7 +16,7 @@ class CampusAmbassadorRegisterView(CreateView):
     form_class = CampusAmbassadorForm
 
     # def form_valid(self, form):
-    #     return super(CampusAmbassadorRegisterView, self).form_valid(form)
+    # return super(CampusAmbassadorRegisterView, self).form_valid(form)
 
 
 class TeamFormationView(CreateView):
@@ -40,6 +41,10 @@ class TeamFormationView(CreateView):
             user.teamId = team.teamId
             user.save()
             team.members.add(user)
+
+            message = '''<!DOCTYPE html> <html><body><h4>You have successfully registered for Varchas2020 {}.</h4><h3>Your TeamID is:<br>{}
+                          </h3><p>Get Your Game On.</p></body></html>'''.format(user.name, user.teamId)
+            send_mail('Your team is Created', message, 'noreply@varchas2020.org', [team.captian.user.email], fail_silently=False, html_message=message)
 
             # Adding Data to google sheet
 
