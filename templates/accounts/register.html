@@ -53,13 +53,13 @@
                     {% csrf_token %}
                     {% for field in form %}
 
-                    {% if field.label == "State" or field.label == "Gender" or  field.label == "Current year" %}
+                    {% if field.label == "State" or field.label == "Gender" or  field.label == "Current year" or field.label == "Accommodation required" %}
                     <div style="padding-top: 1vh;padding-bottom: 2vh">
                         {{ field.label }}{% if field.field.required %}*{% endif %} : {{ field }}
                     </div>
                     {% elif field.label == "Username" %}
-                    {% elif field.label == "Accommodation required" %}
-                    {{ field.label }}{% if field.field.required %}*{% endif %}:{{ field }}<br><br>
+{#                    {% elif  %}#}
+{#                    {{ field.label }}{% if field.field.required %}*{% endif %}:{{ field }}<br><br>#}
                     {% else %}
                     <div class="wrap-input100" style="position:relative;">
                         {#              {{ field.label }}: {{field}}#}
