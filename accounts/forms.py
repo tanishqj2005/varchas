@@ -38,8 +38,8 @@ class RegisterForm(UserCreationForm):
     state = forms.ChoiceField(choices=UserProfile.STATE_CHOICES, required=True,
                               widget=forms.Select(attrs={'class': 'mdb-select'}))
 
-    accommodation_required = forms.BooleanField(
-        widget=forms.CheckboxInput(), required=False)
+    accommodation_required = forms.ChoiceField(choices=UserProfile.ACCOMMODATION_CHOICES,
+                                               widget=forms.Select(attrs={'class': 'mdb-select'}), required=False)
     referred_by = forms.CharField(
         max_length=8, required=False, widget=forms.TextInput(attrs={'placeholder': ' '}))
 
