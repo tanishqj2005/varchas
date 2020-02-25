@@ -28,7 +28,7 @@ class OurTeam(models.Model):
     email = models.EmailField(blank=True)
     name = models.CharField(max_length=20)
     phone = models.CharField(max_length=10, validators=[contact])
-    position = models.IntegerField(max_length=2, choices=POSITION_CHOICES)
+    position = models.IntegerField(choices=POSITION_CHOICES)
     picture = models.ImageField(
         upload_to='teamPics/', blank=True, null=True, default="teamPics/default.jpg")
     insta = models.URLField(max_length=100, null=True, blank=True)
