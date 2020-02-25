@@ -648,6 +648,13 @@
   div {
     text-align: center;
   }
+
+        @media screen and (max-width: 700px) {
+            .our-team-container{
+                width: inherit !important;
+            }
+        }
+
 </style>
 <div style="height: auto" class="row">
 
@@ -662,7 +669,7 @@
 
         <div class="row" >
           {% for member in our_team.all %}
-            <div class="container" style="{% if member.get_position_display == "Festival Chief" or member.get_position_display == "Creativity" or member.get_position_display == "Resources" or member.get_position_display == "Pronite" or member.get_position_display == "Publicity and Media" or member.get_position_display == "Informals" or member.get_position_display == "Marathon" or member.get_position_display == "Transport" %}width: 50%;{% elif member.get_position_display == "Public Relations and Hospitality" or member.get_position_display == "Sport Events" or member.get_position_display == "Web and APP" %}width: 25%;{% elif member.get_position_display == "Marketing" or member.get_position_display == "Security" %}width: 33.33%;{% endif %}padding: 8vh 0 2vh 0">
+            <div class="container our-team-container" style="{% if member.get_position_display == "Festival Chief" or member.get_position_display == "Creativity" or member.get_position_display == "Resources" or member.get_position_display == "Pronite" or member.get_position_display == "Publicity and Media" or member.get_position_display == "Informals" or member.get_position_display == "Marathon" or member.get_position_display == "Transport" %}width: 50%;{% elif member.get_position_display == "Public Relations and Hospitality" or member.get_position_display == "Sport Events" or member.get_position_display == "Web and APP" %}width: 25%;{% elif member.get_position_display == "Marketing" or member.get_position_display == "Security" %}width: 33.33%;{% endif %}padding: 8vh 0 2vh 0">
             <div class="card" style="padding-bottom: 20vh" >
               <div class="ds-top"></div>
               <div class="avatar-holder">
