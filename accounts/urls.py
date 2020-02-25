@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^myTeam$', DisplayTeam, name='myTeam'),
     url(r'joinTeam$', joinTeam, name='joinTeam'),
     url(r'^leaveTeam$', leaveTeam, name='leaveTeam'),
+
 ]

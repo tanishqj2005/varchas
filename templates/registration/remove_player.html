@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Remove Player</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+  <p class="mb-sm-3"></p>
+  <div class="container">
+  Enter the Email of the player to be removed.
+  <p class="mb-sm-1"></p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+  <b><div class="row" style="padding-top: 10px; padding-left: 40px;">Player Name:<div style="padding-left: 15px;">Player Email</div></div></b>
+  {% for player in players %}
+    <div class="row" style="padding-left: 40px;">{{player.user.first_name}} {{player.user.last_name}}:<div style="padding-left: 15px;">{{player}}</div></div>
+    {% endfor %}
+  </div>
+</body>
+</html>

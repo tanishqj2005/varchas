@@ -21,6 +21,7 @@ from django.contrib.auth.views import LogoutView
 from accounts.views import CustomLoginView
 from django.conf.urls import handler404, handler500
 from main.views import error_404, error_500
+from django.conf.urls import url
 
 urlpatterns = [
     path('webd', admin.site.urls, name='admin'),
@@ -32,6 +33,7 @@ urlpatterns = [
     path('registration/', include('registration.urls')),
     path('events/', include('events.urls')),
     path('sponsors/', include('sponsors.urls')),
+    url('^', include('django.contrib.auth.urls')),
 ]
 
 handler404 = error_404
