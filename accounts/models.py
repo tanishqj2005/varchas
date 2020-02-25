@@ -69,7 +69,7 @@ class UserProfile(models.Model):
         max_length=1, choices=GENDER_CHOICES, default='M')
     college = models.CharField(max_length=128)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
-    accommodation_required = models.CharField(max_length=1, choices=ACCOMMODATION_CHOICES)
+    accommodation_required = models.CharField(max_length=1, choices=ACCOMMODATION_CHOICES, blank=True)
     accomodation_type = models.CharField(max_length=1, default=1)
     amount_required = models.PositiveSmallIntegerField(default=0, blank=True)
     amount_paid = models.PositiveSmallIntegerField(default=0, blank=True)
