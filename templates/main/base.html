@@ -268,7 +268,8 @@
             {% if page == "profile" %}<li class="active">{% else %}
             <li>{% endif %}
               <a href="{% url 'accounts:profile' %}">Profile</a></li>
-            {% if page == "team" %}<li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
+              {% if page == "team" %}<li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
+              <!-- {% if page == "team" %}<li><a href="{% url 'registration:remove_player' %}">Remove Player</a></li>{% endif %} -->
             <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
 
@@ -330,6 +331,7 @@
               <li>{% endif %}
                 <a href="{% url 'accounts:profile' %}">Profile</a></li>
               {% if page == "team" %}<li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
+              <!-- {% if page == "team" %}<li><a href="{% url 'registration:remove_player' %}">Remove Player</a></li>{% endif %} -->
               <li><a href="{% url 'logout' %}">Logout</a></li>
               {% else %}
               <li><a href="{% url 'login' %}">Login</a></li>

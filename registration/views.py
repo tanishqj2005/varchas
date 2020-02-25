@@ -1,11 +1,15 @@
 from django.views.generic import CreateView
-from .forms import CampusAmbassadorForm, TeamRegistrationForm, TeamRegistrationForm1
+from .forms import CampusAmbassadorForm, TeamRegistrationForm, TeamRegistrationForm1, RemovePlayerForm
 from django.shortcuts import get_object_or_404
 from accounts.models import UserProfile
 from django.http import HttpResponse
 from random import random
 from .models import TeamRegistration
 from django.core.mail import send_mail
+from django.views.generic import FormView
+from django.contrib.auth.models import User
+
+
 # import gspread
 # from oauth2client.service_account import ServiceAccountCredentials
 
@@ -60,3 +64,31 @@ class TeamFormationView(CreateView):
             # team.save()
             return super(TeamFormationView, self).form_valid(form)
         return HttpResponse("404")
+
+
+# @login_required(login_url="login")
+class removePlayerView(FormView):
+    form_class = RemovePlayerForm
+    template_name = 'registration/remove_player.html'
+    success_url = '/account/myTeam'
+
+    def form_valid(self, form):
+        user = get_object_or_404(UserProfile, user=self.request.user)
+        if user.teamId == "NULL":
+            return HttpResponse("You must registered in a team to complete this operation.")
+        team = get_object_or_404(TeamRegistration, captian=user)
+        user = get_object_or_404(User, email=form['player'].value())
+        user = get_object_or_404(UserProfile, user=user)
+        user.teamId = "NULL"
+        user.save()
+        # print(user.gender)
+        team.members.remove(user)
+        return super(removePlayerView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(removePlayerView, self).get_context_data(**kwargs)
+        user = get_object_or_404(UserProfile, user=self.request.user)
+        team = get_object_or_404(TeamRegistration, captian=user)
+        context['players'] = team.members.all()
+        print(context['players'])
+        return context

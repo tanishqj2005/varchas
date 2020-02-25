@@ -50,3 +50,7 @@ class TeamRegistrationForm1(forms.ModelForm):
         super(TeamRegistrationForm1, self).__init__(*args, **kwargs)
         self.fields['teamId'].widget.attrs['icon_name'] = "fa fa-id-card"
         self.fields['college'].widget.attrs['icon_name'] = "fa fa-university"
+
+
+class RemovePlayerForm(forms.Form):
+    player = forms.EmailField()
