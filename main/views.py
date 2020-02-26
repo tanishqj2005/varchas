@@ -7,7 +7,6 @@ from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
 from .forms import emailForm
 from registration.models import TeamRegistration, CampusAmbassador
-from django.contrib.auth.models import User
 import xlwt
 from django.http import HttpResponse
 from django.core.mail import send_mail
@@ -137,19 +136,22 @@ def downloadExcel(request):
         ws.write(row_num, 6, user.referral, font_style)
     # wb.save(response)
 
-    ws = wb.add_sheet("Users1")
+    ws = wb.add_sheet("CAs")
     row_num = 0
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
-    columns = ['Email', 'Name']
+    columns = ['Email', 'Name', 'College', 'Phone', 'Referral']
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
-    users = User.objects.all()
-    for user in users:
+    cas = CampusAmbassador.objects.all()
+    for ca in cas:
         row_num = row_num + 1
-        ws.write(row_num, 0, user.email, font_style)
-        ws.write(row_num, 1, user.first_name+" "+user.last_name, font_style)
+        ws.write(row_num, 0, ca.email, font_style)
+        ws.write(row_num, 1, ca.name, font_style)
+        ws.write(row_num, 2, ca.college, font_style)
+        ws.write(row_num, 3, ca.phone, font_style)
+        ws.write(row_num, 4, ca.referral_code, font_style)
     wb.save(response)
     return response
 
