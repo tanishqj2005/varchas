@@ -7,7 +7,8 @@ from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
 from .forms import emailForm
 from registration.models import TeamRegistration, CampusAmbassador
-import csv
+from django.contrib.auth.models import User
+import xlwt
 from django.http import HttpResponse
 from django.core.mail import send_mail
 
@@ -91,17 +92,78 @@ def dashboardCas(request):
 
 @login_required(login_url='login')
 def downloadExcel(request):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="teams.csv"'
-    writer = csv.writer(response)
-    writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Varchas.xls"'
+    wb = xlwt.Workbook(encoding='utf-8')
+
+    ws = wb.add_sheet("Teams")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['TeamID', 'Sport', 'Captian', 'College', 'Members']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
     teams = TeamRegistration.objects.all()
     for team in teams:
         members = []
         for member in team.members.all():
             members.append(member.user.first_name)
-        writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
+        row_num = row_num + 1
+        ws.write(row_num, 0, team.teamId, font_style)
+        ws.write(row_num, 1, team.get_sport_display(), font_style)
+        ws.write(row_num, 2, team.captian.user.first_name, font_style)
+        ws.write(row_num, 3, team.college, font_style)
+        ws.write(row_num, 4, ", ".join(members), font_style)
+    # wb.save(response)
+
+    ws = wb.add_sheet("Users")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['Email', 'Name', 'Phone Number', 'Gender', 'College', 'teamId', 'referral']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
+    users = UserProfile.objects.all()
+    for user in users:
+        row_num = row_num + 1
+        ws.write(row_num, 0, user.user.email, font_style)
+        ws.write(row_num, 1, user.user.first_name+" "+user.user.last_name, font_style)
+        ws.write(row_num, 2, user.phone, font_style)
+        ws.write(row_num, 3, user.gender, font_style)
+        ws.write(row_num, 4, user.college, font_style)
+        ws.write(row_num, 5, user.teamId, font_style)
+        ws.write(row_num, 6, user.referral, font_style)
+    # wb.save(response)
+
+    ws = wb.add_sheet("Users1")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['Email', 'Name']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
+    users = User.objects.all()
+    for user in users:
+        row_num = row_num + 1
+        ws.write(row_num, 0, user.email, font_style)
+        ws.write(row_num, 1, user.first_name+" "+user.last_name, font_style)
+    wb.save(response)
     return response
+
+    # response = HttpResponse(content_type='text/csv')
+    # response['Content-Disposition'] = 'attachment; filename="teams.csv"'
+    # writer = csv.writer(response)
+    # writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
+    # teams = TeamRegistration.objects.all()
+    # for team in teams:
+    #     members = []
+    #     for member in team.members.all():
+    #         members.append(member.user.first_name)
+    #     writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
+    # return response
 
 
 class sendMail(CreateView):
