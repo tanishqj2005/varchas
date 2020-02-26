@@ -245,6 +245,7 @@
             {% if page == "home" %}<li class="active">{% else %}
             <li>{% endif %}
               <a href="{% url 'main:home' %}">Home</a></li>
+              <li><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
             {% for navbaroption in navbaroptions %}
             <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false" style="color: white    ">{{ navbaroption.title }}</a>
