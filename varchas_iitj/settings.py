@@ -232,13 +232,7 @@ CKEDITOR_CONFIGS = {
 # }
 
 # Only add choices, do not change the order and paired values!
-VENUE_CHOICES = (
-    ('1', 'Auditorium 1'),
-    ('2', 'Auditorium 2'),
-    ('3', 'Student Activity Center'),
-    ('4', 'Open Air Theatre'),
-    ('5', 'Lecture Hall Complex'),
-)
+
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 AUTHENTICATION_BACKENDS = (

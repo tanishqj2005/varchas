@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from events.models import Event
 
 
 # from .utils import unique_rg_number
@@ -77,7 +76,6 @@ class UserProfile(models.Model):
     referral = models.CharField(max_length=7, blank=True, null=True)
     id_issued = models.BooleanField(default=False)
     qr_code = models.ImageField(upload_to='qr_code', blank=True, null=True)
-    events_registered = models.ManyToManyField(Event, blank=True)
     teamId = models.CharField(max_length=15, default="NULL")
 
     def __str__(self):

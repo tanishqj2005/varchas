@@ -2,7 +2,6 @@ from django.db.models.signals import pre_save
 from django.db import models
 from .utils import unique_ca_referral_code
 from accounts.models import UserProfile
-from events.models import Event
 from django.core.mail import send_mail
 
 
@@ -34,14 +33,6 @@ def pre_save_campus_ambassador(sender, instance, **kwargs):
 
 
 pre_save.connect(pre_save_campus_ambassador, sender=CampusAmbassador)
-
-
-class EventRegistration(models.Model):
-    participant = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "{leader} - {event}".format(leader=self.participant, event=self.event)
 
 
 class TeamRegistration(models.Model):

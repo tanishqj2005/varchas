@@ -3,3 +3,4 @@ max-line-length = 125
 exclude = varchas_iitj/settings/*, */migrations/*, manage.py, venv/, myenv/
 per-file-ignores =
   varchas_iitj/urls.py: F811
+  events/models.py: E122
