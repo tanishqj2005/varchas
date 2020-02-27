@@ -45,12 +45,12 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_redirect_url(self):
-        url = super(CustomLoginView, self).get_redirect_url()
+        # url = super(CustomLoginView, self).get_redirect_url()
         if hasattr(self.request.user, 'userprofile'):
             return reverse('main:home')
             # return url or self.request.UserProfile.get_absolute_url()
-        elif hasattr(self.request.user, 'adminprofile'):
-            return url or reverse('adminportal:index')
+        elif self.request.user.is_superuser:
+            return reverse('main:dashboard')
         else:
             return reverse('main:home')
 
