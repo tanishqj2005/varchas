@@ -7,11 +7,9 @@ from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
 from .forms import emailForm
 from registration.models import TeamRegistration, CampusAmbassador
-import csv
-import os
+import xlwt
 from django.http import HttpResponse
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+from django.core.mail import send_mail
 
 
 class IndexView(TemplateView):
@@ -93,17 +91,81 @@ def dashboardCas(request):
 
 @login_required(login_url='login')
 def downloadExcel(request):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="teams.csv"'
-    writer = csv.writer(response)
-    writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Varchas.xls"'
+    wb = xlwt.Workbook(encoding='utf-8')
+
+    ws = wb.add_sheet("Teams")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['TeamID', 'Sport', 'Captian', 'College', 'Members']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
     teams = TeamRegistration.objects.all()
     for team in teams:
         members = []
         for member in team.members.all():
             members.append(member.user.first_name)
-        writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
+        row_num = row_num + 1
+        ws.write(row_num, 0, team.teamId, font_style)
+        ws.write(row_num, 1, team.get_sport_display(), font_style)
+        ws.write(row_num, 2, team.captian.user.first_name, font_style)
+        ws.write(row_num, 3, team.college, font_style)
+        ws.write(row_num, 4, ", ".join(members), font_style)
+    # wb.save(response)
+
+    ws = wb.add_sheet("Users")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['Email', 'Name', 'Phone Number', 'Gender', 'College', 'teamId', 'referral']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
+    users = UserProfile.objects.all()
+    for user in users:
+        row_num = row_num + 1
+        ws.write(row_num, 0, user.user.email, font_style)
+        ws.write(row_num, 1, user.user.first_name+" "+user.user.last_name, font_style)
+        ws.write(row_num, 2, user.phone, font_style)
+        ws.write(row_num, 3, user.gender, font_style)
+        ws.write(row_num, 4, user.college, font_style)
+        ws.write(row_num, 5, user.teamId, font_style)
+        ws.write(row_num, 6, user.referral, font_style)
+    # wb.save(response)
+
+    ws = wb.add_sheet("CAs")
+    row_num = 0
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+    columns = ['Email', 'Name', 'College', 'Phone', 'Referral']
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+    font_style = xlwt.XFStyle()
+    cas = CampusAmbassador.objects.all()
+    for ca in cas:
+        row_num = row_num + 1
+        ws.write(row_num, 0, ca.email, font_style)
+        ws.write(row_num, 1, ca.name, font_style)
+        ws.write(row_num, 2, ca.college, font_style)
+        ws.write(row_num, 3, ca.phone, font_style)
+        ws.write(row_num, 4, ca.referral_code, font_style)
+    wb.save(response)
     return response
+
+    # response = HttpResponse(content_type='text/csv')
+    # response['Content-Disposition'] = 'attachment; filename="teams.csv"'
+    # writer = csv.writer(response)
+    # writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
+    # teams = TeamRegistration.objects.all()
+    # for team in teams:
+    #     members = []
+    #     for member in team.members.all():
+    #         members.append(member.user.first_name)
+    #     writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
+    # return response
 
 
 class sendMail(CreateView):
@@ -113,16 +175,35 @@ class sendMail(CreateView):
 
     def form_valid(self, form):
         data = self.request.POST.copy()
-        message = Mail(
-            from_email='noreply@varchas2020.org',
-            to_emails=data['emails'],
-            subject=data['subject'],
-            html_content='<strong>Hello world</strong>')
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-        response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
+        recipient = []
+        if int(data['recipient']) < 10:
+            teams = TeamRegistration.objects.all()
+            for team in teams:
+                if int(team.sport) == int(data['recipient']):
+                    recipient.append(team.captian.user.email)
+        elif int(data['recipient']) == 10:
+            cas = CampusAmbassador.objects.all()
+            for ca in cas:
+                message = '''<!DOCTYPE html> <html><body> <p>{}</p> <h3>{}
+                          </h3></body></html>'''.format(data['message'], "Your Referral Code:" + ca.referral_code)
+                send_mail(data['subject'], message, 'noreply@varchas2020.org',
+                          [ca.email], fail_silently=False, html_message=message)
+            return super(sendMail, self).form_valid(form)
+        elif int(data['recipient']) == 11:
+            teams = TeamRegistration.objects.all()
+            for team in teams:
+                if team.captian:
+                    message = '''<!DOCTYPE html> <html><body><p>{}</p>
+                              <h3>{}</h3></body></html>'''.format(data['message'], "Your Team ID:" + team.teamId)
+                    send_mail(data['subject'], message, 'noreply@varchas2020.org',
+                              [team.captian.user.email], fail_silently=False, html_message=message)
+            return super(sendMail, self).form_valid(form)
+        else:
+            users = UserProfile.objects.all()
+            for user in users:
+                recipient.append(user.user.email)
+        send_mail(data['subject'], data['message'], 'noreply@varchas2020.org', recipient, fail_silently=False)
+        return super(sendMail, self).form_valid(form)
 
 
 def comingSoon(request):

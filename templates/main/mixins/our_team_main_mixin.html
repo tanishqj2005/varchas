@@ -648,6 +648,13 @@
   div {
     text-align: center;
   }
+
+        @media screen and (max-width: 700px) {
+            .our-team-container{
+                width: inherit !important;
+            }
+        }
+
 </style>
 <div style="height: auto" class="row">
 
@@ -661,18 +668,18 @@
 
 
         <div class="row" >
-          {% for event in our_team.all %}
-            <div class="container" style="width: inherit;padding: 0 0 2vh 0">
-            <div class="card" style="padding-bottom: 20vh" >
+          {% for member in our_team.all %}
+            <div class="container our-team-container" style="{% if member.get_position_display == "Festival Chief" or member.get_position_display == "Creativity" or member.get_position_display == "Resources" or member.get_position_display == "Pronite" or member.get_position_display == "Publicity and Media" or member.get_position_display == "Informals" or member.get_position_display == "Marathon" or member.get_position_display == "Transport" %}width: 50%;{% elif member.get_position_display == "Public Relations and Hospitality" or member.get_position_display == "Sport Events" or member.get_position_display == "Web and APP" %}width: 25%;{% elif member.get_position_display == "Marketing" or member.get_position_display == "Security" %}width: 33.33%;{% endif %}padding: 8vh 0 2vh 0">
+            <div class="card wow fadeInUp" style="padding-bottom: 20vh" >
               <div class="ds-top"></div>
               <div class="avatar-holder">
-                <img src="{{ event.picture }}"
-                     alt="Albert Einstein">
+                <img src="{{ member.picture }}"
+                     alt="{{ member.name }}">
               </div>
-              <div class="name" style="">
-                <a target="_blank">{{ event.name }}</a>
-                <h6 style="margin-top: 2vh" title="Followers"><span class="followers">{{ event.phone }}</span></h6>
-                  <h6 style="top: 60%;width: 80%;font-size: 0.8em" title="Followers"><a style="font-size: 1em" href="">sonawane.1@iitj.ac.in</a></h6>
+              <div class="name"  style="">
+                    <h5 style="color: whitesmoke">{{ member.name }}</h5>
+                <h6 style="margin-top: 2vh" title="Call"><span class="followers">{{ member.phone }}</span></h6>
+                  <h6 style="top: 50%;width: 80%;font-size: 0.8em" title="{{ member.mail }}"><a style="font-size: 1em" href="mailto:{{ member.mail }}">{{ member.email }}</a></h6>
               </div>
 {#              <div class="button1">#}
 {#                <a href="#" class="btn" onmousedown="follow();">Follow </a>#}
@@ -682,17 +689,26 @@
 {##}
 {#                </div>#}
                 <div class="ds position" style="width: 200px">
-                  <h6 title="Number of position created by the user">{{ event.get_position_display }}</h6>
-
+                  <h6 title="Number of position created by the user">{{ member.get_position_display }}</h6>
                 </div>
 {#                <div class="ds posts">#}
 {##}
 {#                </div>#}
               </div>
-{#              <div class="ds-skill">#}
-{#                <h6>Skill </h6>#}
-{##}
-{#              </div>#}
+              <div class="ds-skill" style="align-content: space-between ">
+{#                <h6>SOCIAL </h6>#}
+                <div class="row" {% if member.get_position_display == "Public Relations and Hospitality" %}style="padding: 4vh 0 0 0;justify-content: space-around"{% else %}style="justify-content: space-around;padding: 2vh 0 0 0"{% endif %}>
+                    {% if member.insta != null %}<div>
+                        <a href="{{ member.insta }}" style="color: #ff7315 "><i class="fa fa-instagram fa-3x" href="{{ member.insta }}"></i></a>
+                    </div>{% endif %}
+                {% if member.fp != null %}<div>
+                        <a href="{{ member.fp }}" style="color: #ff7315"><i class="fa fa-facebook-official fa-3x" href="{{ member.fp }}"></i></a>
+                    </div>{% endif %}
+                {% if member.linkedIn != null %}<div>
+                        <a href="{{ member.linkedIn }}" style="color: #ff7315"><i class="fa fa-linkedin-square fa-3x" href="{{ member.linkedIn }}"></i></a>
+                    </div>{% endif %}
+                </div>
+              </div>
             </div>
             </div>
 

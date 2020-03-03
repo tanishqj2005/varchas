@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from events.models import Event
 
 
 # from .utils import unique_rg_number
@@ -9,6 +8,10 @@ from events.models import Event
 
 class UserProfile(models.Model):
     # choices
+    ACCOMMODATION_CHOICES = (
+        ('N', 'No'),
+        ('Y', 'Yes'),
+    )
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
@@ -65,7 +68,7 @@ class UserProfile(models.Model):
         max_length=1, choices=GENDER_CHOICES, default='M')
     college = models.CharField(max_length=128)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
-    accomodation_required = models.BooleanField(default=False)
+    accommodation_required = models.CharField(max_length=1, choices=ACCOMMODATION_CHOICES, blank=True)
     accomodation_type = models.CharField(max_length=1, default=1)
     amount_required = models.PositiveSmallIntegerField(default=0, blank=True)
     amount_paid = models.PositiveSmallIntegerField(default=0, blank=True)
@@ -73,7 +76,6 @@ class UserProfile(models.Model):
     referral = models.CharField(max_length=7, blank=True, null=True)
     id_issued = models.BooleanField(default=False)
     qr_code = models.ImageField(upload_to='qr_code', blank=True, null=True)
-    events_registered = models.ManyToManyField(Event, blank=True)
     teamId = models.CharField(max_length=15, default="NULL")
 
     def __str__(self):

@@ -232,17 +232,19 @@ CKEDITOR_CONFIGS = {
 # }
 
 # Only add choices, do not change the order and paired values!
-VENUE_CHOICES = (
-    ('1', 'Auditorium 1'),
-    ('2', 'Auditorium 2'),
-    ('3', 'Student Activity Center'),
-    ('4', 'Open Air Theatre'),
-    ('5', 'Lecture Hall Complex'),
-)
+
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 AUTHENTICATION_BACKENDS = (
     ('django.contrib.auth.backends.ModelBackend'),
 )
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' if DEBUG \
-    else 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'noreply@varchas2020.org'

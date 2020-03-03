@@ -9,34 +9,37 @@ from django.core.validators import RegexValidator
 
 class OurTeam(models.Model):
     POSITION_CHOICES = (
-        ('1', 'Festival Cheif'),
-        ('2', 'Creativity'),
-        ('3', 'Informals'),
-        ('4', 'Marathon'),
-        ('5', 'Marketing'),
-        ('6', 'Public Relations and Hospitality'),
-        ('7', 'Publicity and Media'),
-        ('8', 'Pronite'),
-        ('9', 'Resources'),
-        ('10', 'Security'),
-        ('11', 'SOCH'),
-        ('12', 'Sport Events'),
-        ('13', 'Transport'),
-        ('14', 'Web and APP'),
+        (1, 'Festival Chief'),
+        (2, 'Creativity'),
+        (3, 'Informals'),
+        (4, 'Marathon'),
+        (5, 'Marketing'),
+        (6, 'Public Relations and Hospitality'),
+        (7, 'Publicity and Media'),
+        (8, 'Pronite'),
+        (9, 'Resources'),
+        (10, 'Security'),
+        (11, 'SOCH'),
+        (12, 'Sport Events'),
+        (13, 'Transport'),
+        (14, 'Web and APP'),
     )
     contact = RegexValidator(r'^[0-9]{10}$', message='Not a valid number!')
-
+    email = models.EmailField(blank=True)
     name = models.CharField(max_length=20)
     phone = models.CharField(max_length=10, validators=[contact])
-    position = models.CharField(max_length=2, choices=POSITION_CHOICES)
+    position = models.IntegerField(choices=POSITION_CHOICES)
     picture = models.ImageField(
         upload_to='teamPics/', blank=True, null=True, default="teamPics/default.jpg")
-    insta = models.URLField(max_length=25, null=True, blank=True)
-    fp = models.URLField(max_length=25, null=True, blank=True)
-    linkedIn = models.URLField(max_length=25, null=True, blank=True)
+    insta = models.URLField(max_length=100, null=True, blank=True)
+    fp = models.URLField(max_length=100, null=True, blank=True)
+    linkedIn = models.URLField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['position']
 
 
 class HomeImageCarousel(models.Model):
@@ -61,8 +64,23 @@ class HomeEventCard(models.Model):
 
 
 class email(models.Model):
-    emails = models.CharField(max_length=64)
+    RECIPIENT_CHOICES = (
+        ('1', 'Athletics'),
+        ('2', 'Badminton'),
+        ('3', 'Basketball'),
+        ('4', 'Chess'),
+        ('5', 'Cricket'),
+        ('6', 'Football'),
+        ('7', 'Table Tenis'),
+        ('8', 'Tenis'),
+        ('9', 'Volleyball'),
+        ('10', 'CA'),
+        ('11', 'All Teams'),
+        ('12', 'All Users'),
+    )
+    recipient = models.CharField(max_length=3, choices=RECIPIENT_CHOICES)
     subject = models.CharField(max_length=64)
+    message = models.CharField(max_length=180)
 
 
 class HomeBriefCard(models.Model):

@@ -4,7 +4,7 @@
 <html lang="en">
 
   <head>
-    <title>Login V1</title>
+    <title>Register Team</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -45,6 +45,7 @@
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100" style="padding-top: 20vh;padding-bottom: 20vh;">
+
           <div class="login100-pic js-tilt" data-tilt>
             <img src="{% static 'images/img-01.png' %}" alt="IMG">
           </div>
@@ -121,6 +122,11 @@
               </button>
             </div>
           </form>
+            <a href="{% url 'main:home' %}">
+                        <button class="login100-form-btn" style="padding: 10px 13px 20px 13px" >
+                            <h3>X</h3>
+                        </button>
+                 </a>
         </div>
       </div>
     </div>

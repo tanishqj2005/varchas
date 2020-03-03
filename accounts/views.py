@@ -23,12 +23,17 @@ class RegisterView(CreateView):
         # messages.success(self.request, 'Hi %s,' % user.get_full_name())
         return super(RegisterView, self).form_valid(form)
 
+    def form_invalid(self, form, **kwargs):
+        context = self.get_context_data(**kwargs)
+        context['form'] = form
+        return self.render_to_response(context)
+
     @staticmethod
     def create_profile(user=None, **kwargs):
         userprofile = UserProfile.objects.create(user=user, gender=kwargs['gender'], phone=kwargs['phone'],
                                                  college=kwargs['college'],
                                                  state=kwargs['state'],
-                                                 accomodation_required=kwargs['accommodation_required'],
+                                                 accommodation_required=kwargs['accommodation_required'],
                                                  # no_of_days=kwargs['no_of_days'],
                                                  referral=kwargs['referred_by']
                                                  )
@@ -40,12 +45,12 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_redirect_url(self):
-        url = super(CustomLoginView, self).get_redirect_url()
+        # url = super(CustomLoginView, self).get_redirect_url()
         if hasattr(self.request.user, 'userprofile'):
             return reverse('main:home')
             # return url or self.request.UserProfile.get_absolute_url()
-        elif hasattr(self.request.user, 'adminprofile'):
-            return url or reverse('adminportal:index')
+        elif self.request.user.is_superuser:
+            return reverse('main:dashboard')
         else:
             return reverse('main:home')
 

@@ -99,7 +99,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:comingSoon' %}">
+        <a class="nav-link" href="{% url 'main:mail' %}">
           <i class="fa fa-envelope"></i>
           <span>Email</span>
         </a>
@@ -135,7 +135,7 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user}}</span>
                 <i class="fa fa-user"></i>
               </a>
@@ -167,52 +167,62 @@
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
+
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Registered Users</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{nusers}}</div>
+                <a href="{% url 'main:dusers' %}">
+                  <div class="card-body">
+
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Registered Users</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{nusers}}</div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fa fa-user fa-2x text-gray-300"></i>
+                      </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fa fa-user fa-2x text-gray-300"></i>
-                    </div>
+
                   </div>
-                </div>
+                </a>
               </div>
             </div>
+
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Registered Teams</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{nteams}}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fa fa-users fa-2x text-gray-300"></i>
+                <a href="{% url 'main:dteams' %}">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Registered Teams</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{nteams}}</div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fa fa-users fa-2x text-gray-300"></i>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
 
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Registered CAs</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ncas}}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fa fa-futbol-o fa-2x text-gray-300"></i>
+                <a href="{% url 'main:dcas' %}">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Registered CAs</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ncas}}</div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fa fa-futbol-o fa-2x text-gray-300"></i>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
