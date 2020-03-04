@@ -1,97 +1,102 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block body %}
-  {% csrf_token %}
-  <!-- Profile -->
-  <div class="" style=" ">
-    <div >
-  {% include 'main/mixins/our_team_main_mixin.html' with our_team=our_team %}
-  </div>
-  <!-- Footer -->
-
-  <footer class="footer">
-    <div class="footer_content">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class=" text-center" style="font-size: 7vh;color: white">Contact Us</div>
-          </div>
+    {% csrf_token %}
+    <!-- Profile -->
+    <div class="" style=" ">
+        <div>
+            {% include 'main/mixins/our_team_main_mixin.html' with our_team=our_team %}
         </div>
-        <div class="row footer_row">
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-phone fa-4x" style="color: white"></i></div>
-              </div>
-              <div class="footer_title">talk to us</div>
-              <div class="footer_list">
-                <ul>
-                  <li>+91 87664 43560 - ASHISH CHAVHAN</li>
-                  <li>+91 83404 60791 - MANISH</li>
-                </ul>
-              </div>
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="footer_content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class=" text-center" style="font-size: 7vh;color: white">Contact Us</div>
+                        </div>
+                    </div>
+                    <div class="row footer_row">
+                        <div class="col-lg-4 footer_col">
+                            <div class="footer_item text-center">
+                                <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
+                                    <div><i class="fa fa-phone fa-4x" style="color: white"></i></div>
+                                </div>
+                                <div class="footer_title">talk to us</div>
+                                <div class="footer_list">
+                                    <ul>
+                                        <li>+91 87664 43560 - ASHISH CHAVHAN</li>
+                                        <li>+91 83404 60791 - MANISH</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 footer_col">
+                            <div class="footer_item text-center">
+                                <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
+                                    <div><i class="fa fa-envelope fa-4x"
+                                            style="margin-left: -1vh;margin-top:-1vh;color: white"></i></div>
+                                </div>
+                                <div class="footer_title">e-mail</div>
+                                <div class="footer_list">
+                                    <ul>
+                                        <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a>
+                                        </li>
+                                        <li><a href="mailto:pr_varchas@iitj.ac.in"
+                                               style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 footer_col">
+                            <div class="footer_item text-center">
+                                <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
+                                    <div><i class="fa fa-map-marker fa-4x" style="color: white;margin-top: -1vh"></i>
+                                    </div>
+                                </div>
+                                <div class="footer_title">location</div>
+                                <div class="footer_list">
+                                    <ul>
+                                        <li>Indian Institute of Technology</li>
+                                        <li>JODHPUR</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-envelope fa-4x" style="margin-left: -1vh;margin-top:-1vh;color: white"></i></div>
-              </div>
-              <div class="footer_title">e-mail</div>
-              <div class="footer_list">
-                <ul>
-                  <li><a href="mailto:varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">varchas@iitj.ac.in</a></li>
-                  <li><a href="mailto:pr_varchas@iitj.ac.in" style="color: rgba(255,255,255,0.38)">pr_varchas@iitj.ac.in</a></li>
-                </ul>
-              </div>
+            <div class="footer_bar d-flex flex-row align-items-center justify-content-center">
+                <div class="copyright">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>
+                    document.write(new Date().getFullYear());
+                </script>
+                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                    <a href="https://students.iitj.ac.in/" target="_blank">Varchas Web D Team</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 footer_col">
-            <div class="footer_item text-center">
-              <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                <div><i class="fa fa-map-marker fa-4x" style="color: white;margin-top: -1vh"></i></div>
-              </div>
-              <div class="footer_title">location</div>
-              <div class="footer_list">
-                <ul>
-                  <li>Indian Institute of Technology</li>
-                  <li>JODHPUR</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        </footer>
     </div>
-    <div class="footer_bar d-flex flex-row align-items-center justify-content-center">
-      <div class="copyright">
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>
-          document.write(new Date().getFullYear());
-        </script>
-        All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://students.iitj.ac.in/" target="_blank">Varchas Web D Team</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      </div>
-    </div>
-  </footer>
-</div>
 
 
-<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
-<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
-<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
-<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
-<script src="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
-<script src="{% static 'plugins/easing/easing.js' %}"></script>
-<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
-<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
-</body>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+    <script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+    <script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+    <script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+    <script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+    <script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.js' %}"></script>
+    <script src="{% static 'plugins/easing/easing.js' %}"></script>
+    <script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+    <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    </body>
 
-</html>
+    </html>
 
 {% endblock %}

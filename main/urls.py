@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndexView, NavBarSubOptionsPageView, OurTeamView, comingSoon, dashboardTeams
+from .views import IndexView, NavBarSubOptionsPageView, OurTeamView, comingSoon, dashboardTeams, ourteam
 from .views import dashboardUsers, dashboard, downloadExcel, dashboardCas, sendMail
 from django.conf.urls import url
 
@@ -14,7 +14,8 @@ urlpatterns = [
     url(r'^admin/users$', dashboardUsers, name='dusers'),
     url(r'^admin/cas$', dashboardCas, name='dcas'),
     url(r'^admin/excel$', downloadExcel, name='teamInfo'),
-    path('OurTeam', OurTeamView.as_view(), name='OurTeam'),
+    # path('OurTeam', OurTeamView.as_view(), name='OurTeam'),
+    path('OurTeam', ourteam, name='OurTeam'),
     path('<slug:slug>', NavBarSubOptionsPageView.as_view(),
          name='navbarsuboptionpage'),
 ]
