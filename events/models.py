@@ -66,7 +66,7 @@ class Match(Event):
 
 
 class Cricket(models.Model):
-    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name="match")
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name="match", blank=True, null=True)
     run1 = models.IntegerField(default=0)
     run2 = models.IntegerField(default=0)
     wicket1 = models.IntegerField(default=0)
@@ -79,7 +79,7 @@ class Cricket(models.Model):
 
 
 class Football(models.Model):
-    match = models.ForeignKey(Match, on_delete=models.CASCADE)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, blank=True, null=True)
     score1 = models.IntegerField(default=0)
     score2 = models.IntegerField(default=0)
 
@@ -88,7 +88,7 @@ class Football(models.Model):
 
 
 class Volleyball(models.Model):
-    match = models.ForeignKey(Match, on_delete=models.CASCADE)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, blank=True, null=True)
     score1 = models.CharField(max_length=50, null=True, default='0')
     score2 = models.CharField(max_length=50, null=True, default='0')
     setNo = models.SmallIntegerField(default=1)
