@@ -65,17 +65,17 @@ class Match(Event):
         return self.event_id
 
 
-class Cricket(models.Model):
-    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name="match", blank=True, null=True)
-    run1 = models.IntegerField(default=0)
-    run2 = models.IntegerField(default=0)
-    wicket1 = models.IntegerField(default=0)
-    wicket2 = models.IntegerField(default=0)
-    overs1 = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
-    overs2 = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
+# class Cricket(models.Model):
+#     match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name="match", blank=True, null=True)
+#     run1 = models.IntegerField(default=0)
+#     run2 = models.IntegerField(default=0)
+#     wicket1 = models.IntegerField(default=0)
+#     wicket2 = models.IntegerField(default=0)
+#     overs1 = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
+#     overs2 = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
 
-    def score(self):
-        return [str(self.run1) + "/" + str(self.wicket1), str(self.run2) + "/" + str(self.wicket2)]
+#     def score(self):
+#         return [str(self.run1) + "/" + str(self.wicket1), str(self.run2) + "/" + str(self.wicket2)]
 
 
 class Football(models.Model):
