@@ -11,7 +11,7 @@ class CreateMatch(FormView):
 
     def form_valid(self, form):
         data = self.request.POST.copy()
-        game_ch = Match.GAME_CHOICES[int(data['game'])-1][1][:2].upper()
+        game_ch = Match.GAME_CHOICES[int(data['event'])-1][1][:2].upper()
         type_ch = Match.MATCH_CHOICES[int(data['match_type'])-1][1][:2].upper()
         data['event_id'] = game_ch + '-' + type_ch + '-' + data['team1'][:2].upper() + data['team2'][:2].upper()
         form = MatchForm(data)

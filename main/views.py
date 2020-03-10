@@ -73,13 +73,14 @@ def dashboard(request):
 
 @login_required(login_url='login')
 def dashboardTeams(request):
-    teams = TeamRegistration.objects.all()
+    teams = TeamRegistration.objects.all().order_by('-captian__user__date_joined')
     return render(request, 'main/dashboardTeams.html', {'teams': teams})
 
 
 @login_required(login_url='login')
 def dashboardUsers(request):
-    users = UserProfile.objects.all()
+    users = UserProfile.objects.all().order_by('-user__date_joined')
+    # print(users)
     return render(request, 'main/dashboardUsers.html', {'users': users})
 
 
@@ -103,7 +104,7 @@ def downloadExcel(request):
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
-    teams = TeamRegistration.objects.all()
+    teams = TeamRegistration.objects.all().order_by('-captian__user__date_joined')
     for team in teams:
         members = []
         for member in team.members.all():
@@ -124,7 +125,7 @@ def downloadExcel(request):
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
-    users = UserProfile.objects.all()
+    users = UserProfile.objects.all().order_by('-user__date_joined')
     for user in users:
         row_num = row_num + 1
         ws.write(row_num, 0, user.user.email, font_style)
