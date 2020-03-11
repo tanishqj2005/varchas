@@ -1,30 +1,30 @@
 from django.views.generic import FormView
-from .forms import SportForm
-from .models import Sport, Event, Cricket, Volleyball, Football, BasketBall, Chess
+from .forms import MatchForm
+from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess
 from django.contrib import messages
 
 
-class CreateSport(FormView):
+class CreateMatch(FormView):
     template_name = 'events/add_match.html'
-    form_class = SportForm
+    form_class = MatchForm
     success_url = '/events/add'
 
     def form_valid(self, form):
         data = self.request.POST.copy()
         game_ch = Event.EVENT_CHOICES[int(data['event'])-1][1][:2].upper()
-        type_ch = Sport.MATCH_CHOICES[int(data['match_type'])-1][1][:2].upper()
+        type_ch = Match.MATCH_CHOICES[int(data['match_type'])-1][1][:2].upper()
         data['event_id'] = game_ch + '-' + type_ch + '-' + data['team1'][:2].upper() + data['team2'][:2].upper()
-        form = SportForm(data)
-        if Sport.objects.filter(event_id=data['event_id']).exists():
+        form = MatchForm(data)
+        if Match.objects.filter(event_id=data['event_id']).exists():
             message = "You are already in team {}".format(data['event_id'])
         else:
             message = "Match created with Match ID {}".format(data['event_id'])
             obj = form.save()
             obj.event_id = data['event_id']
             obj.save()
-            CreateSport.create_match(obj, **form.cleaned_data)
+            CreateMatch.create_match(obj, **form.cleaned_data)
         messages.success(self.request, message)
-        return super(CreateSport, self).form_valid(form)
+        return super(CreateMatch, self).form_valid(form)
 
     # ('1', 'Athletics'),
     # ('3', 'Basketball'),

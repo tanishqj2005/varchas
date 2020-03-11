@@ -42,7 +42,7 @@ class Event(models.Model):
         return self.event_id
 
 
-class Sport(Event):
+class Match(Event):
     team1 = models.ForeignKey(TeamRegistration, on_delete=models.CASCADE, related_name="team1")
     team2 = models.ForeignKey(TeamRegistration, on_delete=models.CASCADE, related_name="team2")
     STATUS_CHOICES = (
@@ -67,7 +67,7 @@ class Sport(Event):
 
 
 class Cricket(models.Model):
-    match = models.OneToOneField(Sport, on_delete=models.CASCADE, related_name="match", blank=True, null=True)
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, related_name="match", blank=True, null=True)
     run1 = models.IntegerField(default=0)
     run2 = models.IntegerField(default=0)
     wicket1 = models.IntegerField(default=0)
@@ -83,7 +83,7 @@ class Cricket(models.Model):
 
 
 class Football(models.Model):
-    match = models.OneToOneField(Sport, on_delete=models.CASCADE, blank=True, null=True)
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
     score1 = models.IntegerField(default=0)
     score2 = models.IntegerField(default=0)
 
@@ -95,7 +95,7 @@ class Football(models.Model):
 
 
 class Volleyball(models.Model):
-    match = models.OneToOneField(Sport, on_delete=models.CASCADE, blank=True, null=True)
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
     score1 = models.CharField(max_length=50, null=True, default='0')
     score2 = models.CharField(max_length=50, null=True, default='0')
     setNo = models.SmallIntegerField(default=1)
@@ -108,7 +108,7 @@ class Volleyball(models.Model):
 
 
 class BasketBall(models.Model):
-    match = models.OneToOneField(Sport, on_delete=models.CASCADE, blank=True, null=True)
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
     t1q1 = models.SmallIntegerField(default=0)
     t2q1 = models.SmallIntegerField(default=0)
     t1q2 = models.SmallIntegerField(default=0)
@@ -129,7 +129,7 @@ class BasketBall(models.Model):
 
 
 class Chess(models.Model):
-    match = models.OneToOneField(Sport, on_delete=models.CASCADE, blank=True, null=True)
+    match = models.OneToOneField(Match, on_delete=models.CASCADE, blank=True, null=True)
     score1 = models.SmallIntegerField(default=0)
     score2 = models.SmallIntegerField(default=0)
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Sport
+from .models import Match
 
 
 # forms.TimeField.input_formats = ['%I:%M %p%z'] #['%Y-%m-%dT%H:%M']
@@ -11,9 +11,9 @@ class TimeInput(forms.TimeInput):
     input_type = 'time'
 
 
-class SportForm(forms.ModelForm):
+class MatchForm(forms.ModelForm):
     class Meta:
-        model = Sport
+        model = Match
         fields = ["event", "match_type", "team1", "team2", "venue", "date", "time", "max_team_size", "organisers", "about"]
         widgets = {
             'date': DateInput(),

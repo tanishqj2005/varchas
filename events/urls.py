@@ -1,8 +1,8 @@
-from .views import CreateSport
+from .views import CreateMatch
 from django.urls import path
 
 app_name = 'events'
 
 urlpatterns = [
-    path('add', CreateSport.as_view(), name='add_match')
+    path('add', CreateMatch.as_view(), name='add_match')
 ]
