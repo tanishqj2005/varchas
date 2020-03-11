@@ -30,10 +30,10 @@
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
   <style>
-  .container-fluid li{
-    background-color: #ff572299;
-    color: #311B92;
-  }
+    .container-fluid li {
+      background-color: #ff572299;
+      color: #311B92;
+    }
   </style>
 
 </head>
@@ -162,20 +162,21 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-        {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+              {% endfor %}
+          </ul>
+          {% endif %}
 
-
-        <form method = "post">
-        {{form.as_p}}
-        {% csrf_token %}
-        <input type="submit" class ="btn btn-primary" value ="CREATE" id ="submit">
-        </form>    
+          <div class="container">
+            <form method="post">
+              {{form.as_p}}
+              {% csrf_token %}
+              <input type="submit" class="btn btn-primary" value="CREATE" id="submit">
+            </form>
+          </div>
         </div>
         <!-- /.container-fluid -->
 
@@ -217,7 +218,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary"  href="{% url 'logout' %}">Logout</a>
+          <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
         </div>
       </div>
     </div>
@@ -238,10 +239,10 @@
     $('.js-tilt').tilt({
       scale: 1.1
     });
-    $('#id_date_time').attr("type","datetime-local");
+    $('#id_date_time').attr("type", "datetime-local");
     //$('#submit').click(function(){
-      //$('#id_date_time').attr("type","text");
-      //console.log($('#id_date_time').value())
+    //$('#id_date_time').attr("type","text");
+    //console.log($('#id_date_time').value())
     //});
   </script>
 </body>

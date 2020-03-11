@@ -1,6 +1,6 @@
 from django.views.generic import FormView
 from .forms import MatchForm
-from .models import Match
+from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess
 from django.contrib import messages
 
 
@@ -11,7 +11,7 @@ class CreateMatch(FormView):
 
     def form_valid(self, form):
         data = self.request.POST.copy()
-        game_ch = Match.GAME_CHOICES[int(data['event'])-1][1][:2].upper()
+        game_ch = Event.EVENT_CHOICES[int(data['event'])-1][1][:2].upper()
         type_ch = Match.MATCH_CHOICES[int(data['match_type'])-1][1][:2].upper()
         data['event_id'] = game_ch + '-' + type_ch + '-' + data['team1'][:2].upper() + data['team2'][:2].upper()
         form = MatchForm(data)
@@ -22,9 +22,29 @@ class CreateMatch(FormView):
             obj = form.save()
             obj.event_id = data['event_id']
             obj.save()
+            CreateMatch.create_match(obj, **form.cleaned_data)
         messages.success(self.request, message)
-        # return HttpResponse(message, content_type="text/plain")
         return super(CreateMatch, self).form_valid(form)
+
+    # ('1', 'Athletics'),
+    # ('3', 'Basketball'),
+    # ('4', 'Chess'),
+    # ('10', 'Marathon'),
+    # ('11', 'SOCH'),
+    @staticmethod
+    def create_match(match=None, **kwargs):
+        print(kwargs['event'])
+        if kwargs['event'] == '2' or kwargs['event'] == '9':
+            sport = Volleyball(match=match)
+        elif kwargs['event'] == '6' or kwargs['event'] == '7' or kwargs['event'] == '8':
+            sport = Football(match=match)
+        elif kwargs['event'] == '5':
+            sport = Cricket(match=match)
+        elif kwargs['event'] == '3':
+            sport = BasketBall(match=match)
+        elif kwargs['event'] == '4':
+            sport = Chess(match=match)
+        sport.save()
 
     def get_template_names(self):
         if not self.request.user.is_superuser:
