@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import Match, Event, Cricket, Volleyball, Football
+from .models import Sport, Event, Cricket, Volleyball, Football
 
 
-class MatchAdmin(admin.ModelAdmin):
+class SportAdmin(admin.ModelAdmin):
     class Meta:
-        model = Match
+        model = Sport
 
 
-admin.site.register(Match, MatchAdmin)
+admin.site.register(Sport, SportAdmin)
 
 
 class EventAdmin(admin.ModelAdmin):
