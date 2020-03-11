@@ -245,10 +245,10 @@
             transition-duration: 0.5s;
         }
 
-        li a {
-            color: darkorange;
-        }
 
+        a li{
+            color: white;
+        }
         li:hover {
             background: #fff;
             color: darkorange;
@@ -259,7 +259,7 @@
             background: darkorange;
             visibility: hidden;
             opacity: 0;
-            min-width: 5rem;
+            min-width: 10rem;
             position: absolute;
             padding: 0vh;
             align-content: center;
@@ -337,9 +337,9 @@
 
                         <a>Team 1</a>
                         <ul>
-                            <li><a href="{% url 'accounts:myTeam' %}">Details</a></li>
-                            <li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>
-                            <li><a href="{% url 'registration:remove_player' %}">Remove player</a></li>
+                            <a href="{% url 'accounts:myTeam' %}"><li>Details</li></a>
+                            <a href="{% url 'accounts:leaveTeam' %}"><li>Leave Team</li></a>
+                            <a href="{% url 'registration:remove_player' %}"><li>Remove player</li></a>
 
                             {#                                            <li><a href="#">Sub-3</a></li>#}
                         </ul>
@@ -351,8 +351,8 @@
 
                             <li><a>Team</a>
                                 <ul>
-                                    <li><a href="{% url 'accounts:joinTeam' %}">Join Team</a></li>
-                                    <li><a href="{% url 'registration:team' %}">Create Team</a></li>
+                                    <a href="{% url 'accounts:joinTeam' %}"><li>Join Team</li></a>
+                                    <a href="{% url 'registration:team' %}"><li>Create Team</li></a>
                                     {#                                            <li><a href="#">Sub-3</a></li>#}
                                 </ul>
                             </li>
@@ -372,8 +372,8 @@
                     {% else %}
                         <li><a>Register</a>
                             <ul>
-                                <li><a href="{% url 'accounts:register' %}">Register as Player</a></li>
-                                <li><a href="{% url 'registration:ca' %}">Campus Ambassador</a></li>
+                                <a href="{% url 'accounts:register' %}"><li>Register as Player</li></a>
+                                <a href="{% url 'registration:ca' %}"><li>Campus Ambassador</li></a>
                                 {#                                            <li><a href="#">Sub-3</a></li>#}
                             </ul>
                         </li>
@@ -391,9 +391,9 @@
                         {% if user.is_authenticated %}
                             <li><a>{{ userprofile.user.first_name }}</a>
                                 <ul>
-                                    <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
-                                    <li><a href="">Campus Ambassador</a></li>
-                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    <a href="{% url 'accounts:profile' %}"><li>Profile</li></a>
+                                    <a href=""><li>Campus Ambassador</li></a>
+                                    <a href="{% url 'logout' %}"><li>Logout</li></a>
                                 </ul>
                             </li>
                         {% else %}
