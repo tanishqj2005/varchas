@@ -100,7 +100,7 @@ def downloadExcel(request):
     row_num = 0
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
-    columns = ['TeamID', 'Sport', 'Captian', 'College', 'Members']
+    columns = ['TeamID', 'Sport', 'Captian', 'College', 'Members', 'Created on']
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
@@ -115,13 +115,13 @@ def downloadExcel(request):
         ws.write(row_num, 2, team.captian.user.first_name, font_style)
         ws.write(row_num, 3, team.college, font_style)
         ws.write(row_num, 4, ", ".join(members), font_style)
-    # wb.save(response)
+        ws.write(row_num, 5, str(team.captian.user.date_joined)[:11])
 
     ws = wb.add_sheet("Users")
     row_num = 0
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
-    columns = ['Email', 'Name', 'Phone Number', 'Gender', 'College', 'teamId', 'referral']
+    columns = ['Email', 'Name', 'Phone Number', 'Gender', 'College', 'teamId', 'referral', 'Date Joined']
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
     font_style = xlwt.XFStyle()
@@ -135,6 +135,7 @@ def downloadExcel(request):
         ws.write(row_num, 4, user.college, font_style)
         ws.write(row_num, 5, user.teamId, font_style)
         ws.write(row_num, 6, user.referral, font_style)
+        ws.write(row_num, 7, str(user.user.date_joined)[:11])
     # wb.save(response)
 
     ws = wb.add_sheet("CAs")
@@ -155,18 +156,6 @@ def downloadExcel(request):
         ws.write(row_num, 4, ca.referral_code, font_style)
     wb.save(response)
     return response
-
-    # response = HttpResponse(content_type='text/csv')
-    # response['Content-Disposition'] = 'attachment; filename="teams.csv"'
-    # writer = csv.writer(response)
-    # writer.writerow(['TeamID', 'Sport', 'Captian', 'College', 'Members'])
-    # teams = TeamRegistration.objects.all()
-    # for team in teams:
-    #     members = []
-    #     for member in team.members.all():
-    #         members.append(member.user.first_name)
-    #     writer.writerow([team, team.get_sport_display(), team.captian.user.first_name, team.college, ", ".join(members)])
-    # return response
 
 
 class sendMail(CreateView):
