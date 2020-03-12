@@ -825,6 +825,13 @@
 <script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
 <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
+<script>
+ var h = $("img.card1").height()
+  //console.log(h);
+  $("img.card1").each(function(){
+    $(this).height(h)
+  });
+</script
 </body>
 
 </html>
