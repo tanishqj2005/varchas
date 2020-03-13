@@ -27,13 +27,10 @@ class CreateMatch(FormView):
         return super(CreateMatch, self).form_valid(form)
 
     # ('1', 'Athletics'),
-    # ('3', 'Basketball'),
-    # ('4', 'Chess'),
     # ('10', 'Marathon'),
     # ('11', 'SOCH'),
     @staticmethod
     def create_match(match=None, **kwargs):
-        print(kwargs['event'])
         if kwargs['event'] == '2' or kwargs['event'] == '9':
             sport = Volleyball(match=match)
         elif kwargs['event'] == '6' or kwargs['event'] == '7' or kwargs['event'] == '8':
