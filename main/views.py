@@ -192,6 +192,11 @@ class sendMail(CreateView):
             users = UserProfile.objects.all()
             for user in users:
                 recipient.append(user.user.email)
+                message = '''<!DOCTYPE html> <html><body>Hi {}!<br><p>{}</p>
+                             <p>Team Varchas</p></body></html>'''.format(user.user.first_name, data['message'])
+                send_mail(data['subject'], message, 'noreply@varchas2020.org',
+                          [user.user.email], fail_silently=False, html_message=message)
+            return super(sendMail, self).form_valid(form)
         send_mail(data['subject'], data['message'], 'noreply@varchas2020.org', recipient, fail_silently=False)
         return super(sendMail, self).form_valid(form)
 
