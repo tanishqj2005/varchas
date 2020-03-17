@@ -29,7 +29,7 @@ class Event(models.Model):
     ('10', 'Marathon'),
     ('11', 'SOCH'),
     )
-    event = models.CharField(max_length=2, choices=EVENT_CHOICES)
+    event = models.CharField(max_length=2, choices=EVENT_CHOICES, default=1)
     venue = models.CharField(max_length=3, choices=VENUE_CHOICES)
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
