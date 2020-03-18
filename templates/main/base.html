@@ -338,8 +338,8 @@
                         <a>Team</a>
                         <ul>
                             <a href="{% url 'accounts:myTeam' %}"><li>Details</li></a>
-                            <a href="{% url 'accounts:leaveTeam' %}"><li>Leave Team</li></a>
-                            <a href="{% url 'registration:remove_player' %}"><li>Remove player</li></a>
+                            <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Leave Team</li></a>
+                            <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Remove player</li></a>
 
                             {#                                            <li><a href="#">Sub-3</a></li>#}
                         </ul>
@@ -351,8 +351,8 @@
 
                             <li><a>Team</a>
                                 <ul>
-                                    <a href="{% url 'accounts:joinTeam' %}"><li>Join Team</li></a>
-                                    <a href="{% url 'registration:team' %}"><li>Create Team</li></a>
+                                    <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Join Team</li></a>
+                                    <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Create Team</li></a>
                                     {#                                            <li><a href="#">Sub-3</a></li>#}
                                 </ul>
                             </li>
@@ -372,8 +372,10 @@
                     {% else %}
                         <li><a>Register</a>
                             <ul>
-                                <a href="{% url 'accounts:register' %}"><li>Register as Player</li></a>
-                                <a href="{% url 'registration:ca' %}"><li>Campus Ambassador</li></a>
+{#                                <a href="{% url 'accounts:register' %}"><li>Register as Player</li></a>#}
+{#                                <a href="{% url 'registration:ca' %}"><li>Campus Ambassador</li></a>#}
+                                <a onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Register as Player</li></a>
+                                <a onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Campus Ambassador</li></a>
                                 {#                                            <li><a href="#">Sub-3</a></li>#}
                             </ul>
                         </li>
@@ -442,22 +444,22 @@
                                     <li>{% endif %}
                             <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
                             {% else %}
-                                <li><a href="{% url 'accounts:joinTeam' %}">Join Team</a></li>
-                                <li><a href="{% url 'registration:team' %}">Create Team</a></li>
+                                <li><a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">Join Team</a></li>
+                                <li><a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">Create Team</a></li>
                             {% endif %}
                             {% if page == "profile" %}
                                 <li class="active">{% else %}
                                 <li>{% endif %}
                         <a href="{% url 'accounts:profile' %}">Profile</a></li>
                             {% if page == "team" %}
-                                <li><a href="{% url 'accounts:leaveTeam' %}">Leave Team</a></li>{% endif %}
+                                <li><a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">Leave Team</a></li>{% endif %}
                             <!-- {% if page == "team" %}<li><a href="{% url 'registration:remove_player' %}
                                 ">Remove Player</a></li>{% endif %} -->
                             <li><a href="{% url 'logout' %}">Logout</a></li>
                         {% else %}
                             <li><a href="{% url 'login' %}">Login</a></li>
-                            <li><a href="{% url 'accounts:register' %}">Register</a></li>
-                            <li><a href="{% url 'registration:ca' %}">CA</a></li>
+                            <li><a onclick="alert('varchas is postponed new dates will be anounced soon.')">Register</a></li>
+                            <li><a onclick="alert('varchas is postponed new dates will be anounced soon.')">CA</a></li>
                         {% endif %}
                     </ul>
                 </nav>
