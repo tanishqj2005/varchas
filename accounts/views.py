@@ -50,7 +50,7 @@ class CustomLoginView(LoginView):
             return reverse('main:home')
             # return url or self.request.UserProfile.get_absolute_url()
         elif self.request.user.is_superuser:
-            return reverse('main:dashboard')
+            return reverse('adminportal:dashboard')
         else:
             return reverse('main:home')
 

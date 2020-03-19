@@ -53,7 +53,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'main:dashboard' %}">
+        <a class="nav-link" href="{% url 'adminportal:dashboard' %}">
           <i class="fa fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -68,7 +68,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:dteams' %}">
+        <a class="nav-link" href="{% url 'adminportal:dteams' %}">
           <i class="fa fa-users"></i>
           <span>Registered Teams</span>
         </a>
@@ -76,14 +76,14 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:dusers' %}">
+        <a class="nav-link" href="{% url 'adminportal:dusers' %}">
           <i class="fa fa-user"></i>
           <span>Players</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:dcas' %}">
+        <a class="nav-link" href="{% url 'adminportal:dcas' %}">
           <i class="fa fa-user"></i>
           <span>CAs</span>
         </a>
@@ -99,7 +99,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:mail' %}">
+        <a class="nav-link" href="{% url 'adminportal:mail' %}">
           <i class="fa fa-envelope"></i>
           <span>Email</span>
         </a>
@@ -127,7 +127,7 @@
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
+      <!-- adminportal Content -->
       <div id="content">
 
         <!-- Topbar -->
@@ -159,7 +159,7 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="{% url 'main:teamInfo' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            <a href="{% url 'adminportal:teamInfo' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fa fa-download fa-sm text-white-50"></i> Download Excel Sheet</a>
           </div>
 
@@ -170,7 +170,7 @@
 
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
-                <a href="{% url 'main:dusers' %}">
+                <a href="{% url 'adminportal:dusers' %}">
                   <div class="card-body">
 
                     <div class="row no-gutters align-items-center">
@@ -192,7 +192,7 @@
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
-                <a href="{% url 'main:dteams' %}">
+                <a href="{% url 'adminportal:dteams' %}">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
@@ -210,7 +210,7 @@
 
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
-                <a href="{% url 'main:dcas' %}">
+                <a href="{% url 'adminportal:dcas' %}">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
