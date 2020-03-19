@@ -1,14 +1,6 @@
-<html>
-
-<head>
-    <title>
-        Dashboard
-    </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-
-<body class="py-4" data-gr-c-s-loaded="true">
-    <div class="container" style="font-size: 15;">
+{% extends 'adminportal/base.html' %}
+{% load static %}
+{% block body %}
         <div class="row mb-10">
             <div class="col-2 themed-grid-col"><b>Player Name</b></div>
             <div class="col-1 themed-grid-col"><b>Gender</b></div>
@@ -29,7 +21,7 @@
             <div class="col-3 themed-grid-col">{{user.user.date_joined}}</div>
         </div>
         {% endfor %}
+    <br>
+    <a href="{% url 'adminportal:dashboard' %}">Go Back</a>
     </div>
-</body>
-
-</html>
+    {% endblock %}
