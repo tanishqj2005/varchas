@@ -6,10 +6,10 @@ from django.conf.urls import url
 app_name = 'adminportal'
 
 urlpatterns = [
-    path('/mail', sendMail.as_view(), name='mail'),
-    url(r'/teams$', dashboardTeams, name='dteams'),
-    url(r'/users$', dashboardUsers, name='dusers'),
-    url(r'/cas$', dashboardCas, name='dcas'),
-    url(r'/excel$', downloadExcel, name='teamInfo'),
+    path('mail', sendMail.as_view(), name='mail'),
+    url(r'teams$', dashboardTeams, name='dteams'),
+    url(r'users$', dashboardUsers, name='dusers'),
+    url(r'cas$', dashboardCas, name='dcas'),
+    url(r'excel$', downloadExcel, name='teamInfo'),
     url('', dashboard, name='dashboard'),
 ]

@@ -240,7 +240,7 @@ AUTHENTICATION_BACKENDS = (
 )
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-
+APPEND_SLASH = True
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
