@@ -58,11 +58,20 @@
   animation-fill-mode:forwards;">
       <div class="row" style="padding: 0">
         <div style="padding: 0 4vh 2vh 4vh">
-        <div class="button" ><a href="{% if userprofile.teamId != "NULL" %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">{% if userprofile.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}</a></div>
+        <div class="button" onclick="alert('varchas is postponed new dates will be anounced soon.')" >
+{#            <a href="{% if userprofile.teamId != "NULL" %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">#}
+{#                {% if userprofile.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}#}
+{#            </a>#}
+            <a href="#">
+                {% if userprofile.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}
+            </a>
+        </div>
       </div>
         {% if userprofile.teamId == "NULL" %}
         <div style="padding: 0 4vh 2vh 4vh">
-         <div class="button"><a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>
+         <div class="button">
+{#             <a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>#}
+             <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">CREATE A TEAM</a></div>
         </div>
 
        {% endif %}

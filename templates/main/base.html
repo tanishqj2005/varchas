@@ -234,7 +234,7 @@
             padding-left: 0;
         }
 
-        li {
+        li.topbar-styles {
             color: #fff;
             background: none;
             display: inline;
@@ -249,7 +249,7 @@
         a li{
             color: white;
         }
-        li:hover {
+        li.topbar-styles:hover {
             background: #fff;
             color: darkorange;
             cursor: pointer;
@@ -308,15 +308,10 @@
             <nav class="main_nav">
                 <ul class="d-flex flex-row align-items-center justify-content-center">
                     {% if page == "home" %}
-                        <li class="active">{% else %}
-                        <li>{% endif %}
+                        <li class="active topbar-styles">{% else %}
+                        <li class="topbar-styles">{% endif %}
                     <a href="{% url 'main:home' %}">Home</a></li>
-                    <li><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
-
-
-
-
-
+                    <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
                     {% for navbaroption in navbaroptions %}
                         <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
                                aria-haspopup="true"
@@ -332,14 +327,12 @@
                     {% if user.is_authenticated %}
                         {% if userprofile.teamId != "NULL" %}
 
-                                <li style="margin-right: 52px">
-
-
+                                <li style="margin-right: 52px" class="topbar-styles">
                         <a>Team</a>
                         <ul>
-                            <a href="{% url 'accounts:myTeam' %}"><li>Details</li></a>
-                            <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Leave Team</li></a>
-                            <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Remove player</li></a>
+                            <a href="{% url 'accounts:myTeam' %}"><li class="topbar-styles">Details</li></a>
+                            <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li class="topbar-styles">Leave Team</li></a>
+                            <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li class="topbar-styles">Remove player</li></a>
 
                             {#                                            <li><a href="#">Sub-3</a></li>#}
                         </ul>
@@ -349,10 +342,10 @@
                         {% else %}
 
 
-                            <li><a>Team</a>
+                            <li class="topbar-styles"><a>Team</a>
                                 <ul>
-                                    <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Join Team</li></a>
-                                    <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Create Team</li></a>
+                                    <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li class="topbar-styles">Join Team</li></a>
+                                    <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li class="topbar-styles">Create Team</li></a>
                                     {#                                            <li><a href="#">Sub-3</a></li>#}
                                 </ul>
                             </li>
@@ -370,12 +363,12 @@
                             ">Remove Player</a></li>{% endif %} -->
 {#                        <li><a href="{% url 'logout' %}">Logout</a></li>#}
                     {% else %}
-                        <li><a>Register</a>
+                        <li class="topbar-styles"><a>Register</a>
                             <ul>
 {#                                <a href="{% url 'accounts:register' %}"><li>Register as Player</li></a>#}
 {#                                <a href="{% url 'registration:ca' %}"><li>Campus Ambassador</li></a>#}
-                                <a onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Register as Player</li></a>
-                                <a onclick="alert('varchas is postponed new dates will be anounced soon.')"><li>Campus Ambassador</li></a>
+                                <a onclick="alert('varchas is postponed new dates will be anounced soon.')"><li class="topbar-styles">Register as Player</li></a>
+                                <a onclick="alert('varchas is postponed new dates will be anounced soon.')"><li class="topbar-styles">Campus Ambassador</li></a>
                                 {#                                            <li><a href="#">Sub-3</a></li>#}
                             </ul>
                         </li>
@@ -391,15 +384,15 @@
                 <nav class="main_nav">
                     <ul class="d-flex flex-row align-items-center justify-content-start">
                         {% if user.is_authenticated %}
-                            <li><a>{{ userprofile.user.first_name }}</a>
+                            <li class="topbar-styles"><a>{{ userprofile.user.first_name }}</a>
                                 <ul>
-                                    <a href="{% url 'accounts:profile' %}"><li>Profile</li></a>
-                                    <a href=""><li>Campus Ambassador</li></a>
-                                    <a href="{% url 'logout' %}"><li>Logout</li></a>
+                                    <a href="{% url 'accounts:profile' %}"><li class="topbar-styles">Profile</li></a>
+                                    <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')"><li class="topbar-styles">Campus Ambassador</li></a>
+                                    <a href="{% url 'logout' %}"><li class="topbar-styles">Logout</li></a>
                                 </ul>
                             </li>
                         {% else %}
-                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li class="topbar-styles"><a href="{% url 'login' %}">Login</a></li>
                         {% endif %}
                     </ul>
                 </nav>
