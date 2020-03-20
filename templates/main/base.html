@@ -294,7 +294,7 @@
     </style>
 </head>
 
-<body onscroll="topbar()">
+<body onscroll="topbar()" onload="topbar2()">
 
 <div class="super_container">
 
@@ -519,6 +519,9 @@
 
 </div>
 <script>
+    function topbar2() {
+ document.getElementsByTagName("header")[0].setAttribute("style", "background-color: rgba(255,255,255,0);border-bottom:none;");
+    }
     function topbar() {
         var scrollTop = $(this).scrollTop();
         console.log(scrollTop)
