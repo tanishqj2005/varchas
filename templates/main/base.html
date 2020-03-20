@@ -6,25 +6,26 @@
 
 <head>
     {% block header %}
-    <title>Varchas</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Varchas">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/animate.css' %}">
+        <title>Varchas</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Varchas">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/animate.css' %}">
 
-    <style>
-        .wow {
-            visibility: visible;
-        }
-    </style>
-    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.theme.default.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/animate.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+        <style>
+            .wow {
+                visibility: visible;
+            }
+        </style>
+        <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet"
+              type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.carousel.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/owl.theme.default.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.3.4/animate.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
     {% endblock %}
     <style>
         @keyframes topFadeOutVertical {
@@ -270,7 +271,7 @@
             left: 0px;
         }
 
-        ul li:hover>ul,
+        ul li:hover > ul,
         ul li ul:hover {
             visibility: visible;
             opacity: 1;
@@ -286,81 +287,89 @@
             color: red;
             width: 100%;
         }
+
+        .democlass {
+            background-color: #232020;
+        }
     </style>
 </head>
 
-<body>
+<body onscroll="topbar()">
 
-    <div class="super_container">
-
-
-        <!-- Header -->
+<div class="super_container">
 
 
-        <!-- Fixed Header -->
+    <!-- Header -->
 
-        <header class="fixed_header">
-            <div class="header_wrap d-flex flex-row align-items-center justify-content-center">
 
-                <!-- Logo -->
-                <div class="logo"><a href="{% url 'main:home' %}"><img src="{% static 'images/logo_2.png' %}"
-                            alt=""></a></div>
+    <!-- Fixed Header -->
 
-                <!-- Main Nav -->
-                <nav class="main_nav">
-                    <ul class="d-flex flex-row align-items-center justify-content-center">
-                        {% if page == "home" %}
+    <header class="fixed_header" style="background-color:rgba(255,255,255,0) ">
+        <div class="header_wrap d-flex flex-row align-items-center justify-content-center" style="padding-top: 0">
+
+            <!-- Logo -->
+            <div class="logo"><a href="{% url 'main:home' %}"><img src="{% static 'images/logo_2.png' %}"
+                                                                   alt=""></a></div>
+
+            <!-- Main Nav -->
+            <nav class="main_nav">
+                <ul class="d-flex flex-row align-items-center justify-content-center">
+                    {% if page == "home" %}
                         <li class="active topbar-styles">{% else %}
                         <li class="topbar-styles">{% endif %}
-                            <a href="{% url 'main:home' %}">Home</a></li>
-                        <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
-                        {% for navbaroption in navbaroptions %}
+                    <a href="{% url 'main:home' %}">Home</a></li>
+                    <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
+                    {% for navbaroption in navbaroptions %}
                         <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"
-                                style="color: white    ">{{ navbaroption.title }}</a>
+                               aria-haspopup="true" aria-expanded="false"
+                               style="color: white    ">{{ navbaroption.title }}</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 {% for suboption in navbaroption.sub_options.all %}
-                                <a class="dropdown-item" style="color: black; font-family: 'Poppins', sans-serif;"
-                                    href="{{ suboption.get_absolute_url }}">{{ suboption.title }}</a>
+                                    <a class="dropdown-item" style="color: black; font-family: 'Poppins', sans-serif;"
+                                       href="{{ suboption.get_absolute_url }}">{{ suboption.title }}</a>
                                 {% endfor %}
                             </div>
                         </li>
-                        {% endfor %}
-                        {% if user.is_authenticated %}
+                    {% endfor %}
+                    {% if user.is_authenticated %}
                         {% if userprofile.teamId != "NULL" %}
 
-                        <li style="margin-right: 52px" class="topbar-styles">
-                            <a>Team</a>
-                            <ul>
-                                <a href="{% url 'accounts:myTeam' %}">
-                                    <li class="topbar-styles">Details</li>
-                                </a>
-                                <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">
-                                    <li class="topbar-styles">Leave Team</li>
-                                </a>
-                                <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">
-                                    <li class="topbar-styles">Remove player</li>
-                                </a>
+                            <li style="margin-right: 52px" class="topbar-styles">
+                                <a>Team</a>
+                                <ul>
+                                    <a href="{% url 'accounts:myTeam' %}">
+                                        <li class="topbar-styles">Details</li>
+                                    </a>
+                                    <a href="#"
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">
+                                        <li class="topbar-styles">Leave Team</li>
+                                    </a>
+                                    <a href="#"
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">
+                                        <li class="topbar-styles">Remove player</li>
+                                    </a>
 
-                                {#                                            <li><a href="#">Sub-3</a></li>#}
-                            </ul>
-                        </li>
+                                    {#                                            <li><a href="#">Sub-3</a></li>#}
+                                </ul>
+                            </li>
 
 
                         {% else %}
 
 
-                        <li class="topbar-styles"><a>Team</a>
-                            <ul>
-                                <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">
-                                    <li class="topbar-styles">Join Team</li>
-                                </a>
-                                <a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">
-                                    <li class="topbar-styles">Create Team</li>
-                                </a>
-                                {#                                            <li><a href="#">Sub-3</a></li>#}
-                            </ul>
-                        </li>
+                            <li class="topbar-styles"><a>Team</a>
+                                <ul>
+                                    <a href="#"
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">
+                                        <li class="topbar-styles">Join Team</li>
+                                    </a>
+                                    <a href="#"
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">
+                                        <li class="topbar-styles">Create Team</li>
+                                    </a>
+                                    {#                                            <li><a href="#">Sub-3</a></li>#}
+                                </ul>
+                            </li>
 
 
 
@@ -374,7 +383,7 @@
                         <!-- {% if page == "team" %}<li><a href="{% url 'registration:remove_player' %}
                             ">Remove Player</a></li>{% endif %} -->
                         {#                        <li><a href="{% url 'logout' %}">Logout</a></li>#}
-                        {% else %}
+                    {% else %}
                         <li class="topbar-styles"><a>Register</a>
                             <ul>
                                 {#                                <a href="{% url 'accounts:register' %}"><li>Register as Player</li></a>#}
@@ -391,22 +400,22 @@
                         <!-- <li><a href="{% url 'accounts:register' %}">Register as Player</a></li> -->
                         <!-- <li><a href="{% url 'registration:ca' %}">Campus Ambassador</a></li> -->
 
-                        {% endif %}
-                    </ul>
-                </nav>
+                    {% endif %}
+                </ul>
+            </nav>
 
-                <!-- Social -->
-                <div class=" header_social">
-                    <nav class="main_nav">
-                        <ul class="d-flex flex-row align-items-center justify-content-start">
-                            {% if user.is_authenticated %}
+            <!-- Social -->
+            <div class=" header_social">
+                <nav class="main_nav">
+                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                        {% if user.is_authenticated %}
                             <li class="topbar-styles"><a>{{ userprofile.user.first_name }}</a>
                                 <ul>
                                     <a href="{% url 'accounts:profile' %}">
                                         <li class="topbar-styles">Profile</li>
                                     </a>
                                     <a href="#"
-                                        onclick="alert('varchas is postponed new dates will be anounced soon.')">
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">
                                         <li class="topbar-styles">Campus Ambassador</li>
                                     </a>
                                     <a href="{% url 'logout' %}">
@@ -414,97 +423,112 @@
                                     </a>
                                 </ul>
                             </li>
-                            {% else %}
+                        {% else %}
                             <li class="topbar-styles"><a href="{% url 'login' %}">Login</a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-
-                </div>
-
-                <!-- Hamburger -->
-                <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        {% endif %}
+                    </ul>
+                </nav>
 
             </div>
-        </header>
 
-        <!-- Menu -->
+            <!-- Hamburger -->
+            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
 
-        <div class="menu">
-            <div class="menu_door"></div>
+        </div>
+    </header>
 
-            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
-                <div class="menu_close">close</div>
-                <div class="menu_nav_container">
-                    <nav class="menu_nav text-center">
-                        <ul>
-                            {% if page == "home" %}
+    <!-- Menu -->
+
+    <div class="menu">
+        <div class="menu_door"></div>
+
+        <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+            <div class="menu_close">close</div>
+            <div class="menu_nav_container">
+                <nav class="menu_nav text-center">
+                    <ul>
+                        {% if page == "home" %}
                             <li class="active">{% else %}
                             <li>{% endif %}<a href="{% url 'main:home' %}">Home</a></li>
 
-                            {% if page == "ourTeam" %}
+                        {% if page == "ourTeam" %}
                             <li class="active">{% else %}
                             <li>{% endif %}<a href="{% url 'main:OurTeam' %}">Core Team</a></li>
-                            {% for navbaroption in navbaroptions %}
+                        {% for navbaroption in navbaroptions %}
                             <li><a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false"
-                                    style="color: white    ">{{ navbaroption.title }}</a>
+                                   aria-haspopup="true" aria-expanded="false"
+                                   style="color: white    ">{{ navbaroption.title }}</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     {% for suboption in navbaroption.sub_options.all %}
-                                    <a class="dropdown-item" style="color: black; font-family: 'Poppins', sans-serif;"
-                                        href="{{ suboption.get_absolute_url }}">{{ suboption.title }}</a>
+                                        <a class="dropdown-item"
+                                           style="color: black; font-family: 'Poppins', sans-serif;"
+                                           href="{{ suboption.get_absolute_url }}">{{ suboption.title }}</a>
                                     {% endfor %}
                                 </div>
                             </li>
-                            {% endfor %}
-                            {% if user.is_authenticated %}
+                        {% endfor %}
+                        {% if user.is_authenticated %}
                             {% if userprofile.teamId != "NULL" %}
-                            {% if page == "team" %}
-                            <li class="active">{% else %}
-                            <li>{% endif %}
-                                <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
+                                {% if page == "team" %}
+                                    <li class="active">{% else %}
+                                    <li>{% endif %}
+                            <a href="{% url 'accounts:myTeam' %}">Team Details</a></li>
                             {% else %}
-                            <li><a href="#"
-                                    onclick="alert('varchas is postponed new dates will be anounced soon.')">Join
+                                <li><a href="#"
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">Join
                                     Team</a></li>
-                            <li><a href="#"
-                                    onclick="alert('varchas is postponed new dates will be anounced soon.')">Create
+                                <li><a href="#"
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">Create
                                     Team</a></li>
                             {% endif %}
                             {% if page == "profile" %}
-                            <li class="active">{% else %}
-                            <li>{% endif %}
-                                <a href="{% url 'accounts:profile' %}">Profile</a></li>
+                                <li class="active">{% else %}
+                                <li>{% endif %}
+                        <a href="{% url 'accounts:profile' %}">Profile</a></li>
                             {% if page == "team" %}
-                            <li><a href="#"
-                                    onclick="alert('varchas is postponed new dates will be anounced soon.')">Leave
+                                <li><a href="#"
+                                       onclick="alert('varchas is postponed new dates will be anounced soon.')">Leave
                                     Team</a></li>{% endif %}
                             <!-- {% if page == "team" %}<li><a href="{% url 'registration:remove_player' %}
                                 ">Remove Player</a></li>{% endif %} -->
                             <li><a href="{% url 'logout' %}">Logout</a></li>
-                            {% else %}
+                        {% else %}
                             <li><a href="{% url 'login' %}">Login</a></li>
                             <li><a onclick="alert('varchas is postponed new dates will be anounced soon.')">Register</a>
                             </li>
                             <li><a onclick="alert('varchas is postponed new dates will be anounced soon.')">CA</a></li>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </div>
-                <div class="social menu_social">
-                    <ul class="d-flex flex-row align-items-center justify-content-start">
-                        <li><a href="https://www.facebook.com/Varchas.IITRajasthan/"><i class="fa fa-facebook"
-                                    aria-hidden="true"></i></a></li>
-                        <li><a href="https://www.instagram.com/varchas_iitj/"><i class="fa fa-instagram"
-                                    aria-hidden="true"></i></a>
-                        </li>
+                        {% endif %}
                     </ul>
-                </div>
+                </nav>
+            </div>
+            <div class="social menu_social">
+                <ul class="d-flex flex-row align-items-center justify-content-start">
+                    <li><a href="https://www.facebook.com/Varchas.IITRajasthan/"><i class="fa fa-facebook"
+                                                                                    aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/varchas_iitj/"><i class="fa fa-instagram"
+                                                                             aria-hidden="true"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        {% block body %}
-
-        {% endblock %}
-
     </div>
+
+    {% block body %}
+
+    {% endblock %}
+
+</div>
+<script>
+    function topbar() {
+        var scrollTop = $(this).scrollTop();
+        console.log(scrollTop)
+        if (scrollTop <= 0) {
+            console.log("top");
+            document.getElementsByTagName("header")[0].setAttribute("style", "background-color: rgba(255,255,255,0);border-bottom:none;");
+        } else if (scrollTop > 200) {
+            document.getElementsByTagName("header")[0].setAttribute("style", "background-color: #232020;border-bottom: solid 2px #ff7315;");
+        }
+
+
+    }
+</script>
