@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from .forms import emailForm
+from .forms import EmailForm
 from registration.models import TeamRegistration, CampusAmbassador
 import xlwt
 from django.http import HttpResponse
@@ -111,7 +111,7 @@ def downloadExcel(request):
 
 
 class sendMail(CreateView):
-    form_class = emailForm
+    form_class = EmailForm
     template_name = 'adminportal/email.html'
     success_url = '/admin'
 
