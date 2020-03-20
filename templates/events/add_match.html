@@ -1,168 +1,90 @@
+{% extends 'adminportal/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% block body %}
+    <style>
+        .email_container {
+            padding: 4vh;
+            align-content: center;
+            position: relative;
+            max-width: 850px;
+            elevation: above;
+            border: 1px solid #4e73df;
+            border-radius: 15px;
+            background: 	#808080;
+            color: white
+        }
 
-<head>
+        div.select-style select {
+            outline: none;
+            color: #4e73df;
+            border: none;
+            width: 80%;
+            padding: 15px;
+            margin-bottom: 2vh;
+            cursor: pointer;
+            background: white;
+        }
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+        div.select-style select:hover {
+            background-color: #4e73df;
+            color: white;
+            border: 1px solid white;
+            padding: 15px 5px 15px 25px;
+        }
 
-  <title>Admin Dashboard</title>
+        div.select-style textarea {
+            width: 100%;
+            float: left;
+            padding: 2vh;
+            margin-bottom: 2vh;
+        }
 
-  <!-- Custom fonts for this template-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        div.select-style select option {
+            background-color: #4e73df;
+            color: #fff;
+            width: 100%;
+            border-radius: 22px;
 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
 
-  <!-- Custom styles for this template-->
-  <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
-  <style>
-    .container-fluid li {
-      background-color: #ff572299;
-      color: #311B92;
-    }
-  </style>
+        div.select-style input {
+            margin-bottom: 2vh;
+        }
 
-</head>
-
-<body id="page-top">
-
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'main:home' %}">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fa fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">Varchas Admin</div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'main:dashboard' %}">
-          <i class="fa fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Lists
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:dteams' %}">
-          <i class="fa fa-users"></i>
-          <span>Registered Teams</span>
-        </a>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:dusers' %}">
-          <i class="fa fa-user"></i>
-          <span>Players</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:dcas' %}">
-          <i class="fa fa-user"></i>
-          <span>CAs</span>
-        </a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Actions
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:mail' %}">
-          <i class="fa fa-envelope"></i>
-          <span>Email</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'admin:index' %}">
-          <i class="fa fa-vcard"></i>
-          <span>Admin Portal</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-          href="https://docs.google.com/spreadsheets/d/1t_qBCeh_ivLuEusTX-sUR0n7d8BfwUAyIJIDs_sxpB8/edit?usp=sharing">
-          <i class="fa fa-vcard"></i>
-          <span>Google Sheet</span>
-        </a>
-      </li>
+        div.select-style select:focus > option:hover {
+            padding: 25px;
+            width: 270px;
+            z-index: 500;
+            box-shadow: 0 0 10px 100px #232020 inset;
+            color: #ff7315;
+        }
 
 
-    </ul>
-    <!-- End of Sidebar -->
+        input.btn-hover-style:hover {
+            background: #4e73df;
+            color: white;
+            border-color: white;
+        }
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+        input.btn-hover-style {
+            background: white;
+            color: #4e73df;
+            border-color: white;
+        }
 
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user}}</span>
-                <i class="fa fa-user"></i>
-              </a>
-            </li>
-            <div class="topbar-divider d-none d-sm-block"></div>
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Logout</span>
-                <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-600"></i>
-              </a>
-            </li>
-
-          </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          {% if messages %}
+        .errorlist{
+          background: #f32013;
+          width: 80%;
+        }
+    </style>
+    <div class="container-fluid  justify-content-center" style="padding: 50px 0;margin-left: -5vh">
+        <div class="container-fluid select-style email_container justify-content-center">
+           
+           {% if messages %}
           <ul class="messages">
             {% for message in messages %}
             <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
@@ -170,81 +92,20 @@
           </ul>
           {% endif %}
 
-          <div class="container">
             <form method="post">
-              {{form.as_p}}
-              {% csrf_token %}
-              <input type="submit" class="btn btn-primary" value="CREATE" id="submit">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field.errors}}
+                    {{ field.label }}:<br> {{ field }}<br>
+                {% endfor %}
+                <input class="btn btn-dark btn-hover-style" type="submit" value="Submit">
             </form>
-          </div>
         </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Varchas</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
     </div>
-    <!-- End of Content Wrapper -->
+    
 
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-  <!--===============================================================================================-->
-  <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-  <!--===============================================================================================-->
-  <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-  <!--===============================================================================================-->
-  <script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
-  <script>
-    $('.js-tilt').tilt({
-      scale: 1.1
-    });
-    $('#id_date_time').attr("type", "datetime-local");
-    //$('#submit').click(function(){
-    //$('#id_date_time').attr("type","text");
-    //console.log($('#id_date_time').value())
-    //});
-  </script>
-</body>
-
-</html>
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script>
+    $("h1.h3").text("ADD MATCH");
+    </script>
+{% endblock %}
