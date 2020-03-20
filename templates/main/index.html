@@ -328,7 +328,6 @@
               <span class="first-text-on" style="color: #fff;"> ON</span>
             </div>
             <div class="get-your-game-on" style="padding: 5vh 0 4vh 0;">
-              <span class="first-text-your" style="background: rgba(255,255,255,0.7);color: black">VARCHAS IS POSTPONED TILL FURTHER NOTICE.</span>
               {#              <span class="first-text-your" style="color: #fff;"> APRIL -</span>#}
               {#              <span class="first-text-game"> 6</span>#}
               {#              <span class="first-text-on" style="color: #fff;"> APRIL</span>#}
@@ -341,6 +340,14 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+<!-- Janta Curfew people -->
+  <div id="covid-19" class="overlay-pop" style="z-index: 10000;">
+    <div class="popup">
+      <h3>God is playing Plague inc</h3><br>
+      <a class="close" href="#">&times;</a>
     </div>
   </div>
 </header>
@@ -387,12 +394,13 @@
             <div class="button cta_button" style="margin:10px"><a href="#" onclick="alert('varchas is postponed new dates will be anounced soon.')">Register as CA</a>
             </div>
             {% endif %}
-            <div class="button cta_button" style="margin:10px"><a href="#popup1">Instructions</a></div>
+            <div class="button cta_button" style="margin:10px"><a   >Instructions</a></div>
           </div>
 
         </div>
 
       </div>
+      
       <div id="popup1" class="overlay-pop" style="z-index: 10000;">
         <div class="popup">
           <h3>Step by step guide</h3><br>
@@ -831,7 +839,16 @@
   $("img.card1").each(function(){
     $(this).height(h)
   });
-</script
+</script>
+
+<script>
+  window.onload = function() {
+    let temp = document.createElement('a');
+    temp.href = '#covid-19';
+    temp.click();
+    console.log("Covid-19 executed");
+  };
+</script>
 </body>
 
 </html>
