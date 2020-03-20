@@ -52,7 +52,7 @@
 <body style="">
 <div class="limiter">
   <div class="container-login100">
-    <div class="wrap-login100 warp-login101" style="padding:20vh 10vh 20vh 10vh;">
+    <div class="wrap-login100 warp-login101" style="padding:20vh 10vh 20vh 10vh; position:relative;">
 
       <div class="login100-pic js-tilt" data-tilt>
         <img src="{% static 'images/img-01.png' %}" alt="IMG">
@@ -93,7 +93,7 @@
           <button type="submit" class="login100-form-btn" name="submit">Submit</button>
         </div>
       </form>
-    <a href="{% url 'main:home' %}">
+    <a href="{% url 'main:home' %}" style="position: absolute; right: 5%; top: 6%;">
                         <button class="login100-form-btn" style="padding: 10px 13px 20px 13px" >
                             <h3>X</h3>
                         </button>
