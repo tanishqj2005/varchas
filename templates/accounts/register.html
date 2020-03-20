@@ -37,7 +37,7 @@
   background: -o-linear-gradient(-135deg, #333333, #000000);
   background: -moz-linear-gradient(-135deg, #333333, #000000);
   background: linear-gradient(-135deg, #333333, #000000);">
-            <div class="wrap-login100" style="background: white">
+            <div class="wrap-login100" style="background: white position:relative;">
 
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="{% static 'images/img-01.png' %}" alt="IMG">
@@ -107,7 +107,7 @@
                         </a>
                     </div>
                 </form>
-                <a href="{% url 'main:home' %}">
+                <a href="{% url 'main:home' %}" style="position: absolute; right: 5%; top: 6%;">
                     <button class="login100-form-btn" style="padding: 10px 13px 20px 13px">
                         <h3>X</h3>
                     </button>
