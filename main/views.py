@@ -4,6 +4,8 @@ from django.views.generic.detail import DetailView
 from .models import HomeImageCarousel, NavBarSubOptions, HomeEventCard, HomeBriefCard, OurTeam
 from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
+from rest_framework import viewsets
+from .serializers import OurTeamSerializer
 
 
 class IndexView(TemplateView):
@@ -63,3 +65,11 @@ def error_404(request, exception):
 
 def error_500(request):
     return render(request, 'main/error_500.html', status=500)
+
+
+class OurTeamViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = OurTeam.objects.all()
+    serializer_class = OurTeamSerializer
