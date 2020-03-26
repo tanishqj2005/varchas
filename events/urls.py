@@ -1,4 +1,4 @@
-from .views import CreateMatch, CricketViewSet, FootballViewSet, VolleyballViewSet
+from .views import CreateMatch, CricketViewSet, FootballViewSet, VolleyballViewSet, ChessViewSet
 from django.urls import path, include
 from rest_framework import routers
 
@@ -8,6 +8,7 @@ router = routers.DefaultRouter()
 router.register(r'cricket', CricketViewSet)
 router.register(r'football', FootballViewSet)
 router.register(r'volleyball', VolleyballViewSet)
+router.register(r'chess', ChessViewSet)
 
 urlpatterns = [
     path('add', CreateMatch.as_view(), name='add_match'),

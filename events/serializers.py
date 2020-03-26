@@ -1,4 +1,4 @@
-from .models import Cricket, Football, Volleyball
+from .models import Cricket, Football, Volleyball, Chess
 from rest_framework import serializers
 
 
@@ -18,3 +18,9 @@ class VolleyballSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Volleyball
         fields = ['match', 'score1', 'score2', 'setNo']
+
+
+class ChessSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Chess
+        fields = ['match', 'score1', 'score2', ]
