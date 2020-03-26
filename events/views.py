@@ -3,7 +3,7 @@ from .forms import MatchForm
 from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess
 from django.contrib import messages
 from rest_framework import viewsets
-from .serializers import CricketSerializer
+from .serializers import CricketSerializer, FootballSerializer
 
 
 class CreateMatch(FormView):
@@ -54,3 +54,8 @@ class CreateMatch(FormView):
 class CricketViewSet(viewsets.ModelViewSet):
     queryset = Cricket.objects.all()
     serializer_class = CricketSerializer
+
+
+class FootballViewSet(viewsets.ModelViewSet):
+    queryset = Football.objects.all()
+    serializer_class = FootballSerializer
