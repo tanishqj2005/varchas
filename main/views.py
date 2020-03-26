@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
 from rest_framework import viewsets
 from .serializers import OurTeamSerializer
+from rest_framework import permissions
 
 
 class IndexView(TemplateView):
@@ -73,3 +74,4 @@ class OurTeamViewSet(viewsets.ModelViewSet):
     """
     queryset = OurTeam.objects.all()
     serializer_class = OurTeamSerializer
+    permission_classes = [permissions.IsAdminUser]
