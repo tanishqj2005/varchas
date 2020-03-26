@@ -3,7 +3,6 @@ from .forms import MatchForm
 from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess
 from django.contrib import messages
 from rest_framework import viewsets
-from rest_framework import permissions
 from .serializers import CricketSerializer
 
 
