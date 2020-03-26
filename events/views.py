@@ -2,6 +2,9 @@ from django.views.generic import FormView
 from .forms import MatchForm
 from .models import Match, Event, Cricket, Volleyball, Football, BasketBall, Chess
 from django.contrib import messages
+from rest_framework import viewsets
+from rest_framework import permissions
+from .serializers import CricketSerializer
 
 
 class CreateMatch(FormView):
@@ -11,8 +14,8 @@ class CreateMatch(FormView):
 
     def form_valid(self, form):
         data = self.request.POST.copy()
-        game_ch = Event.EVENT_CHOICES[int(data['event'])-1][1][:2].upper()
-        type_ch = Match.MATCH_CHOICES[int(data['match_type'])-1][1][:2].upper()
+        game_ch = Event.EVENT_CHOICES[int(data['event']) - 1][1][:2].upper()
+        type_ch = Match.MATCH_CHOICES[int(data['match_type']) - 1][1][:2].upper()
         data['event_id'] = game_ch + '-' + type_ch + '-' + data['team1'][:2].upper() + data['team2'][:2].upper()
         form = MatchForm(data)
         if Match.objects.filter(event_id=data['event_id']).exists():
@@ -47,3 +50,8 @@ class CreateMatch(FormView):
         if not self.request.user.is_superuser:
             return "main/error_404.html"
         return super().get_template_names()
+
+
+class CricketViewSet(viewsets.ModelViewSet):
+    queryset = Cricket.objects.all()
+    serializer_class = CricketSerializer
