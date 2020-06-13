@@ -29,9 +29,6 @@ class CreateMatch(FormView):
         messages.success(self.request, message)
         return super(CreateMatch, self).form_valid(form)
 
-    # ('1', 'Athletics'),
-    # ('10', 'Marathon'),
-    # ('11', 'SOCH'),
     @staticmethod
     def create_match(match=None, **kwargs):
         if kwargs['event'] == '2' or kwargs['event'] == '9':
