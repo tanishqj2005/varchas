@@ -10,17 +10,10 @@ from django.views.generic import FormView
 from django.contrib.auth.models import User
 
 
-# import gspread
-# from oauth2client.service_account import ServiceAccountCredentials
-
-
 class CampusAmbassadorRegisterView(CreateView):
     template_name = 'registration/ca_reg.html'
     success_url = '/'
     form_class = CampusAmbassadorForm
-
-    # def form_valid(self, form):
-    # return super(CampusAmbassadorRegisterView, self).form_valid(form)
 
 
 class TeamFormationView(CreateView):
@@ -52,16 +45,6 @@ class TeamFormationView(CreateView):
             send_mail('Varchas Team Created', message, 'noreply@varchas2020.org', [team.captian.user.email],
                       fail_silently=False, html_message=message)
 
-            # Adding Data to google sheet
-
-            # scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-            # creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
-            # client = gspread.authorize(creds)
-            # sheet = client.open('Varchas-Teams').sheet1
-            # row = [team.teamId, team.get_sport_display(), team.captian.user.first_name, team.captian.phone,team.college]
-            # sheet.insert_row(row, 2) # inserting row at the top
-
-            # team.save()
             return super(TeamFormationView, self).form_valid(form)
         return HttpResponse("404")
 
@@ -81,7 +64,6 @@ class removePlayerView(FormView):
         user = get_object_or_404(UserProfile, user=user)
         user.teamId = "NULL"
         user.save()
-        # print(user.gender)
         team.members.remove(user)
         return super(removePlayerView, self).form_valid(form)
 
