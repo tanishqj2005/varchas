@@ -5,8 +5,6 @@ from .models import UserProfile
 from registration.models import CampusAmbassador
 
 
-# from nocaptcha_recaptcha.fields import NoReCaptchaField
-
 class RegisterForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(
         attrs={'type': 'text', 'placeholder': ' ', 'icon': 'a'}), required=False)
@@ -42,8 +40,6 @@ class RegisterForm(UserCreationForm):
                                                widget=forms.Select(attrs={'class': 'mdb-select'}), required=False)
     referred_by = forms.CharField(
         max_length=8, required=False, widget=forms.TextInput(attrs={'placeholder': ' '}))
-
-    # captcha = NoReCaptchaField(gtag_attrs={'data-size': 'compact'})
 
     class Meta:
         model = User
@@ -95,4 +91,3 @@ class RegisterForm(UserCreationForm):
 class PasswordResetCaptchaForm(PasswordResetForm):
     email = forms.EmailField(
         widget=forms.TextInput(attrs={'placeholder': ' ', 'type': 'email', 'maxlength': '254'}))
-    # captcha = NoReCaptchaField(gtag_attrs={'data-size': 'compact'})

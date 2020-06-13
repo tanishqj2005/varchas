@@ -2,12 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# from .utils import unique_rg_number
-# from django.db.models.signals import pre_save
-
-
 class UserProfile(models.Model):
-    # choices
     ACCOMMODATION_CHOICES = (
         ('N', 'No'),
         ('Y', 'Yes'),
@@ -61,7 +56,6 @@ class UserProfile(models.Model):
         ('35', 'Lakshadweep'),
         ('36', 'Puducherry'),
     )
-    # Model
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=11)
     gender = models.CharField(
