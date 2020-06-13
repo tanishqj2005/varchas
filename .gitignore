@@ -47,5 +47,6 @@ copy
 venv/
 ENV/
 myenv/
+.vscode
 .vscode/settings.json
 "sendgrid.env"
