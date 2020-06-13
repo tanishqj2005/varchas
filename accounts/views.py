@@ -24,7 +24,6 @@ class RegisterView(CreateView):
         form = RegisterForm(data)
         user = form.save()
         RegisterView.create_profile(user, **form.cleaned_data)
-        # messages.success(self.request, 'Hi %s,' % user.get_full_name())
         return super(RegisterView, self).form_valid(form)
 
     def form_invalid(self, form, **kwargs):
@@ -38,7 +37,6 @@ class RegisterView(CreateView):
                                                  college=kwargs['college'],
                                                  state=kwargs['state'],
                                                  accommodation_required=kwargs['accommodation_required'],
-                                                 # no_of_days=kwargs['no_of_days'],
                                                  referral=kwargs['referred_by']
                                                  )
         userprofile.save()
@@ -49,11 +47,7 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_redirect_url(self):
-        # url = super(CustomLoginView, self).get_redirect_url()
-        if hasattr(self.request.user, 'userprofile'):
-            return reverse('main:home')
-            # return url or self.request.UserProfile.get_absolute_url()
-        elif self.request.user.is_superuser:
+        if self.request.user.is_superuser:
             return reverse('adminportal:dashboard')
         else:
             return reverse('main:home')
