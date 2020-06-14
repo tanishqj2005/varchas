@@ -6,7 +6,6 @@ from django.core.mail import send_mail
 
 
 class CampusAmbassador(models.Model):
-    # Model
     name = models.CharField(max_length=32)
     email = models.EmailField()
     college = models.CharField(max_length=128)

@@ -72,5 +72,4 @@ class removePlayerView(FormView):
         user = get_object_or_404(UserProfile, user=self.request.user)
         team = get_object_or_404(TeamRegistration, captian=user)
         context['players'] = team.members.all()
-        print(context['players'])
         return context

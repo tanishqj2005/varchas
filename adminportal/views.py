@@ -32,7 +32,6 @@ def dashboardTeams(request):
 @login_required(login_url='login')
 def dashboardUsers(request):
     users = UserProfile.objects.all().order_by('-user__date_joined')
-    # print(users)
     return render(request, 'adminportal/dashboardUsers.html', {'users': users})
 
 
@@ -88,7 +87,6 @@ def downloadExcel(request):
         ws.write(row_num, 5, user.teamId, font_style)
         ws.write(row_num, 6, user.referral, font_style)
         ws.write(row_num, 7, str(user.user.date_joined)[:11])
-    # wb.save(response)
 
     ws = wb.add_sheet("CAs")
     row_num = 0
