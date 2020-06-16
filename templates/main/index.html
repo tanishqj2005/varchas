@@ -3,307 +3,8 @@
 {% block body %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.1/gsap.min.js"></script>
 <style>
-  .overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    /* Black see-through */
-    width: 100%;
-    height: 100%;
-    transition: .5s ease;
-    opacity: 1;
-    text-align: center;
-  }
 
-  .overlay:hover {
-    background: rgba(0, 0, 0, 0.3);
-  }
-
-  .intro_box:hover {
-
-    box-shadow: 0px 0px 50px #000000;
-    z-index: 2;
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(1.1);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.1);
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.1);
-    transition: all 200ms ease-in;
-    transform: scale(1.1);
-  }
-
-  .vid-container {
-    height: 100%;
-    width: auto;
-    overflow: hidden;
-    display: block;
-    background-color: black;
-  }
-
-  @media screen and (max-width: 995px) and (orientation: landscape) {
-    video {
-      height: 100%;
-      width: auto;
-    }
-
-    .get-your-game-on {
-      padding-left: 128%;
-    }
-
-    .first-text-get {
-      padding-top: 0vh;
-    }
-
-    .first-text-your {
-      padding-top: 7vh;
-    }
-
-    .first-text-game {
-      padding-top: 14vh;
-    }
-
-    .first-text-on {
-      padding-top: 21vh;
-    }
-  }
-
-  @media screen and (max-width: 995px) and (orientation: portrait) {
-    video {
-      height: 100%;
-      width: auto;
-    }
-
-    .first-text-get {
-      padding-top: 0vh;
-    }
-
-    .first-text-your {
-      padding-top: 4vh;
-    }
-
-    .first-text-game {
-      padding-top: 8vh;
-    }
-
-    .first-text-on {
-      padding-top: 12vh;
-    }
-  }
-
-  @media screen and (max-width: 995px) {
-    video {
-      height: 100%;
-    }
-
-
-
-
-    @keyframes topFadeOutVertical {
-      0% {
-        position: absolute;
-        top: 200%;
-        left: 45%;
-        opacity: 0;
-      }
-
-      65% {
-        position: absolute;
-        top: 200%;
-        left: 45%;
-        opacity: 0;
-      }
-
-      85% {
-        position: absolute;
-        left: 45%;
-        top: 100%;
-        opacity: 1;
-      }
-
-      100% {
-        position: absolute;
-        left: 45%;
-        opacity: 1;
-      }
-    }
-
-    @keyframes topFadeOutVertical1 {
-      0% {
-        position: absolute;
-        top: 200%;
-        left: 52%;
-        opacity: 0;
-      }
-
-      65% {
-        position: absolute;
-        top: 200%;
-        left: 52%;
-        opacity: 0;
-      }
-
-      100% {
-        position: absolute;
-        left: 52%;
-        top: -200%;
-        opacity: 1;
-      }
-    }
-
-    @keyframes topFadeOutVertical2 {
-      0% {
-        position: absolute;
-        top: 200%;
-        left: 75%;
-        opacity: 0;
-      }
-
-      65% {
-        position: absolute;
-        top: 200%;
-        left: 60%;
-        opacity: 0;
-      }
-
-      85% {
-        position: absolute;
-        left: 45%;
-        top: -200%;
-        opacity: 1;
-      }
-
-      100% {
-        position: absolute;
-        left: 45%;
-        top: -200%;
-        opacity: 1;
-      }
-    }
-
-    @keyframes topFadeOutVertical3 {
-      0% {
-        position: absolute;
-        top: -200%;
-        left: 85%;
-        opacity: 0;
-      }
-
-      65% {
-        position: absolute;
-        top: -200%;
-        left: 73%;
-        opacity: 0;
-      }
-
-      85% {
-        position: absolute;
-        left: 65%;
-        top: 100%;
-        opacity: 0;
-      }
-
-      100% {
-        position: absolute;
-        left: 52%;
-        top: -200%;
-        opacity: 1;
-      }
-    }
-
-
-  }
-
-  @media screen and (max-width: 1295px) {
-    video {
-      height: 100%;
-      width: auto;
-    }
-  }
-
-  @media screen and (min-width: 1295px) {
-    video {
-      width: 100%;
-    }
-  }
-
-  /* ------------- */
-
-  .popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 40%;
-    position: relative;
-    transition: all 5s ease-in-out;
-  }
-
-  .popup h2 {
-    margin-top: 0;
-    color: #333;
-    font-family: Tahoma, Arial, sans-serif;
-  }
-
-  .popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
-
-  .popup .close:hover {
-    color: #06D85F;
-  }
-
-  .popup .content {
-    max-height: 30%;
-    overflow: auto;
-  }
-
-  .overlay-pop {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .overlay-pop:target {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  ol {
-    padding-left: 3vh;
-    list-style-type: decimal;
-
-  }
-
-  @media screen and (max-width: 700px) {
-    .box {
-      width: 70%;
-    }
-
-    .popup {
-      width: 90%;
-      margin-top: 3vh;
-    }
-  }
-
-  @media screen and(max-width: 700px) and (orientation: landscape) {
-    .popup {
-      width: 95%;
-    }
-  }
+  
 </style>
 <!-- Home -->
 
@@ -343,8 +44,8 @@
     </div>
   </div>
 
-<!-- Janta Curfew people -->
-  <div id="covid-19" class="overlay-pop" style="z-index: 10000;">
+<!-- Covid-19 Update Popup -->
+  <!-- <div id="covid-19" class="overlay-pop" style="z-index: 10000;">
     <div class="popup">
       <h3>Varchas is postponed till further notice</h3><br>
       <a class="close" href="#">&times;</a>
@@ -352,7 +53,7 @@
         We are in utter distress to inform you that your favourite sports fest, Varchas, has been postponed due to the ongoing pandemic crisis.<br>Any further updates would be carried forward via social media pages, email and the website. Till then,<br><br> Get Your<br>Game On.
       </div>
     </div>
-  </div>
+  </div> -->
 </header>
 <!-- About -->
 
@@ -844,14 +545,17 @@
   });
 </script>
 
-<script>
+<!--
+   Janta Curfew Code: Delete if covid-19 is over
+  -->
+<!-- <script>
   window.onload = function() {
     let temp = document.createElement('a');
     temp.href = '#covid-19';
     temp.click();
     console.log("Covid-19 executed");
   };
-</script>
+</script> -->
 </body>
 
 </html>

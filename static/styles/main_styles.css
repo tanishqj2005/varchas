@@ -17,6 +17,10 @@
 10. Classes
 11. Pricing
 12. Footer
+13. Animations(For the "VARCHAS" text on landing page)
+14. NavBar Tweeks
+15. Landing Page Video Background Tweeks
+16. Popups
 
 ******************************/
 
@@ -46,6 +50,13 @@
 /*********************************
 2. Body and some general stuff
 *********************************/
+
+ol {
+    padding-left: 3vh;
+    list-style-type: decimal;
+
+  }
+
 .scheme {
     color: #232020;
     color: #3a3535;
@@ -1309,3 +1320,589 @@ section {
     color: rgba(255, 255, 255, 0.38);
     text-transform: uppercase;
 }
+
+/*********************************
+12. Animations
+*********************************/
+
+.wow {
+    visibility: visible;
+}
+
+@keyframes topFadeOutVertical {
+0% {
+    position: absolute;
+    top: 200%;
+    left: 45%;
+    opacity: 0;
+}
+
+65% {
+    position: absolute;
+    top: 200%;
+    left: 45%;
+    opacity: 0;
+}
+
+85% {
+    position: absolute;
+    left: 45%;
+    top: 100%;
+    opacity: 1;
+}
+
+100% {
+    position: absolute;
+    left: 45%;
+    top: 100%;
+    opacity: 1;
+}
+}
+
+@keyframes topFadeOutVertical1 {
+0% {
+    position: absolute;
+    top: 200%;
+    left: 52%;
+    opacity: 0;
+}
+
+65% {
+    position: absolute;
+    top: 500%;
+    left: 52%;
+    opacity: 0;
+}
+
+85% {
+    position: absolute;
+    left: 52%;
+    top: 100%;
+    opacity: 1;
+}
+
+100% {
+    position: absolute;
+    left: 52%;
+    top: 100%;
+    opacity: 1;
+}
+}
+
+@keyframes topFadeOutVertical2 {
+0% {
+    position: absolute;
+    top: 200%;
+    left: 45%;
+    opacity: 0;
+}
+
+65% {
+    position: absolute;
+    top: 200%;
+    left: 55%;
+    opacity: 0;
+}
+
+85% {
+    position: absolute;
+    left: 63%;
+    top: 100%;
+    opacity: 1;
+}
+
+100% {
+    position: absolute;
+    left: 63%;
+    top: 100%;
+    opacity: 1;
+}
+}
+
+@keyframes topFadeOutVertical3 {
+0% {
+    position: absolute;
+    top: -200%;
+    left: 73%;
+    opacity: 0;
+}
+
+65% {
+    position: absolute;
+    top: -200%;
+    left: 73%;
+    opacity: 0;
+}
+
+85% {
+    position: absolute;
+    left: 73%;
+    top: 100%;
+    opacity: 1;
+}
+
+100% {
+    position: absolute;
+    left: 73%;
+    top: 100%;
+    opacity: 1;
+}
+}
+
+@keyframes fadeInOut {
+0% {
+    opacity: 0;
+}
+
+45% {
+    opacity: 0;
+}
+
+100% {
+    opacity: 1;
+}
+
+}
+
+.first-text-get {
+font-size: 2rem;
+position: relative;
+opacity: 0;
+top: -200%;
+animation-name: topFadeOutVertical;
+animation-duration: 3s;
+animation-delay: 0s;
+animation-fill-mode: forwards;
+color: #ff7315;
+}
+
+.first-text-your {
+font-size: 2rem;
+position: relative;
+opacity: 0;
+top: -200%;
+animation-name: topFadeOutVertical1;
+animation-duration: 3s;
+animation-delay: 0s;
+animation-fill-mode: forwards;
+color: #fff;
+}
+
+.first-text-game {
+font-size: 2rem;
+position: relative;
+opacity: 0;
+top: -200%;
+animation-name: topFadeOutVertical2;
+animation-duration: 3s;
+animation-delay: 0s;
+animation-fill-mode: forwards;
+color: #ff7315;
+}
+
+.first-text-on {
+font-size: 2rem;
+position: relative;
+opacity: 0;
+top: -100%;
+animation-name: topFadeOutVertical3;
+animation-duration: 3s;
+animation-delay: 0s;
+animation-fill-mode: forwards;
+color: #fff;
+}
+
+.second-text {
+font-size: 150%;
+position: relative;
+top: -100%;
+opacity: 0;
+animation-name: fadeInOut;
+animation-duration: 3s;
+animation-fill-mode: forwards;
+color: #fff;
+}
+
+/*********************************
+13. NavBar Tweeks
+*********************************/
+
+a {
+    text-decoration: none;
+}
+
+
+ul {
+    background: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+li.topbar-styles {
+    color: #fff;
+    background: none;
+    display: inline;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+
+a li {
+    color: white;
+}
+
+li.topbar-styles:hover {
+    background: #fff;
+    color: darkorange;
+    cursor: pointer;
+}
+
+ul li ul {
+    background: darkorange;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 10rem;
+    position: absolute;
+    padding: 0vh;
+    align-content: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    display: none;
+    left: 0px;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+ul li ul li {
+    clear: both;
+    width: 100%;
+}
+
+ul li ul li a {
+    color: red;
+    width: 100%;
+}
+
+.democlass {
+    background-color: #232020;
+}
+
+
+/******************************************* 
+15. Landing Page Video Background Tweeks
+ ******************************************/
+
+ .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Black see-through */
+    width: 100%;
+    height: 100%;
+    transition: .5s ease;
+    opacity: 1;
+    text-align: center;
+  }
+
+  .overlay:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .intro_box:hover {
+
+    box-shadow: 0px 0px 50px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.1);
+    transition: all 200ms ease-in;
+    transform: scale(1.1);
+  }
+
+  .vid-container {
+    height: 100%;
+    width: auto;
+    overflow: hidden;
+    display: block;
+    background-color: black;
+  }
+
+  @media screen and (max-width: 995px) and (orientation: landscape) {
+    video {
+      height: 100%;
+      width: auto;
+    }
+
+    .get-your-game-on {
+      padding-left: 128%;
+    }
+
+    .first-text-get {
+      padding-top: 0vh;
+    }
+
+    .first-text-your {
+      padding-top: 7vh;
+    }
+
+    .first-text-game {
+      padding-top: 14vh;
+    }
+
+    .first-text-on {
+      padding-top: 21vh;
+    }
+  }
+
+  @media screen and (max-width: 995px) and (orientation: portrait) {
+    video {
+      height: 100%;
+      width: auto;
+    }
+
+    .first-text-get {
+      padding-top: 0vh;
+    }
+
+    .first-text-your {
+      padding-top: 4vh;
+    }
+
+    .first-text-game {
+      padding-top: 8vh;
+    }
+
+    .first-text-on {
+      padding-top: 12vh;
+    }
+  }
+
+  @media screen and (max-width: 995px) {
+    video {
+      height: 100%;
+    }
+
+
+
+
+    @keyframes topFadeOutVertical {
+      0% {
+        position: absolute;
+        top: 200%;
+        left: 45%;
+        opacity: 0;
+      }
+
+      65% {
+        position: absolute;
+        top: 200%;
+        left: 45%;
+        opacity: 0;
+      }
+
+      85% {
+        position: absolute;
+        left: 45%;
+        top: 100%;
+        opacity: 1;
+      }
+
+      100% {
+        position: absolute;
+        left: 45%;
+        opacity: 1;
+      }
+    }
+
+    @keyframes topFadeOutVertical1 {
+      0% {
+        position: absolute;
+        top: 200%;
+        left: 52%;
+        opacity: 0;
+      }
+
+      65% {
+        position: absolute;
+        top: 200%;
+        left: 52%;
+        opacity: 0;
+      }
+
+      100% {
+        position: absolute;
+        left: 52%;
+        top: -200%;
+        opacity: 1;
+      }
+    }
+
+    @keyframes topFadeOutVertical2 {
+      0% {
+        position: absolute;
+        top: 200%;
+        left: 75%;
+        opacity: 0;
+      }
+
+      65% {
+        position: absolute;
+        top: 200%;
+        left: 60%;
+        opacity: 0;
+      }
+
+      85% {
+        position: absolute;
+        left: 45%;
+        top: -200%;
+        opacity: 1;
+      }
+
+      100% {
+        position: absolute;
+        left: 45%;
+        top: -200%;
+        opacity: 1;
+      }
+    }
+
+    @keyframes topFadeOutVertical3 {
+      0% {
+        position: absolute;
+        top: -200%;
+        left: 85%;
+        opacity: 0;
+      }
+
+      65% {
+        position: absolute;
+        top: -200%;
+        left: 73%;
+        opacity: 0;
+      }
+
+      85% {
+        position: absolute;
+        left: 65%;
+        top: 100%;
+        opacity: 0;
+      }
+
+      100% {
+        position: absolute;
+        left: 52%;
+        top: -200%;
+        opacity: 1;
+      }
+    }
+
+
+  }
+
+  @media screen and (max-width: 1295px) {
+    video {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  @media screen and (min-width: 1295px) {
+    video {
+      width: 100%;
+    }
+  }
+
+/**********
+16.Popups
+***********/
+
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .popup .close:hover {
+    color: #06D85F;
+  }
+
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+
+  .overlay-pop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .overlay-pop:target {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  ol {
+    padding-left: 3vh;
+    list-style-type: decimal;
+
+  }
+
+  @media screen and (max-width: 700px) {
+    .box {
+      width: 70%;
+    }
+
+    .popup {
+      width: 90%;
+      margin-top: 3vh;
+    }
+  }
+
+  @media screen and(max-width: 700px) and (orientation: landscape) {
+    .popup {
+      width: 95%;
+    }
+  }
