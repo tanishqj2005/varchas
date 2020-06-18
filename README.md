@@ -26,9 +26,20 @@ Procedure:
     ```
     source "$(pipenv --venv)"/bin/activate
     ```
+
 - Make database migrations
     ``` 
     python manage.py makemigrations
+    python manage.py migrate
+    ```
+    NOTE: If its your first time migrating, you may need to manually add migration module in each app.
+    ```
+    python manage.py makemigrations main
+    python manage.py makemigrations accounts
+    python manage.py makemigrations adminportal
+    python manage.py makemigrations events
+    python manage.py makemigrations registration
+    python manage.py makemigrations sponsors
     python manage.py migrate
     ```
 - Create a superuser
