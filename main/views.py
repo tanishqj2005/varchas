@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 # from .utils import SiteAccessMixin
-from .models import NavBarSubOptions, OurTeam  # HomeEventCard, HomeBriefCard, HomeImageCarousel
+from .models import NavBarSubOptions, OurTeam
 from django.shortcuts import get_object_or_404, render
 from accounts.models import UserProfile
 from rest_framework import viewsets
@@ -17,10 +17,6 @@ class IndexView(TemplateView):
             userprofile = get_object_or_404(
                 UserProfile, user=self.request.user)
         context = super(IndexView, self).get_context_data(**kwargs)
-        # context['carousel'] = HomeImageCarousel.objects.filter(
-        #     active=True).order_by('ordering')
-        # context['event_list'] = HomeEventCard.objects.all
-        # context['brief_list'] = HomeBriefCard.objects.all
         if self.request.user.username != "":
             context['userprofile'] = userprofile
             context['page'] = "home"
