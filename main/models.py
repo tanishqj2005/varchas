@@ -43,33 +43,33 @@ class OurTeam(models.Model):
         ordering = ['position']
 
 
-class HomeImageCarousel(models.Model):
-    ordering = models.PositiveIntegerField(default=64)
-    title = models.CharField(max_length=64)
-    image = models.ImageField(
-        upload_to='homepage-carousel', blank=True, null=True)
-    active = models.BooleanField(default=True)
+# class HomeImageCarousel(models.Model):
+#     ordering = models.PositiveIntegerField(default=64)
+#     title = models.CharField(max_length=64)
+#     image = models.ImageField(
+#         upload_to='homepage-carousel', blank=True, null=True)
+#     active = models.BooleanField(default=True)
 
-    def __str__(self):
-        return self.title
-
-
-class HomeEventCard(models.Model):
-    name = models.CharField(max_length=64)
-    image = models.ImageField(
-        upload_to='homepage-events', blank=True, null=True)
-    link = models.URLField()
-
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.title
 
 
-class HomeBriefCard(models.Model):
-    title = models.CharField(max_length=20)
-    description = models.CharField(max_length=64)
+# class HomeEventCard(models.Model):
+#     name = models.CharField(max_length=64)
+#     image = models.ImageField(
+#         upload_to='homepage-events', blank=True, null=True)
+#     link = models.URLField()
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.name
+
+
+# class HomeBriefCard(models.Model):
+#     title = models.CharField(max_length=20)
+#     description = models.CharField(max_length=64)
+
+#     def __str__(self):
+#         return self.title
 
 
 class NavBarSubOptions(models.Model):

@@ -45,8 +45,10 @@
             <nav class="main_nav">
                 <ul class="d-flex flex-row align-items-center justify-content-center">
                     {% if page == "home" %}
-                        <li class="active topbar-styles">{% else %}
-                        <li class="topbar-styles">{% endif %}
+                        <li class="active topbar-styles">
+                    {% else %}
+                        <li class="topbar-styles">
+                    {% endif %}
                     <a href="{% url 'main:home' %}">Home</a></li>
                     <li class="topbar-styles"><a href="{% url 'main:OurTeam' %}">Core Team</a></li>
                     {% for navbaroption in navbaroptions %}
