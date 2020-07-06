@@ -22,7 +22,8 @@ class NavBarSubOptionsAdmin(admin.ModelAdmin):
         model = NavBarSubOptions
         fields = '__all__'
 
-admin.site.register(HomeEventCard)        
+
+admin.site.register(HomeEventCard)
 
 
 class ourTeamAdmin(admin.ModelAdmin):
