@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import NavBarOptions, NavBarSubOptions, OurTeam
+from .models import NavBarOptions, NavBarSubOptions, OurTeam, HomeEventCard
 
 
 @admin.register(NavBarOptions)
@@ -21,6 +21,8 @@ class NavBarSubOptionsAdmin(admin.ModelAdmin):
     class Meta:
         model = NavBarSubOptions
         fields = '__all__'
+
+admin.site.register(HomeEventCard)        
 
 
 class ourTeamAdmin(admin.ModelAdmin):

@@ -2,139 +2,182 @@
 
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<title>Join Team</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--===============================================================================================-->
+		<link
+			rel="icon"
+			type="image/png"
+			href="{% static 'images/icons/favicon.ico' %}"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'vendor/animate/animate.css' %}"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}"
+		/>
+		<!--===============================================================================================-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'vendor/select2/select2.min.css' %}"
+		/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+		<!--===============================================================================================-->
+		<style>
+			@media screen and (min-width: 300px) {
+				body {
+					background: url("https://us.123rf.com/450wm/swhite/swhite0709/swhite070900027/1694342-new-red-cricket-ball-on-grass-sporting-field-.jpg?ver=6");
+					background-size: 100%;
+				}
+				.warp-login101 {
+					justify-content: center;
+				}
+			}
+			@media screen and (min-width: 800px) {
+				body {
+					background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80)
+						no-repeat;
+					background-size: 100% 125%;
+				}
+				.warp-login101 {
+					justify-content: space-between;
+				}
+			}
+		</style>
+	</head>
 
-<head>
-  <title>Join Team</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-  <!--===============================================================================================-->
-  <style>
+	<body style="">
+		<div class="limiter">
+			<div class="container-login100">
+				<div
+					class="wrap-login100 warp-login101"
+					style="padding: 20vh 10vh 20vh 10vh; position: relative;"
+				>
+					<div class="login100-pic js-tilt" data-tilt>
+						<img src="{% static 'images/img-01.png' %}" alt="IMG" />
+					</div>
+					<form
+						class="form1"
+						style=""
+						action="{% url 'accounts:joinTeam' %}"
+						method="post"
+					>
+						<span
+							class="login100-form-title"
+							style="padding-bottom: 3vh; color: black;"
+						>
+							JOIN TEAM
+						</span>
+						<span class="login100-form-title" style="font-size: small;">
+							Enter the Team ID</span
+						>
+						{% if form.errors %} {% for field in form %} {% for error in
+						field.errors %}
+						<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+						</div>
+						{% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+						<div class="alert alert-danger">
+							<strong>{{ error|escape }}</strong>
+						</div>
+						{% endfor %} {% endif %} {% csrf_token %}
 
-       @media screen and (min-width: 300px) {
-     body{
-       background: url("https://us.123rf.com/450wm/swhite/swhite0709/swhite070900027/1694342-new-red-cricket-ball-on-grass-sporting-field-.jpg?ver=6");
-        background-size: 100% ;
-     }
-         .warp-login101{
-           justify-content: center;
+						<div>
+							{% csrf_token %}
+							<div class="wrap-input100">
+								<input
+									class="input100"
+									type="text"
+									name="teamId"
+									placeholder="TEAM ID"
+									required
+									autofocus
+								/>
+								<span class="focus-input100"></span>
+								<span class="symbol-input100">
+									<i class="fa fa-id-card" aria-hidden="true"></i>
+								</span>
+							</div>
+							<button type="submit" class="login100-form-btn" name="submit">
+								Submit
+							</button>
+						</div>
+					</form>
+					<a
+						href="{% url 'main:home' %}"
+						style="position: absolute; right: 5%; top: 6%;"
+					>
+						<button
+							class="login100-form-btn"
+							style="padding: 10px 13px 20px 13px;"
+						>
+							<h3>X</h3>
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
 
-         }
-      }
-      @media screen and (min-width: 800px) {
-     body{
-       background: url(https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80) no-repeat;
-       background-size: 100% 125%;
-     }
-          .warp-login101{
-           justify-content: space-between;
-
-         }
-      }
-
-  </style>
-</head>
-
-<body style="">
-<div class="limiter">
-  <div class="container-login100">
-    <div class="wrap-login100 warp-login101" style="padding:20vh 10vh 20vh 10vh; position:relative;">
-
-      <div class="login100-pic js-tilt" data-tilt>
-        <img src="{% static 'images/img-01.png' %}" alt="IMG">
-      </div>
-      <form class="form1" style="" action="{% url 'accounts:joinTeam' %}" method="post">
-            <span class="login100-form-title" style="padding-bottom: 3vh;color: black">
-              JOIN TEAM
-            </span>
-        <span class="login100-form-title" style="font-size: small"> Enter the Team ID</span>
-        {% if form.errors %}
-          {% for field in form %}
-            {% for error in field.errors %}
-              <div class="alert alert-danger">
-                <strong>{{ error|escape }}</strong>
-              </div>
-            {% endfor %}
-          {% endfor %}
-          {% for error in form.non_field_errors %}
-            <div class="alert alert-danger">
-              <strong>{{ error|escape }}</strong>
-            </div>
-          {% endfor %}
-        {% endif %}
-
-        {% csrf_token %}
-
-
-        <div>
-
-          {% csrf_token %}
-          <div class="wrap-input100 ">
-            <input class="input100" type="text" name="teamId" placeholder="TEAM ID" required autofocus>
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-                  <i class="fa fa-id-card" aria-hidden="true"></i>
-                </span>
-          </div>
-          <button type="submit" class="login100-form-btn" name="submit">Submit</button>
-        </div>
-      </form>
-    <a href="{% url 'main:home' %}" style="position: absolute; right: 5%; top: 6%;">
-                        <button class="login100-form-btn" style="padding: 10px 13px 20px 13px" >
-                            <h3>X</h3>
-                        </button>
-                 </a>
-    </div>
-  </div>
-</div>
-
-<!--===============================================================================================-->
-<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
-<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
-<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
-<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-<!--===============================================================================================-->
-<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
-<script>
-    $('.js-tilt').tilt({
-        scale: 1.1
-    })
-</script>
-<!--===============================================================================================-->
-<script src="{% static 'js/main.js' %}"></script>
-
-</body>
-
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+		<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+		<!--===============================================================================================-->
+		<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+		<script>
+			$(".js-tilt").tilt({
+				scale: 1.1,
+			})
+		</script>
+		<!--===============================================================================================-->
+		<script src="{% static 'js/main.js' %}"></script>
+	</body>
 </html>
 
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en" dir="ltr">#}
-{#  <head>#}
-{#    <meta charset="utf-8">#}
-{#    <title></title>#}
-{#  </head>#}
-{#  <body>#}
-{#    <form class="" action="{% url 'accounts:joinTeam' %}" method="post">#}
-{#      {% csrf_token %}#}
-{#      <input type="text" name="teamId" value="">#}
-{#      <button type="submit" name="submit">Submit</button>#}
-{#    </form>#}
-{#  </body>#}
-{#</html>#}
+{##} {#<!DOCTYPE html>#} {#
+<html lang="en" dir="ltr">
+	#} {#
+	<head>
+		#} {#
+		<meta charset="utf-8" />
+		#} {#
+		<title></title>
+		#} {#</head
+	>#} {#
+	<body>
+		#} {#
+		<form class="" action="{% url 'accounts:joinTeam' %}" method="post">
+			#} {# {% csrf_token %}#} {# <input type="text" name="teamId" value="" />#}
+			{# <button type="submit" name="submit">Submit</button>#} {#
+		</form>
+		#} {#
+	</body>
+	#} {#
+</html>
+#}
