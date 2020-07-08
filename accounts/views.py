@@ -86,7 +86,7 @@ def joinTeam(request):
         teamId = request.POST.get('teamId')
         if user is not None:
             user = get_object_or_404(UserProfile, user=user)
-            if user.teamId != None:
+            if user.teamId is not None:
                 message = "You are already in team {}".format(user.teamId)
                 message += "\nYou have to register again to join another team. \nContact Varchas administrators."
                 return HttpResponse(message, content_type="text/plain")

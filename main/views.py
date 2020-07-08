@@ -7,10 +7,10 @@ from accounts.models import UserProfile
 from rest_framework import viewsets
 from .serializers import OurTeamSerializer
 from rest_framework import permissions
-from registration.models import TeamRegistration
 
 class IndexView(TemplateView):
     template_name = 'main/index.html'
+
 
     def get_context_data(self, **kwargs):
         if self.request.user.username != "":
