@@ -9,8 +9,9 @@ from .serializers import OurTeamSerializer
 from rest_framework import permissions
 
 class IndexView(TemplateView):
-    template_name = 'main/index.html'
 
+    
+    template_name = 'main/index.html'
 
     def get_context_data(self, **kwargs):
         if self.request.user.username != "":
