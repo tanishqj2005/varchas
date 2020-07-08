@@ -61,7 +61,7 @@
           </div><br>
           <div class="row wow fadeInUp">
             {% if user.is_authenticated %}
-            {% if userprofile.teamId != "NULL" %}
+            {% if userprofile.teamId != None %}
             <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:myTeam' %}">Team Details</a>
             </div>
             <div class="button cta_button" style="margin:10px"><a href="{% url 'accounts:profile' %}">View Profile</a>
