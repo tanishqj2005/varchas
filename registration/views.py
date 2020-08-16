@@ -35,10 +35,8 @@ class TeamFormationView(CreateView):
                 return HttpResponse(message, content_type="text/plain")
             team = form.save()
             team.captian = user
-            # user.teamId = team.teamId
             user.teamId = team
             user.save()
-            # team.members.add(user)
 
             message = '''<!DOCTYPE html> <html><body>Hi {}!<br>You have successfully registered for Varchas2020.<br>Your teamId is: <b>{}</b><br>
                           Check your team details here: <a href="http://varchas2020.org/account/myTeam">varchas2020.org/accou
@@ -60,13 +58,10 @@ class removePlayerView(FormView):
         user = get_object_or_404(UserProfile, user=self.request.user)
         if user.teamId is None:
             return HttpResponse("You must registered in a team to complete this operation.")
-        # team = get_object_or_404(TeamRegistration, captian=user)
         user = get_object_or_404(User, email=form['player'].value())
         user = get_object_or_404(UserProfile, user=user)
-        # user.teamId = "NULL"
         user.teamId = None
         user.save()
-        # team.members.remove(user)
         return super(removePlayerView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
