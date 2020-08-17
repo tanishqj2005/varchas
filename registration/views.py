@@ -35,6 +35,7 @@ class TeamFormationView(CreateView):
                 return HttpResponse(message, content_type="text/plain")
             team = form.save()
             team.captian = user
+            team.save()
             user.teamId = team
             user.save()
 
@@ -56,10 +57,16 @@ class removePlayerView(FormView):
 
     def form_valid(self, form):
         user = get_object_or_404(UserProfile, user=self.request.user)
+        teamId = user.teamId
         if user.teamId is None:
             return HttpResponse("You must registered in a team to complete this operation.")
+        team = get_object_or_404(TeamRegistration, teamId=teamId)
+        if user != team.captian:
+            return HttpResponse('Only captain can remove a player in a team')
         user = get_object_or_404(User, email=form['player'].value())
         user = get_object_or_404(UserProfile, user=user)
+        if user.teamId != teamId:
+            return HttpResponse("Sorry this player is not in the team")
         user.teamId = None
         user.save()
         return super(removePlayerView, self).form_valid(form)
@@ -67,6 +74,6 @@ class removePlayerView(FormView):
     def get_context_data(self, **kwargs):
         context = super(removePlayerView, self).get_context_data(**kwargs)
         user = get_object_or_404(UserProfile, user=self.request.user)
-        team = get_object_or_404(TeamRegistration, captian=user)
-        context['players'] = team.members.all()
+        users = UserProfile.objects.filter(teamId=user.teamId)
+        context['players'] = users
         return context
