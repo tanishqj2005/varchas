@@ -29,15 +29,15 @@ class TeamFormationView(CreateView):
             data['teamId'] = "VA-" + spor[:3].upper() + '-' + user.username[:3].upper() + "{}".format(int(random()*100))
             form = TeamRegistrationForm1(data)
             user = get_object_or_404(UserProfile, user=user)
-            if user.teamId != "NULL":
+            if user.teamId is not None:
                 message = "You are already in team {}".format(user.teamId)
                 message += "\nYou have to register again to join another team. \nContact Varchas administrators."
                 return HttpResponse(message, content_type="text/plain")
             team = form.save()
             team.captian = user
-            user.teamId = team.teamId
+            team.save()
+            user.teamId = team
             user.save()
-            team.members.add(user)
 
             message = '''<!DOCTYPE html> <html><body>Hi {}!<br>You have successfully registered for Varchas2020.<br>Your teamId is: <b>{}</b><br>
                           Check your team details here: <a href="http://varchas2020.org/account/myTeam">varchas2020.org/accou
@@ -57,19 +57,23 @@ class removePlayerView(FormView):
 
     def form_valid(self, form):
         user = get_object_or_404(UserProfile, user=self.request.user)
-        if user.teamId == "NULL":
+        teamId = user.teamId
+        if user.teamId is None:
             return HttpResponse("You must registered in a team to complete this operation.")
-        team = get_object_or_404(TeamRegistration, captian=user)
+        team = get_object_or_404(TeamRegistration, teamId=teamId)
+        if user != team.captian:
+            return HttpResponse('Only captain can remove a player in a team')
         user = get_object_or_404(User, email=form['player'].value())
         user = get_object_or_404(UserProfile, user=user)
-        user.teamId = "NULL"
+        if user.teamId != teamId:
+            return HttpResponse("Sorry this player is not in the team")
+        user.teamId = None
         user.save()
-        team.members.remove(user)
         return super(removePlayerView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super(removePlayerView, self).get_context_data(**kwargs)
         user = get_object_or_404(UserProfile, user=self.request.user)
-        team = get_object_or_404(TeamRegistration, captian=user)
-        context['players'] = team.members.all()
+        users = UserProfile.objects.filter(teamId=user.teamId)
+        context['players'] = users
         return context

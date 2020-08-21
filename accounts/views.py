@@ -70,11 +70,8 @@ def DisplayTeam(request):
 @login_required(login_url="login")
 def leaveTeam(request):
     user = get_object_or_404(UserProfile, user=request.user)
-    teamId = user.teamId
-    user.teamId = "NULL"
+    user.teamId = None
     user.save()
-    team = get_object_or_404(TeamRegistration, teamId=teamId)
-    team.members.remove(user)
     return redirect('main:home')
 
 
@@ -85,14 +82,13 @@ def joinTeam(request):
         teamId = request.POST.get('teamId')
         if user is not None:
             user = get_object_or_404(UserProfile, user=user)
-            if user.teamId != "NULL":
+            if user.teamId is not None:
                 message = "You are already in team {}".format(user.teamId)
                 message += "\nYou have to register again to join another team. \nContact Varchas administrators."
                 return HttpResponse(message, content_type="text/plain")
             team = get_object_or_404(TeamRegistration, teamId=teamId)
-            user.teamId = teamId
+            user.teamId = team
             user.save()
-            team.members.add(user)
             return redirect('accounts:myTeam')
         return reverse('login')
     return render(request, 'accounts/joinTeam.html')

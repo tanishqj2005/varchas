@@ -42,7 +42,7 @@
   animation-name: fadeInOut;
   animation-duration: 1s;
   animation-fill-mode:forwards;">College : {{ userprofile.college }}</h3></div>
-          {% if userprofile.teamId != "NULL" %}<div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
+          {% if userprofile.teamId != None %}<div class="section_subtitle" style="padding-top: 1vh;padding-left: 2vh"><h3 style="color: #c0c0c0;opacity: 0;
   animation-name: fadeInOut;
   animation-duration: 1s;
   animation-fill-mode:forwards;">Team : {{ userprofile.teamId }}</h3></div>{% endif %}
@@ -59,15 +59,15 @@
       <div class="row" style="padding: 0">
         <div style="padding: 0 4vh 2vh 4vh">
         <div class="button" onclick="alert('varchas is postponed new dates will be anounced soon.')" >
-{#            <a href="{% if userprofile.teamId != "NULL" %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">#}
-{#                {% if userprofile.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}#}
+{#            <a href="{% if userprofile.teamId != None %}{% url 'accounts:myTeam' %}{% else %}{% url 'accounts:joinTeam' %}{% endif %}">#}
+{#                {% if userprofile.teamId != None %}VIEW TEAM{% else %}JOIN TEAM{% endif %}#}
 {#            </a>#}
             <a href="#">
-                {% if userprofile.teamId != "NULL" %}VIEW TEAM{% else %}JOIN TEAM{% endif %}
+                {% if userprofile.teamId != None %}VIEW TEAM{% else %}JOIN TEAM{% endif %}
             </a>
         </div>
       </div>
-        {% if userprofile.teamId == "NULL" %}
+        {% if userprofile.teamId == None %}
         <div style="padding: 0 4vh 2vh 4vh">
          <div class="button">
 {#             <a href="{% url 'registration:team' %}">CREATE A TEAM</a></div>#}

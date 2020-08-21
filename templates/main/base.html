@@ -63,7 +63,7 @@
                         </li>
                     {% endfor %}
                     {% if user.is_authenticated %}
-                        {% if userprofile.teamId != "NULL" %}
+                        {% if userprofile.teamId != None %}
 
                             <li style="margin-right: 52px" class="topbar-styles">
                                 <a>Team</a>
@@ -179,7 +179,7 @@
                             </li>
                         {% endfor %}
                         {% if user.is_authenticated %}
-                            {% if userprofile.teamId != "NULL" %}
+                            {% if userprofile.teamId != None %}
                                 {% if page == "team" %}
                                     <li class="active">{% else %}
                                     <li>{% endif %}

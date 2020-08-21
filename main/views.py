@@ -10,12 +10,12 @@ from rest_framework import permissions
 
 
 class IndexView(TemplateView):
+
     template_name = 'main/index.html'
 
     def get_context_data(self, **kwargs):
         if self.request.user.username != "":
-            userprofile = get_object_or_404(
-                UserProfile, user=self.request.user)
+            userprofile = get_object_or_404(UserProfile, user=self.request.user)
         context = super(IndexView, self).get_context_data(**kwargs)
         context['event_list'] = HomeEventCard.objects.all
         if self.request.user.username != "":

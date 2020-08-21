@@ -58,8 +58,7 @@ class UserProfile(models.Model):
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=11)
-    gender = models.CharField(
-        max_length=1, choices=GENDER_CHOICES, default='M')
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')
     college = models.CharField(max_length=128)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
     accommodation_required = models.CharField(max_length=1, choices=ACCOMMODATION_CHOICES, blank=True)
@@ -70,7 +69,7 @@ class UserProfile(models.Model):
     referral = models.CharField(max_length=7, blank=True, null=True)
     id_issued = models.BooleanField(default=False)
     qr_code = models.ImageField(upload_to='qr_code', blank=True, null=True)
-    teamId = models.CharField(max_length=15, default="NULL")
+    teamId = models.ForeignKey("registration.TeamRegistration", on_delete=models.CASCADE, null=True, related_name="member")
 
     def __str__(self):
         return self.user.username
