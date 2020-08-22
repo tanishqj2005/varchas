@@ -75,5 +75,10 @@ class removePlayerView(FormView):
         context = super(removePlayerView, self).get_context_data(**kwargs)
         user = get_object_or_404(UserProfile, user=self.request.user)
         users = UserProfile.objects.filter(teamId=user.teamId)
-        context['players'] = users
+        team = get_object_or_404(TeamRegistration, teamId=user.teamId)
+        userList = []
+        for i in users:
+            userList.append(i)
+        userList.remove(team.captian)
+        context['players'] = userList
         return context
