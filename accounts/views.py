@@ -73,11 +73,6 @@ def leaveTeam(request):
     teamId = user.teamId
     team = get_object_or_404(TeamRegistration, teamId=teamId)
     if user == team.captian:
-        users = UserProfile.objects.filter(teamId=teamId)
-        print(users)
-        for i in users:
-            i.teamId = None
-            i.save()
         team.delete()
     else:
         user.teamId = None
