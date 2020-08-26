@@ -67,7 +67,7 @@
 
                         <select name="{{field.name}}" placeholder="Email" required autofocus>
                             {% for player in players %}
-                            <option>{{player}} </option>
+                            <option value={{player}}>{{player.user.first_name}}: {{player}} </option>
                             {% endfor %}
                         </select>
 
@@ -99,20 +99,6 @@
                     <h3>X</h3>
                 </button>
             </a>
-            <div class="text-center" style="padding-left: 0vh;padding-bottom: 4vh">
-
-                        <div class="row" style="padding-top: 10px; padding-left: 40px;font-weight: bold">
-                            <div class="col-6">Player Name:</div>
-                            <div class="col-6" style="padding-left: 15px;">Player Email</div>
-                        </div>
-                        {% for player in players %}
-                            <div class="row"
-                                 style="padding-left: 40px;">
-                                <div class="col-6">{{ player.user.first_name }} {{ player.user.last_name }}:</div>
-                                <div class="col-6" style="padding-left: 15px;">{{ player }}</div>
-                            </div>
-                        {% endfor %}
-                </div>
         </div>
 
     </div>

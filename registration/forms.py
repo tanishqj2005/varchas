@@ -53,4 +53,4 @@ class TeamRegistrationForm1(forms.ModelForm):
 
 
 class RemovePlayerForm(forms.Form):
-    player = forms.EmailField()
+    player = forms.CharField()
