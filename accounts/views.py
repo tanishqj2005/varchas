@@ -70,8 +70,13 @@ def DisplayTeam(request):
 @login_required(login_url="login")
 def leaveTeam(request):
     user = get_object_or_404(UserProfile, user=request.user)
-    user.teamId = None
-    user.save()
+    teamId = user.teamId
+    team = get_object_or_404(TeamRegistration, teamId=teamId)
+    if user == team.captian:
+        team.delete()
+    else:
+        user.teamId = None
+        user.save()
     return redirect('main:home')
 
 
